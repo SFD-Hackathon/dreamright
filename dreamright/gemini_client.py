@@ -311,6 +311,78 @@ class GeminiClient:
 
         return response.text
 
+    def _extract_json_text(self, response) -> str:
+        """Extract and clean JSON text from a Gemini response.
+
+        Handles:
+        - None responses
+        - Missing or empty candidates
+        - Code fences (```json ... ```)
+        - Multiple candidates (takes first)
+
+        Args:
+            response: Gemini API response
+
+        Returns:
+            Cleaned JSON string
+
+        Raises:
+            RuntimeError: If no valid JSON text can be extracted
+        """
+        # Check for valid response
+        if response is None:
+            raise RuntimeError("Gemini API returned None response")
+
+        # Check for candidates
+        if not hasattr(response, "candidates") or not response.candidates:
+            raise RuntimeError(
+                "Gemini API response has no candidates. "
+                "This may indicate content was blocked or an API error occurred."
+            )
+
+        # Get text from first candidate
+        candidate = response.candidates[0]
+
+        # Check finish reason for potential issues
+        if hasattr(candidate, "finish_reason"):
+            finish_reason = str(candidate.finish_reason)
+            if "SAFETY" in finish_reason:
+                raise RuntimeError(
+                    f"Gemini blocked response due to safety filters: {finish_reason}"
+                )
+
+        # Get text content
+        text = response.text
+        if text is None:
+            # Try to get text from candidate content parts
+            if hasattr(candidate, "content") and candidate.content:
+                parts = candidate.content.parts
+                if parts:
+                    text_parts = [p.text for p in parts if hasattr(p, "text") and p.text]
+                    if text_parts:
+                        text = text_parts[0]
+
+        if text is None or not text.strip():
+            raise RuntimeError(
+                "Gemini API returned empty text. "
+                "Check if the prompt was valid and not blocked."
+            )
+
+        # Strip code fences if present (```json ... ``` or ``` ... ```)
+        text = text.strip()
+        if text.startswith("```"):
+            # Remove opening fence (with optional language identifier)
+            first_newline = text.find("\n")
+            if first_newline != -1:
+                text = text[first_newline + 1:]
+            else:
+                text = text[3:]  # Just "```" without newline
+
+        if text.endswith("```"):
+            text = text[:-3]
+
+        return text.strip()
+
     @cached("_structured_cache")
     async def generate_structured(
         self,
@@ -330,6 +402,10 @@ class GeminiClient:
 
         Returns:
             Parsed response matching the schema
+
+        Raises:
+            RuntimeError: If response cannot be parsed as valid JSON
+            pydantic.ValidationError: If JSON doesn't match schema
         """
         config = types.GenerateContentConfig(
             temperature=temperature,
@@ -345,7 +421,18 @@ class GeminiClient:
             config=config,
         )
 
-        return response_schema.model_validate_json(response.text)
+        # Extract and clean JSON text
+        json_text = self._extract_json_text(response)
+
+        try:
+            return response_schema.model_validate_json(json_text)
+        except Exception as e:
+            # Provide more context on parse failures
+            preview = json_text[:200] + "..." if len(json_text) > 200 else json_text
+            raise RuntimeError(
+                f"Failed to parse Gemini response as {response_schema.__name__}: {e}\n"
+                f"Response preview: {preview}"
+            ) from e
 
     def _load_reference_image(self, path: Path) -> Optional[types.Part]:
         """Load a reference image as a Gemini Part."""

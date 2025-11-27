@@ -11,11 +11,9 @@ from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
-from .gemini_client import GeminiClient, set_client
 from .generators.chapter import ChapterGenerator
 from .generators.character import CharacterGenerator
 from .generators.location import LocationGenerator
-from .generators.panel import PanelGenerator
 from .generators.story import StoryExpander
 from .models import (
     CameraAngle,
@@ -25,9 +23,9 @@ from .models import (
     Panel as PanelModel,
     PanelCharacter,
     PanelComposition,
+    ProjectFormat,
     ProjectStatus,
     ShotType,
-    TimeOfDay,
     Tone,
 )
 from .storage import ProjectManager, slugify
@@ -60,7 +58,11 @@ def load_project() -> ProjectManager:
 
 
 def run_async(coro):
-    """Run an async coroutine."""
+    """Run an async coroutine.
+
+    Handles both standalone CLI usage and environments with existing event loops
+    (Jupyter notebooks, IDEs, etc.) by using nest_asyncio when needed.
+    """
     try:
         try:
             loop = asyncio.get_running_loop()
@@ -70,6 +72,10 @@ def run_async(coro):
         if loop is None:
             return asyncio.run(coro)
         else:
+            # Event loop already running (Jupyter, IDE, etc.)
+            # Use nest_asyncio to allow nested event loops
+            import nest_asyncio
+            nest_asyncio.apply()
             return loop.run_until_complete(coro)
     except ValueError as e:
         error_msg = str(e)
@@ -85,7 +91,13 @@ def run_async(coro):
 @app.command()
 def init(
     name: str = typer.Argument(..., help="Project name"),
-    format: str = typer.Option("webtoon", help="Project format (webtoon or short_drama)"),
+    format: ProjectFormat = typer.Option(
+        ProjectFormat.WEBTOON,
+        "--format", "-f",
+        help="Project format",
+        case_sensitive=False,
+        show_choices=True,
+    ),
     path: Optional[Path] = typer.Option(None, help="Project directory (defaults to current dir if empty, else ./<name>)"),
 ):
     """Initialize a new DreamRight project."""
@@ -102,7 +114,7 @@ def init(
         raise typer.Exit(1)
 
     with console.status(f"Creating project '{name}'..."):
-        manager = ProjectManager.create(path, name, format)
+        manager = ProjectManager.create(path, name, format.value)
 
     console.print(f"[green]Project '{name}' created at {path}[/green]")
     console.print("\nNext steps:")
@@ -221,7 +233,11 @@ def generate_character(
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if exists (bypass cache)"),
 ):
     """Generate character visual assets."""
+    from .services import CharacterService
+    from .services.exceptions import NotFoundError
+
     manager = load_project()
+    service = CharacterService(manager)
 
     if not manager.project.characters:
         console.print("[red]No characters found. Run 'dreamright expand' first.[/red]")
@@ -229,58 +245,89 @@ def generate_character(
 
     # Find character(s) to generate
     if name:
-        char = manager.project.get_character_by_name(name)
-        if not char:
+        try:
+            char = service.get_character_by_name(name)
+            character_ids = [char.id]
+        except NotFoundError:
             console.print(f"[red]Character '{name}' not found.[/red]")
             console.print("Available characters:")
             for c in manager.project.characters:
                 console.print(f"  - {c.name}")
             raise typer.Exit(1)
-        characters_to_generate = [char]
     else:
-        characters_to_generate = manager.project.characters
+        character_ids = None  # Generate all
+
+    # Callbacks for progress
+    def on_start(char):
+        console.print(f"\n[cyan]Generating assets for {char.name}...[/cyan]")
+
+    def on_complete(char, path):
+        console.print(f"  [green]Portrait saved: {path}[/green]")
+
+    def on_skip(char, reason):
+        console.print(f"\n[dim]{char.name}: portrait already exists (use --overwrite to regenerate)[/dim]")
 
     async def do_generate():
-        generator = CharacterGenerator()
-        for char in characters_to_generate:
-            console.print(f"\n[cyan]Generating assets for {char.name}...[/cyan]")
-
-            # Create human-readable subfolder name
-            char_slug = slugify(char.name)
-            char_folder = f"characters/{char_slug}"
-
-            # Build base metadata for the asset
-            char_metadata = {
-                "type": "character",
-                "character_id": char.id,
-                "character_name": char.name,
-                "role": char.role.value,
-                "age": char.age,
-                "style": style,
-                "visual_tags": char.visual_tags,
-                "description": {
-                    "physical": char.description.physical,
-                    "personality": char.description.personality,
-                },
-            }
-
-            if portrait_only:
-                # Generate portrait only
-                image_data, gen_info = await generator.generate_portrait(char, style=style, overwrite_cache=overwrite)
-                path = manager.save_asset(
-                    char_folder,
-                    "portrait.png",
-                    image_data,
-                    metadata={
-                        **char_metadata,
-                        "asset_type": "portrait",
-                        "gemini": gen_info,
-                    },
+        if portrait_only:
+            # Use service for portrait generation
+            if character_ids:
+                # Single character
+                return await service.generate_asset(
+                    character_ids[0],
+                    style=style,
+                    overwrite=overwrite,
+                    on_start=on_start,
+                    on_complete=on_complete,
                 )
-                char.assets.portrait = path
-                console.print(f"  [green]Portrait saved: {path}[/green]")
             else:
-                # Generate three-view
+                # All characters
+                return await service.generate_all_assets(
+                    style=style,
+                    overwrite=overwrite,
+                    on_start=on_start,
+                    on_complete=on_complete,
+                    on_skip=on_skip,
+                )
+        else:
+            # Three-view mode: use generator directly (not in service yet)
+            generator = CharacterGenerator()
+            chars = [service.get_character(cid) for cid in character_ids] if character_ids else manager.project.characters
+
+            for char in chars:
+                char_slug = slugify(char.name)
+                char_folder = f"characters/{char_slug}"
+
+                # Check if all three views exist (unless --overwrite)
+                views_to_generate = ["front", "side", "back"]
+                if not overwrite:
+                    existing_views = []
+                    for view_name in views_to_generate:
+                        view_path = manager.storage.get_absolute_asset_path(f"{char_folder}/{view_name}.png")
+                        if view_path.exists():
+                            existing_views.append(view_name)
+                            if view_name not in char.assets.three_view:
+                                char.assets.three_view[view_name] = f"assets/{char_folder}/{view_name}.png"
+
+                    if len(existing_views) == len(views_to_generate):
+                        console.print(f"\n[dim]{char.name}: three-view already exists (use --overwrite to regenerate)[/dim]")
+                        continue
+
+                console.print(f"\n[cyan]Generating assets for {char.name}...[/cyan]")
+
+                char_metadata = {
+                    "type": "character",
+                    "character_id": char.id,
+                    "character_name": char.name,
+                    "role": char.role.value,
+                    "age": char.age,
+                    "style": style,
+                    "visual_tags": char.visual_tags,
+                    "description": {
+                        "physical": char.description.physical,
+                        "personality": char.description.personality,
+                    },
+                }
+
                 views = await generator.generate_three_view(char, style=style, overwrite_cache=overwrite)
                 for view_name, (image_data, gen_info) in views.items():
                     path = manager.save_asset(
@@ -296,7 +343,7 @@ def generate_character(
                     char.assets.three_view[view_name] = path
                     console.print(f"  [green]{view_name.title()} view saved: {path}[/green]")
 
-        manager.save()
+            manager.save()
 
     with Progress(
         SpinnerColumn(),
@@ -314,80 +361,62 @@ def generate_character(
 def generate_location(
     name: Optional[str] = typer.Option(None, help="Location name (generates all if not specified)"),
     style: str = typer.Option("webtoon", help="Art style"),
-    time: str = typer.Option("day", help="Time of day (morning, day, evening, night)"),
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if exists (bypass cache)"),
 ):
     """Generate location/background visual assets."""
+    from .services import LocationService
+    from .services.exceptions import NotFoundError
+
     manager = load_project()
+    service = LocationService(manager)
 
     if not manager.project.locations:
         console.print("[red]No locations found. Run 'dreamright expand' first.[/red]")
         raise typer.Exit(1)
 
-    # Parse time of day
-    try:
-        time_of_day = TimeOfDay(time.lower())
-    except ValueError:
-        console.print(f"[yellow]Unknown time '{time}', using 'day'.[/yellow]")
-        time_of_day = TimeOfDay.DAY
-
     # Find location(s) to generate
     if name:
-        loc = manager.project.get_location_by_name(name)
-        if not loc:
+        try:
+            loc = service.get_location_by_name(name)
+            location_ids = [loc.id]
+        except NotFoundError:
             console.print(f"[red]Location '{name}' not found.[/red]")
             console.print("Available locations:")
             for l in manager.project.locations:
                 console.print(f"  - {l.name}")
             raise typer.Exit(1)
-        locations_to_generate = [loc]
     else:
-        locations_to_generate = manager.project.locations
+        location_ids = None  # Generate all
+
+    # Callbacks for progress
+    def on_start(loc):
+        console.print(f"\n[cyan]Generating {loc.name}...[/cyan]")
+
+    def on_complete(loc, path):
+        console.print(f"  [green]Saved: {path}[/green]")
+
+    def on_skip(loc, reason):
+        console.print(f"\n[dim]{loc.name}: reference already exists (use --overwrite to regenerate)[/dim]")
 
     async def do_generate():
-        generator = LocationGenerator()
-        for loc in locations_to_generate:
-            console.print(f"\n[cyan]Generating {loc.name}...[/cyan]")
-
-            # Create human-readable subfolder name
-            loc_slug = slugify(loc.name)
-            loc_folder = f"locations/{loc_slug}"
-
-            # Build base metadata for the asset
-            loc_metadata = {
-                "type": "location",
-                "location_id": loc.id,
-                "location_name": loc.name,
-                "location_type": loc.type.value,
-                "time_of_day": time_of_day.value,
-                "style": style,
-                "description": loc.description,
-                "visual_tags": loc.visual_tags,
-            }
-
-            image_data, gen_info = await generator.generate_reference(
-                loc,
-                time_of_day=time_of_day,
+        if location_ids:
+            # Single location
+            return await service.generate_asset(
+                location_ids[0],
                 style=style,
-                overwrite_cache=overwrite,
+                overwrite=overwrite,
+                on_start=on_start,
+                on_complete=on_complete,
             )
-            path = manager.save_asset(
-                loc_folder,
-                f"{time_of_day.value}.png",
-                image_data,
-                metadata={
-                    **loc_metadata,
-                    "gemini": gen_info,
-                },
+        else:
+            # All locations
+            return await service.generate_all_assets(
+                style=style,
+                overwrite=overwrite,
+                on_start=on_start,
+                on_complete=on_complete,
+                on_skip=on_skip,
             )
-            loc.assets.variations[time_of_day.value] = path
-
-            if loc.assets.reference is None:
-                loc.assets.reference = path
-
-            console.print(f"  [green]Saved: {path}[/green]")
-
-        manager.save()
 
     with Progress(
         SpinnerColumn(),
@@ -531,73 +560,82 @@ def generate_panels(
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if panels exist (bypass cache)"),
 ):
     """Generate all panel images for a chapter or scene."""
-    from .generators.panel import PanelResult, SceneResult
+    from .generators.panel import PanelResult
+    from .services import PanelService
+    from .services.exceptions import DependencyError, NotFoundError
 
     manager = load_project()
+    service = PanelService(manager)
 
-    # Find the chapter
-    target_chapter = None
-    for ch in manager.project.chapters:
-        if ch.number == chapter:
-            target_chapter = ch
-            break
-
-    if not target_chapter:
+    # Validate chapter exists
+    try:
+        target_chapter = service.get_chapter(chapter)
+    except NotFoundError:
         console.print(f"[red]Chapter {chapter} not found.[/red]")
         console.print("Available chapters:")
         for ch in manager.project.chapters:
             console.print(f"  - Chapter {ch.number}: {ch.title}")
         raise typer.Exit(1)
 
-    if not target_chapter.scenes:
-        console.print(f"[red]Chapter {chapter} has no scenes.[/red]")
-        raise typer.Exit(1)
-
-    # If scene specified, filter to just that scene
+    # Validate scene exists if specified
     if scene is not None:
-        target_scene = None
-        for s in target_chapter.scenes:
-            if s.number == scene:
-                target_scene = s
-                break
-        if not target_scene:
+        try:
+            service.get_scene(chapter, scene)
+        except NotFoundError:
             console.print(f"[red]Scene {scene} not found in Chapter {chapter}.[/red]")
             console.print("Available scenes:")
             for s in target_chapter.scenes:
                 console.print(f"  - Scene {s.number}: {s.description[:50]}...")
             raise typer.Exit(1)
-        scenes_to_generate = [target_scene]
+
+    # Validate dependencies using service layer
+    missing = service.validate_dependencies(chapter, scene)
+    if missing:
+        console.print("[red]Error: Missing required assets for panel generation.[/red]\n")
+
+        # Group by type for CLI-friendly output
+        char_deps = [d for d in missing if d["type"] in ("character", "character_asset")]
+        loc_deps = [d for d in missing if d["type"] in ("location", "location_asset")]
+        other_deps = [d for d in missing if d["type"] not in ("character", "character_asset", "location", "location_asset")]
+
+        if char_deps:
+            console.print("[yellow]Missing character assets:[/yellow]")
+            for dep in char_deps:
+                console.print(f"  - {dep['message']}")
+            console.print("\nGenerate character assets with:")
+            console.print("  [cyan]dreamright generate character[/cyan]")
+
+        if loc_deps:
+            if char_deps:
+                console.print()
+            console.print("[yellow]Missing location assets:[/yellow]")
+            for dep in loc_deps:
+                console.print(f"  - {dep['message']}")
+            console.print("\nGenerate location assets with:")
+            console.print("  [cyan]dreamright generate location[/cyan]")
+
+        if other_deps:
+            if char_deps or loc_deps:
+                console.print()
+            console.print("[yellow]Other missing dependencies:[/yellow]")
+            for dep in other_deps:
+                console.print(f"  - {dep['message']}")
+                if dep.get("resolution"):
+                    console.print(f"    {dep['resolution']}")
+
+        raise typer.Exit(1)
+
+    # Calculate total panels for progress display
+    if scene is not None:
+        target_scene = service.get_scene(chapter, scene)
         total_panels = len(target_scene.panels)
         console.print(f"\n[cyan]Generating {total_panels} panels for Chapter {chapter}, Scene {scene}[/cyan]")
     else:
-        scenes_to_generate = target_chapter.scenes
         total_panels = sum(len(s.panels) for s in target_chapter.scenes)
         console.print(f"\n[cyan]Generating {total_panels} panels for Chapter {chapter}: {target_chapter.title}[/cyan]")
 
-    # Build lookup dicts
-    characters_dict = {char.id: char for char in manager.project.characters}
-    locations_dict = {loc.id: loc for loc in manager.project.locations}
-
-    # Build reference paths
-    character_refs = {}
-    for char in manager.project.characters:
-        if char.assets.portrait:
-            ref_path = manager.storage.get_absolute_asset_path(char.assets.portrait)
-            if ref_path.exists():
-                character_refs[char.id] = ref_path
-
-    location_refs = {}
-    for loc in manager.project.locations:
-        if loc.assets.reference:
-            ref_path = manager.storage.get_absolute_asset_path(loc.assets.reference)
-            if ref_path.exists():
-                location_refs[loc.id] = ref_path
-
-    # Progress callbacks
-    current_scene_num = [0]
-
+    # Progress callbacks for CLI output
     def on_scene_start(s):
-        current_scene_num[0] = s.number
         desc = s.description[:50] + "..." if len(s.description) > 50 else s.description
         console.print(f"\n  [bold]Scene {s.number}[/bold]: {desc}")
 
@@ -613,58 +651,15 @@ def generate_panels(
             console.print(f"\r    Panel {result.panel.number}: [green]saved[/green]           ")
 
     async def do_generate():
-        generator = PanelGenerator()
-
-        if scene is not None:
-            # Generate single scene
-            result = await generator.generate_scene_panels(
-                scene=scenes_to_generate[0],
-                chapter_number=chapter,
-                characters=characters_dict,
-                locations=locations_dict,
-                character_references=character_refs,
-                location_references=location_refs,
-                output_dir=manager.storage.assets_path,
-                style=style,
-                overwrite=overwrite,
-                on_panel_start=on_panel_start,
-                on_panel_complete=on_panel_complete,
-            )
-            return result.generated_count, result.skipped_count, result.error_count
-        else:
-            # Find previous chapter's last panel for cross-chapter continuity
-            prev_chapter_last_panel = None
-            if chapter > 1:
-                prev_chapter = None
-                for ch in manager.project.chapters:
-                    if ch.number == chapter - 1:
-                        prev_chapter = ch
-                        break
-                if prev_chapter and prev_chapter.scenes:
-                    last_scene = prev_chapter.scenes[-1]
-                    if last_scene.panels:
-                        last_panel = last_scene.panels[-1]
-                        if last_panel.image_path:
-                            prev_path = manager.storage.get_absolute_asset_path(last_panel.image_path)
-                            if prev_path.exists():
-                                prev_chapter_last_panel = prev_path
-
-            # Generate full chapter
-            result = await generator.generate_chapter_panels(
-                chapter=target_chapter,
-                characters=characters_dict,
-                locations=locations_dict,
-                character_references=character_refs,
-                location_references=location_refs,
-                output_dir=manager.storage.assets_path,
-                style=style,
-                overwrite=overwrite,
-                previous_chapter_last_panel=prev_chapter_last_panel,
-                on_scene_start=on_scene_start,
-                on_panel_start=on_panel_start,
-                on_panel_complete=on_panel_complete,
-            )
-            return result.generated_count, result.skipped_count, result.error_count
+        return await service.generate_panels(
+            chapter_number=chapter,
+            scene_number=scene,
+            style=style,
+            overwrite=overwrite,
+            on_scene_start=on_scene_start,
+            on_panel_start=on_panel_start,
+            on_panel_complete=on_panel_complete,
+        )
 
     with Progress(
         SpinnerColumn(),
@@ -672,15 +667,13 @@ def generate_panels(
         console=console,
     ) as progress:
         progress.add_task("Generating panels...", total=None)
-        generated, skipped, errors = run_async(do_generate())
-
-    manager.save()
+        result = run_async(do_generate())
 
     console.print(f"\n[green]Panel generation complete![/green]")
-    console.print(f"  Generated: {generated}")
-    console.print(f"  Skipped (existing): {skipped}")
-    if errors > 0:
-        console.print(f"  [red]Errors: {errors}[/red]")
+    console.print(f"  Generated: {result['generated_count']}")
+    console.print(f"  Skipped (existing): {result['skipped_count']}")
+    if result['error_count'] > 0:
+        console.print(f"  [red]Errors: {result['error_count']}[/red]")
     console.print(f"  Output: assets/panels/chapter-{chapter}/")
 
 
@@ -720,133 +713,96 @@ def generate_chapter(
 
     Use --interactive for hands-on mode where you confirm each step.
     """
+    from .generators.chapter import ChapterGenerator
+    from .services import ChapterService
+    from .services.exceptions import DependencyError, ValidationError
+
     manager = load_project()
+    service = ChapterService(manager)
 
-    if not manager.project.story:
-        console.print("[red]No story found. Run 'dreamright expand' first.[/red]")
-        raise typer.Exit(1)
-
-    story = manager.project.story
-    if not story.story_beats:
-        console.print("[red]No story beats found. Run 'dreamright expand' first.[/red]")
-        raise typer.Exit(1)
-
-    existing_chapters = manager.project.chapters
-    existing_numbers = {c.number for c in existing_chapters}
-
-    # Determine which beats to generate
-    if all_beats:
-        # Generate all remaining (not yet generated) chapters
-        beats_to_generate = [
-            (i, beat) for i, beat in enumerate(story.story_beats, start=1)
-            if i not in existing_numbers
-        ]
-        if not beats_to_generate:
-            console.print("[green]All chapters already generated![/green]")
-            raise typer.Exit(0)
-    elif beat_number:
-        if beat_number < 1 or beat_number > len(story.story_beats):
-            console.print(f"[red]Invalid beat number. Must be 1-{len(story.story_beats)}.[/red]")
+    # Handle no arguments - show status
+    if not all_beats and beat_number is None:
+        status = service.get_generation_status()
+        if not status["story_expanded"]:
+            console.print("[red]No story found. Run 'dreamright expand' first.[/red]")
             raise typer.Exit(1)
-        beats_to_generate = [(beat_number, story.story_beats[beat_number - 1])]
-    else:
-        # Show available beats and status
+
         console.print("\n[bold]Story Beats:[/bold]")
+        story = manager.project.story
+        existing_numbers = {c.number for c in manager.project.chapters}
         for i, beat in enumerate(story.story_beats, start=1):
             existing = i in existing_numbers
             status_mark = "[green]✓[/green]" if existing else "[dim]○[/dim]"
             console.print(f"  {status_mark} {i}. {beat.beat}: {beat.description[:60]}...")
 
-        remaining = len(story.story_beats) - len(existing_numbers)
-        console.print(f"\n[dim]{len(existing_numbers)}/{len(story.story_beats)} chapters generated.[/dim]")
-        if remaining > 0:
+        console.print(f"\n[dim]{status['generated_chapters']}/{status['total_beats']} chapters generated.[/dim]")
+        if status["remaining_beats"]:
             console.print("[dim]Use --beat N for specific chapter, or --all for remaining.[/dim]")
         raise typer.Exit(0)
 
-    def save_chapter(chapter):
-        """Save chapter immediately after generation."""
-        # Replace existing or append
-        existing_idx = None
-        for i, c in enumerate(manager.project.chapters):
-            if c.number == chapter.number:
-                existing_idx = i
-                break
+    # Determine which beats to generate
+    if all_beats:
+        remaining = service.get_remaining_beats()
+        if not remaining:
+            console.print("[green]All chapters already generated![/green]")
+            raise typer.Exit(0)
+        beat_numbers_to_generate = [num for num, _ in remaining]
+    else:
+        # Validate beat number
+        try:
+            service.validate_beat_number(beat_number)
+        except ValidationError as e:
+            console.print(f"[red]{e.message}[/red]")
+            raise typer.Exit(1)
+        beat_numbers_to_generate = [beat_number]
 
-        if existing_idx is not None:
-            manager.project.chapters[existing_idx] = chapter
-        else:
-            manager.project.chapters.append(chapter)
-            manager.project.chapters.sort(key=lambda c: c.number)
+    # Validate dependencies for first beat
+    first_beat = beat_numbers_to_generate[0]
+    missing = service.validate_dependencies(first_beat)
+    if missing:
+        dep = missing[0]
+        console.print(f"[red]Error: {dep['message']}[/red]")
+        console.print(f"Run: [cyan]dreamright generate chapter --beat {dep['chapter_number']}[/cyan]")
+        console.print("\n[dim]Chapters must be generated sequentially for story continuity.[/dim]")
+        raise typer.Exit(1)
 
-        manager.save()
+    # Callbacks for progress and interactive mode
+    generator = ChapterGenerator()  # For formatting results in interactive mode
+
+    def on_start(num, beat):
+        console.print(f"\n[cyan]Generating Chapter {num}: {beat.beat}...[/cyan]")
+        existing_count = len([c for c in manager.project.chapters if c.number < num])
+        if existing_count:
+            console.print(f"  [dim]Using {existing_count} previous chapter(s) for context[/dim]")
+
+    def on_prompt_ready(prompt, num, beat):
+        if interactive:
+            return confirm_prompt(prompt, f"PROMPT FOR CHAPTER {num}")
+        console.print("  [dim]Calling Gemini API...[/dim]")
+        return True
+
+    def on_result_ready(chapter, num):
+        if interactive:
+            result_text = generator.format_chapter_result(chapter)
+            if confirm_result(result_text, f"RESULT FOR CHAPTER {num}"):
+                return (True, False)  # Accept
+            console.print("[yellow]Rejected chapter.[/yellow]")
+            retry = typer.confirm("Retry generation?", default=False)
+            return (False, retry)
+        return (True, False)  # Accept without confirmation
+
+    def on_complete(chapter):
         console.print(f"  [green]Saved Chapter {chapter.number}: {chapter.title}[/green]")
 
     async def do_generate():
-        generator = ChapterGenerator()
-        generated = []
-
-        # Get all chapters including existing ones (sorted by number)
-        all_chapters = sorted(existing_chapters, key=lambda c: c.number)
-
-        for num, beat in beats_to_generate:
-            console.print(f"\n[cyan]Generating Chapter {num}: {beat.beat}...[/cyan]")
-            if all_chapters:
-                console.print(f"  [dim]Using {len(all_chapters)} previous chapter(s) for context[/dim]")
-
-            # Build the prompt
-            prompt = generator.build_chapter_prompt(
-                story=story,
-                beat=beat,
-                chapter_number=num,
-                characters=manager.project.characters,
-                locations=manager.project.locations,
-                previous_chapters=all_chapters,
-                panels_per_scene=panels_per_scene,
-            )
-
-            # Interactive mode: confirm prompt before API call
-            if interactive:
-                if not confirm_prompt(prompt, f"PROMPT FOR CHAPTER {num}"):
-                    console.print("[yellow]Skipped chapter generation.[/yellow]")
-                    continue
-
-            # Call the API
-            console.print("  [dim]Calling Gemini API...[/dim]")
-            chapter = await generator.generate_chapter_from_prompt(
-                prompt=prompt,
-                characters=manager.project.characters,
-                locations=manager.project.locations,
-            )
-
-            # Interactive mode: confirm result before saving
-            if interactive:
-                result_text = generator.format_chapter_result(chapter)
-                if not confirm_result(result_text, f"RESULT FOR CHAPTER {num}"):
-                    console.print("[yellow]Rejected chapter. Skipping save.[/yellow]")
-                    # Option to retry
-                    if typer.confirm("Retry generation?", default=False):
-                        console.print("  [dim]Retrying...[/dim]")
-                        chapter = await generator.generate_chapter_from_prompt(
-                            prompt=prompt,
-                            characters=manager.project.characters,
-                            locations=manager.project.locations,
-                        )
-                        result_text = generator.format_chapter_result(chapter)
-                        if not confirm_result(result_text, f"RETRY RESULT FOR CHAPTER {num}"):
-                            console.print("[yellow]Rejected retry. Skipping.[/yellow]")
-                            continue
-                    else:
-                        continue
-
-            # Save immediately after generation
-            save_chapter(chapter)
-
-            # Add to context for next chapter
-            all_chapters.append(chapter)
-            all_chapters.sort(key=lambda c: c.number)
-            generated.append(chapter)
-
-        return generated
+        return await service.generate_chapters(
+            beat_numbers=beat_numbers_to_generate,
+            panels_per_scene=panels_per_scene,
+            on_start=on_start,
+            on_prompt_ready=on_prompt_ready,
+            on_result_ready=on_result_ready,
+            on_complete=on_complete,
+        )
 
     chapters = run_async(do_generate())
 
@@ -975,6 +931,43 @@ def show(
         console.print(f"[red]Unknown entity: {entity}[/red]")
         console.print("Use: story, character:<name>, or location:<name>")
         raise typer.Exit(1)
+
+
+@app.command()
+def serve(
+    host: str = typer.Option("127.0.0.1", "--host", "-h", help="Host to bind to"),
+    port: int = typer.Option(8000, "--port", "-p", help="Port to bind to"),
+    reload: bool = typer.Option(False, "--reload", help="Enable auto-reload for development"),
+    projects_dir: Optional[Path] = typer.Option(None, help="Directory for storing projects"),
+):
+    """Start the DreamRight API server."""
+    import uvicorn
+
+    from .api.app import create_app
+    from .api.deps import settings
+
+    # Configure projects directory
+    if projects_dir:
+        settings.projects_dir = projects_dir
+    else:
+        settings.projects_dir = Path.cwd() / "projects"
+
+    console.print(f"\n[bold]DreamRight API Server[/bold]")
+    console.print(f"  Projects: {settings.projects_dir}")
+    console.print(f"  URL: http://{host}:{port}")
+    console.print(f"  Docs: http://{host}:{port}/docs")
+    console.print()
+
+    if reload:
+        uvicorn.run(
+            "dreamright.api.app:app",
+            host=host,
+            port=port,
+            reload=True,
+        )
+    else:
+        app_instance = create_app(projects_dir=settings.projects_dir)
+        uvicorn.run(app_instance, host=host, port=port)
 
 
 def main():

@@ -162,9 +162,6 @@ class LocationAssets(BaseModel):
     """Generated location visual assets."""
 
     reference: Optional[str] = None
-    variations: dict[str, Optional[str]] = Field(
-        default_factory=lambda: {"day": None, "night": None, "morning": None, "evening": None}
-    )
 
 
 class Location(BaseModel):
