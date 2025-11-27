@@ -708,8 +708,8 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
 """
         for loc in locations:
             loc_name = loc.get("name", "")
-            loc_slug = loc_name.lower().replace(" ", "-").replace("'", "")
-            loc_img = f"/projects/{project_id}/assets/locations/{loc_slug}/day.png"
+            loc_slug = slugify(loc_name)
+            loc_img = f"/projects/{project_id}/assets/locations/{loc_slug}/reference.png"
             loc_type = loc.get("type", "interior")
 
             html += f"""
