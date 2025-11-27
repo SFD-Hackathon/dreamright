@@ -1,0 +1,48 @@
+{
+  "type": "location_reference_sheet",
+  "location_id": "loc_seoul_general_hospital_room_30",
+  "location_name": "Seoul General Hospital - Room 305",
+  "location_type": "interior",
+  "style": "webtoon",
+  "views": [
+    "wide_eye_level",
+    "medium_high_angle",
+    "closeup_details",
+    "low_angle"
+  ],
+  "description": "Sterile, white, and lonely. The window overlooks the city where gates are visible in the distance.",
+  "visual_tags": [
+    "Lighting: Bright, harsh daylight",
+    "Key Object: The holographic System Screen floating in mid-air",
+    "Atmosphere: Sterile, contrast to the chaos",
+    "Palette: Clinical white and pale blue"
+  ],
+  "gemini": {
+    "type": "location_reference_sheet",
+    "location_id": "loc_seoul_general_hospital_room_30",
+    "location_name": "Seoul General Hospital - Room 305",
+    "location_type": "interior",
+    "views": [
+      "wide_eye_level",
+      "medium_high_angle",
+      "closeup_details",
+      "low_angle"
+    ],
+    "prompt": "Create a 2x2 grid reference sheet showing the SAME location from 4 different camera angles in webtoon art style.\n\nCRITICAL: All 4 panels must show the EXACT SAME location with consistent:\n- Architecture and layout\n- Color palette and lighting\n- Props and furniture placement\n- Overall atmosphere and mood\n\nGrid layout (4 panels, separated by thin white lines):\n┌─────────────┬─────────────┐\n│ WIDE SHOT   │ HIGH ANGLE  │\n│ Eye level   │ Looking down│\n│ Establishing│ Medium shot │\n├─────────────┼─────────────┤\n│ CLOSE-UP    │ LOW ANGLE   │\n│ Key details │ Looking up  │\n│ Textures    │ Dramatic    │\n└─────────────┴─────────────┘\n\nRequirements for all panels:\n- Bright daylight, clear visibility\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Consistent visual style across all 4 views\n\n\nLocation: Seoul General Hospital - Room 305\nType: interior\nDescription: Sterile, white, and lonely. The window overlooks the city where gates are visible in the distance.\nVisual details: Lighting: Bright, harsh daylight, Key Object: The holographic System Screen floating in mid-air, Atmosphere: Sterile, contrast to the chaos, Palette: Clinical white and pale blue",
+    "parameters": {
+      "aspect_ratio": "1:1",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 284,
+        "candidates_tokens": 1489,
+        "total_tokens": 2093
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:43:16.759816"
+}

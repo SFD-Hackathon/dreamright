@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_sung_jin_woo",
+  "character_name": "Sung Jin-woo",
+  "role": "protagonist",
+  "age": "24",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Shaggy black hair that hangs over eyes",
+    "Eyes: Dark grey, glowing blue when System activates",
+    "Top: Faded grey oversized hoodie with a small rip on the shoulder",
+    "Bottom: Black cargo pants with multiple pockets",
+    "Footwear: Scuffed black combat boots",
+    "Accessory: Cheap bandage on left cheek, jagged iron dagger"
+  ],
+  "description": {
+    "physical": "Lean, scarred body, sharp jawline but exhausted eyes. Initially has bad posture that straightens as he levels up.",
+    "personality": "Resilient, observant, protective, initially timid but becomes cold and calculated in combat."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_sung_jin_woo",
+    "character_name": "Sung Jin-woo",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Sung Jin-woo\nAge: 24\nPhysical appearance: Lean, scarred body, sharp jawline but exhausted eyes. Initially has bad posture that straightens as he levels up.\nVisual details: Hair: Shaggy black hair that hangs over eyes, Eyes: Dark grey, glowing blue when System activates, Top: Faded grey oversized hoodie with a small rip on the shoulder, Bottom: Black cargo pants with multiple pockets, Footwear: Scuffed black combat boots, Accessory: Cheap bandage on left cheek, jagged iron dagger\nPersonality (for expression): Resilient, observant, protective, initially timid but becomes cold and calculated in combat.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 219,
+        "candidates_tokens": 1298,
+        "total_tokens": 1839
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:39:32.801828"
+}

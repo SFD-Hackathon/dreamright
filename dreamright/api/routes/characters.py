@@ -179,7 +179,11 @@ async def create_character_asset(
     request: CreateCharacterAssetRequest = CreateCharacterAssetRequest(),
     token: Annotated[Optional[str], Depends(verify_token)] = None,
 ):
-    """Generate character portrait.
+    """Generate character assets (portrait + full-body three-view sheet).
+
+    Two-step generation process:
+    1. Generates portrait first (establishes face/features)
+    2. Uses portrait as reference to generate three-view character sheet
 
     This is an async operation.
     """
@@ -248,7 +252,7 @@ async def replace_character_asset(
     request: CreateCharacterAssetRequest = CreateCharacterAssetRequest(),
     token: Annotated[Optional[str], Depends(verify_token)] = None,
 ):
-    """Regenerate character portrait (force overwrite)."""
+    """Regenerate character assets (portrait + three-view sheet, force overwrite)."""
     manager = get_project_manager(project_id)
     service = CharacterService(manager)
 
@@ -304,9 +308,10 @@ async def create_all_character_assets(
     request: CreateCharacterAssetRequest = CreateCharacterAssetRequest(),
     token: Annotated[Optional[str], Depends(verify_token)] = None,
 ):
-    """Generate all missing character assets.
+    """Generate all missing character assets (portrait + three-view sheet).
 
-    Batch operation for all characters without portraits.
+    Batch operation for all characters without assets.
+    Each character gets a portrait first, then a three-view sheet using the portrait as reference.
     """
     manager = get_project_manager(project_id)
     service = CharacterService(manager)

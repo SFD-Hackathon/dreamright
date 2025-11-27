@@ -77,49 +77,64 @@ class ChapterResponse(BaseModel):
     scenes: list[SceneResponse] = Field(default_factory=list)
 
 
-CHAPTER_GENERATION_PROMPT = """You are an expert webtoon storyboard artist. Your task is to convert a story beat into a detailed chapter with scenes and panels.
+CHAPTER_GENERATION_PROMPT = """You are an expert webtoon storyboard artist creating addictive, visually compelling content. Convert story beats into detailed chapters optimized for vertical scrolling.
 
-Follow these guidelines for webtoon panels:
-1. Each scene should have 4-8 panels
-2. Start scenes with establishing shots (wide) to set location
-3. Use shot variety: wide for context, medium for dialogue, close-up for emotion
-4. Include clear action descriptions for each panel
-5. Dialogue should be natural and advance the story
-6. Include sound effects (SFX) where appropriate
-7. Consider vertical scrolling flow - end scenes on hooks or transitions
-8. IMPORTANT: Maintain continuity with previous chapters - reference established events, character development, and ongoing plot threads
+## SCENE STRUCTURE (4-8 panels per scene)
+Each scene should have rhythm:
+1. **Opening** (1-2 panels): Establish location and mood with wide/medium shots
+2. **Development** (2-4 panels): Build tension or emotion, advance plot
+3. **Payoff/Hook** (1-2 panels): End with impact - revelation, emotion, or cliffhanger
 
-For expressions, use: neutral, happy, sad, angry, surprised, scared, confused, determined, embarrassed, thoughtful
+## PANEL PACING FOR ENGAGEMENT
+- **Slow moments down**: Use multiple panels for emotional beats (reaction shots, silences)
+- **Speed up action**: Quick cuts, motion blur descriptions, diagonal compositions
+- **Create rhythm**: Alternate between dialogue-heavy and visual-only panels
+- **End scenes on hooks**: Last panel should make readers NEED to scroll
 
-For shot types:
-- wide: Full location/scene view, multiple characters
-- medium: Character from waist up, good for dialogue
-- close_up: Face focus, emotional moments
-- extreme_close_up: Detail focus (eyes, hands, objects)
+## VISUAL STORYTELLING
+Use panels to SHOW, not just tell:
+- **POV shots**: Show what character sees (especially for horror/mystery)
+- **Environmental storytelling**: Background details that hint at story/mood
+- **Color/lighting shifts**: Describe palette changes for mood (warm→cold = safe→danger)
+- **Visual metaphors**: Symbolic imagery that reinforces themes
 
-For camera angles:
-- eye_level: Normal perspective
-- high: Looking down, shows vulnerability
-- low: Looking up, shows power/drama
-- dutch: Tilted, tension/unease
+## EMOTIONAL BEATS
+Include variety in each chapter:
+- **Tension**: Danger, conflict, stakes
+- **Relief**: Humor, tender moments, breathers
+- **Mystery**: Questions raised, clues planted
+- **Connection**: Character bonding, vulnerability
 
-PANEL CONTINUITY:
-For each panel, indicate if it continues from the previous panel (same moment, same scene composition):
-- continues_from_previous: true when the panel is a direct continuation (e.g., reaction shot, next beat in same action, close-up after medium shot of same moment)
-- continuity_note: describe what must stay consistent (e.g., "same character pose", "same lighting", "same background angle", "character positions unchanged")
+## SHOT TYPES (use variety!)
+- **wide**: Full environment, multiple characters, establishing mood
+- **medium**: Waist-up, ideal for dialogue and interaction
+- **close_up**: Face focus, emotional intensity, important reactions
+- **extreme_close_up**: Eyes, hands, objects - for emphasis and tension
 
-Examples of continuous panels:
-- Panel 1: Medium shot of character speaking → Panel 2: Close-up of their face (continues_from_previous=true, continuity_note="same expression, same lighting angle")
-- Panel 1: Two characters facing each other → Panel 2: Reaction shot of one (continues_from_previous=true, continuity_note="same position, same background")
+## CAMERA ANGLES (match emotion)
+- **eye_level**: Neutral, normal conversation
+- **high**: Vulnerability, overview, isolation
+- **low**: Power, threat, dramatic impact
+- **dutch**: Unease, disorientation, wrongness
 
-CROSS-CHAPTER CONTINUITY:
-For the FIRST scene of this chapter, indicate if it directly continues from the previous chapter's last moment:
-- continues_from_previous_chapter: true if the chapter starts EXACTLY where the last chapter ended (same scene, same moment, immediate continuation)
-- continues_from_previous_chapter: false if there's a time skip, scene change, or new setting
+## EXPRESSIONS
+Use specific emotions: neutral, happy, sad, angry, surprised, scared, confused, determined, embarrassed, thoughtful, mischievous, exhausted, hopeful, devastated
 
-Examples:
-- Previous chapter ended with cliffhanger mid-conversation → continues_from_previous_chapter=true
-- Previous chapter ended, this chapter starts the next day → continues_from_previous_chapter=false
+## ATMOSPHERE DESCRIPTIONS
+For each panel, include atmosphere cues:
+- Lighting quality (harsh, soft, dappled, flickering)
+- Color temperature (warm golden, cold blue, sickly green)
+- Visual effects (dust motes, lens flare, motion blur, static)
+
+## PANEL CONTINUITY
+For continuous moments (same scene, same beat):
+- continues_from_previous: true for direct continuation (reaction shots, zooms)
+- continuity_note: what stays consistent (pose, lighting, background angle)
+
+## CROSS-CHAPTER CONTINUITY
+For first scene:
+- continues_from_previous_chapter: true if immediate continuation (mid-conversation, cliffhanger resolution)
+- continues_from_previous_chapter: false if time skip or new setting
 """
 
 

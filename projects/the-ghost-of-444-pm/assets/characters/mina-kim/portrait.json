@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_mina_kim",
+  "character_name": "Mina Kim",
+  "role": "protagonist",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "short black bob hair",
+    "pale skin",
+    "large white headphones",
+    "oversized beige cardigan",
+    "tired dark circles under eyes",
+    "clutching a sketchbook"
+  ],
+  "description": {
+    "physical": "Petite, keeps her head down. Always wears large over-ear headphones to block out ghost whispers.",
+    "personality": "Introverted, observant, compassionate but fearful."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_mina_kim",
+    "character_name": "Mina Kim",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Mina Kim\nAge: 17\nPhysical appearance: Petite, keeps her head down. Always wears large over-ear headphones to block out ghost whispers.\nVisual details: short black bob hair, pale skin, large white headphones, oversized beige cardigan, tired dark circles under eyes, clutching a sketchbook\nPersonality (for expression): Introverted, observant, compassionate but fearful.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 164,
+        "candidates_tokens": 1288,
+        "total_tokens": 1695
+      }
+    }
+  },
+  "generated_at": "2025-11-27T14:14:55.242836"
+}

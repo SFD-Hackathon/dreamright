@@ -207,15 +207,31 @@ class PanelService:
     def _build_references(self) -> tuple[dict[str, Path], dict[str, Path]]:
         """Build character and location reference path dicts.
 
+        For characters, prefers three-view sheet over portrait for better
+        consistency across different poses and angles.
+
         Returns:
             Tuple of (character_refs, location_refs)
         """
         character_refs = {}
         for char in self.manager.project.characters:
-            if char.assets.portrait:
-                ref_path = self.manager.storage.get_absolute_asset_path(char.assets.portrait)
-                if ref_path.exists():
-                    character_refs[char.id] = ref_path
+            # Prefer character sheet (three-view) over portrait for panel generation
+            ref_path = None
+            if char.assets.three_view.get("sheet"):
+                sheet_path = self.manager.storage.get_absolute_asset_path(
+                    char.assets.three_view["sheet"]
+                )
+                if sheet_path.exists():
+                    ref_path = sheet_path
+
+            # Fall back to portrait if no sheet available
+            if ref_path is None and char.assets.portrait:
+                portrait_path = self.manager.storage.get_absolute_asset_path(char.assets.portrait)
+                if portrait_path.exists():
+                    ref_path = portrait_path
+
+            if ref_path:
+                character_refs[char.id] = ref_path
 
         location_refs = {}
         for loc in self.manager.project.locations:

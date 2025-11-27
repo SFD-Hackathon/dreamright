@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_hwang_kang",
+  "character_name": "Hwang Kang",
+  "role": "supporting",
+  "age": "30",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Buzz-cut blonde hair",
+    "Eyes: Narrow, predatory eyes with a scar across the left eyebrow",
+    "Top: Silver breastplate armor over a red tight-fitting shirt",
+    "Bottom: Heavy metallic greaves and plate skirt",
+    "Footwear: Steel-plated sabatons",
+    "Accessory: Massive rectangular tower shield on back"
+  ],
+  "description": {
+    "physical": "Bulky, muscular build, towering height.",
+    "personality": "Arrogant, selfish, believes the weak exist to serve the strong."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_hwang_kang",
+    "character_name": "Hwang Kang",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Hwang Kang\nAge: 30\nPhysical appearance: Bulky, muscular build, towering height.\nVisual details: Hair: Buzz-cut blonde hair, Eyes: Narrow, predatory eyes with a scar across the left eyebrow, Top: Silver breastplate armor over a red tight-fitting shirt, Bottom: Heavy metallic greaves and plate skirt, Footwear: Steel-plated sabatons, Accessory: Massive rectangular tower shield on back\nPersonality (for expression): Arrogant, selfish, believes the weak exist to serve the strong.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 198,
+        "candidates_tokens": 1264,
+        "total_tokens": 1717
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:41:25.666574"
+}

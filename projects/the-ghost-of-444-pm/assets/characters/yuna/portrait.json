@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_yuna",
+  "character_name": "Yuna",
+  "role": "supporting",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "long hair with pink highlights",
+    "colorful hair clips",
+    "holding tarot cards",
+    "bright yellow backpack",
+    "chewing gum"
+  ],
+  "description": {
+    "physical": "Bright, colorful accessories, expressive face.",
+    "personality": "Bubbly, superstitious, loyal."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_yuna",
+    "character_name": "Yuna",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Yuna\nAge: 17\nPhysical appearance: Bright, colorful accessories, expressive face.\nVisual details: long hair with pink highlights, colorful hair clips, holding tarot cards, bright yellow backpack, chewing gum\nPersonality (for expression): Bubbly, superstitious, loyal.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 146,
+        "candidates_tokens": 1287,
+        "total_tokens": 1684
+      }
+    }
+  },
+  "generated_at": "2025-11-27T14:17:15.214350"
+}

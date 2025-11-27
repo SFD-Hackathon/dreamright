@@ -1,0 +1,48 @@
+{
+  "type": "location_reference_sheet",
+  "location_id": "loc_cartenon_temple_the_double_dun",
+  "location_name": "Cartenon Temple (The Double Dungeon)",
+  "location_type": "interior",
+  "style": "webtoon",
+  "views": [
+    "wide_eye_level",
+    "medium_high_angle",
+    "closeup_details",
+    "low_angle"
+  ],
+  "description": "A massive, ancient stone chamber hidden inside a cave. Walls are lined with unlit torches that flare blue when the door shuts.",
+  "visual_tags": [
+    "Lighting: Eerie blue torchlight casting long shadows",
+    "Key Object: The Statue of God (massive stone figure with a creepy smile)",
+    "Atmosphere: Claustrophobic, ancient, divine dread",
+    "Palette: Cold blues and stone greys"
+  ],
+  "gemini": {
+    "type": "location_reference_sheet",
+    "location_id": "loc_cartenon_temple_the_double_dun",
+    "location_name": "Cartenon Temple (The Double Dungeon)",
+    "location_type": "interior",
+    "views": [
+      "wide_eye_level",
+      "medium_high_angle",
+      "closeup_details",
+      "low_angle"
+    ],
+    "prompt": "Create a 2x2 grid reference sheet showing the SAME location from 4 different camera angles in webtoon art style.\n\nCRITICAL: All 4 panels must show the EXACT SAME location with consistent:\n- Architecture and layout\n- Color palette and lighting\n- Props and furniture placement\n- Overall atmosphere and mood\n\nGrid layout (4 panels, separated by thin white lines):\n┌─────────────┬─────────────┐\n│ WIDE SHOT   │ HIGH ANGLE  │\n│ Eye level   │ Looking down│\n│ Establishing│ Medium shot │\n├─────────────┼─────────────┤\n│ CLOSE-UP    │ LOW ANGLE   │\n│ Key details │ Looking up  │\n│ Textures    │ Dramatic    │\n└─────────────┴─────────────┘\n\nRequirements for all panels:\n- Bright daylight, clear visibility\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Consistent visual style across all 4 views\n\n\nLocation: Cartenon Temple (The Double Dungeon)\nType: interior\nDescription: A massive, ancient stone chamber hidden inside a cave. Walls are lined with unlit torches that flare blue when the door shuts.\nVisual details: Lighting: Eerie blue torchlight casting long shadows, Key Object: The Statue of God (massive stone figure with a creepy smile), Atmosphere: Claustrophobic, ancient, divine dread, Palette: Cold blues and stone greys",
+    "parameters": {
+      "aspect_ratio": "1:1",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 301,
+        "candidates_tokens": 1463,
+        "total_tokens": 2125
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:42:18.782652"
+}

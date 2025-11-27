@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_yuna",
+  "character_name": "Yuna",
+  "role": "supporting",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "long hair with pink highlights",
+    "colorful hair clips",
+    "holding tarot cards",
+    "bright yellow backpack",
+    "chewing gum"
+  ],
+  "description": {
+    "physical": "Bright, colorful accessories, expressive face.",
+    "personality": "Bubbly, superstitious, loyal."
+  },
+  "asset_type": "character_sheet",
+  "reference_portrait": "assets/characters/yuna/portrait.png",
+  "gemini": {
+    "type": "character_sheet",
+    "character_id": "char_yuna",
+    "character_name": "Yuna",
+    "prompt": "Create a CHARACTER TURNAROUND SHEET in webtoon art style.\n\n## LAYOUT\nCreate a SINGLE IMAGE showing the SAME character THREE times side by side:\n- LEFT: Full body FRONT view (facing viewer)\n- CENTER: Full body SIDE view (profile, facing right)\n- RIGHT: Full body BACK view (facing away)\n\n## REQUIREMENTS\n- All three views show the EXACT SAME character with IDENTICAL outfit\n- Full body from head to feet in each view\n- Relaxed standing pose (arms slightly away from body to show costume)\n- Clean white or light gray background\n- Character sheet/model sheet style for animation reference\n- All views at the same scale and aligned at feet level\n- Show clothing, hair, and accessories clearly from all angles\n- Professional quality suitable for production reference\n\n## CONSISTENCY IS CRITICAL\n- Same hair style/color in all views\n- Same outfit in all views (every detail must match)\n- Same accessories and items in all views\n- Same body proportions in all views\n\n\nCharacter: Yuna\nAge: 17\nPhysical appearance: Bright, colorful accessories, expressive face.\nVisual details: long hair with pink highlights, colorful hair clips, holding tarot cards, bright yellow backpack, chewing gum\nPersonality (for expression): Bubbly, superstitious, loyal.",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": "/Users/long/Documents/Github/dreamright-20251126/test-webtoon/assets/characters/yuna/portrait.png"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 561,
+        "candidates_tokens": 1368,
+        "total_tokens": 2223
+      }
+    }
+  },
+  "generated_at": "2025-11-27T14:17:38.670314"
+}

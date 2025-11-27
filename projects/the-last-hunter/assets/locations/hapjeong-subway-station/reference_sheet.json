@@ -1,0 +1,48 @@
+{
+  "type": "location_reference_sheet",
+  "location_id": "loc_hapjeong_subway_station",
+  "location_name": "Hapjeong Subway Station",
+  "location_type": "interior",
+  "style": "webtoon",
+  "views": [
+    "wide_eye_level",
+    "medium_high_angle",
+    "closeup_details",
+    "low_angle"
+  ],
+  "description": "An abandoned version of a modern subway station. Vines grow through the cracked tiles and the air is thick with dust.",
+  "visual_tags": [
+    "Lighting: Flickering fluorescent emergency lights",
+    "Key Object: Broken turnstiles covered in rust",
+    "Atmosphere: Liminal, abandoned, silent",
+    "Palette: Sickly greens and rust oranges"
+  ],
+  "gemini": {
+    "type": "location_reference_sheet",
+    "location_id": "loc_hapjeong_subway_station",
+    "location_name": "Hapjeong Subway Station",
+    "location_type": "interior",
+    "views": [
+      "wide_eye_level",
+      "medium_high_angle",
+      "closeup_details",
+      "low_angle"
+    ],
+    "prompt": "Create a 2x2 grid reference sheet showing the SAME location from 4 different camera angles in webtoon art style.\n\nCRITICAL: All 4 panels must show the EXACT SAME location with consistent:\n- Architecture and layout\n- Color palette and lighting\n- Props and furniture placement\n- Overall atmosphere and mood\n\nGrid layout (4 panels, separated by thin white lines):\n┌─────────────┬─────────────┐\n│ WIDE SHOT   │ HIGH ANGLE  │\n│ Eye level   │ Looking down│\n│ Establishing│ Medium shot │\n├─────────────┼─────────────┤\n│ CLOSE-UP    │ LOW ANGLE   │\n│ Key details │ Looking up  │\n│ Textures    │ Dramatic    │\n└─────────────┴─────────────┘\n\nRequirements for all panels:\n- Bright daylight, clear visibility\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Consistent visual style across all 4 views\n\n\nLocation: Hapjeong Subway Station\nType: interior\nDescription: An abandoned version of a modern subway station. Vines grow through the cracked tiles and the air is thick with dust.\nVisual details: Lighting: Flickering fluorescent emergency lights, Key Object: Broken turnstiles covered in rust, Atmosphere: Liminal, abandoned, silent, Palette: Sickly greens and rust oranges",
+    "parameters": {
+      "aspect_ratio": "1:1",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 283,
+        "candidates_tokens": 1570,
+        "total_tokens": 2312
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:42:54.314335"
+}

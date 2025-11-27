@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_kai",
+  "character_name": "Kai",
+  "role": "supporting",
+  "age": "18 (at time of death)",
+  "style": "webtoon",
+  "visual_tags": [
+    "messy silver-tinted hair",
+    "piercing blue ghostly eyes",
+    "unbuttoned school blazer",
+    "faint blue glow",
+    "slight static effect around hands"
+  ],
+  "description": {
+    "physical": "Tall, handsome, slightly translucent at the edges. Wears an older version of the school uniform.",
+    "personality": "Charming, slightly mischievous to hide his sadness, protective."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_kai",
+    "character_name": "Kai",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kai\nAge: 18 (at time of death)\nPhysical appearance: Tall, handsome, slightly translucent at the edges. Wears an older version of the school uniform.\nVisual details: messy silver-tinted hair, piercing blue ghostly eyes, unbuttoned school blazer, faint blue glow, slight static effect around hands\nPersonality (for expression): Charming, slightly mischievous to hide his sadness, protective.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 173,
+        "candidates_tokens": 1278,
+        "total_tokens": 1695
+      }
+    }
+  },
+  "generated_at": "2025-11-27T11:26:59.996308"
+}

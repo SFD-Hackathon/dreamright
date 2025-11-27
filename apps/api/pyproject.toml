@@ -1,0 +1,20 @@
+[project]
+name = "dreamright-api"
+version = "0.1.0"
+description = "FastAPI backend for DreamRight"
+requires-python = ">=3.11"
+dependencies = [
+    "dreamright-services",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+]
+
+[project.scripts]
+dreamright-api = "dreamright_api.app:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dreamright_api"]

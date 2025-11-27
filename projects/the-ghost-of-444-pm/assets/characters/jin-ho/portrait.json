@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_jin_ho",
+  "character_name": "Jin-ho",
+  "role": "supporting",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "neatly styled brown hair",
+    "glasses",
+    "perfectly worn uniform",
+    "stern expression",
+    "carrying a clipboard"
+  ],
+  "description": {
+    "physical": "Athletic build, sharp features, intense expression.",
+    "personality": "Skeptical, rational, secretly sensitive."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_jin_ho",
+    "character_name": "Jin-ho",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Jin-ho\nAge: 17\nPhysical appearance: Athletic build, sharp features, intense expression.\nVisual details: neatly styled brown hair, glasses, perfectly worn uniform, stern expression, carrying a clipboard\nPersonality (for expression): Skeptical, rational, secretly sensitive.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 146,
+        "candidates_tokens": 1275,
+        "total_tokens": 1644
+      }
+    }
+  },
+  "generated_at": "2025-11-27T14:16:16.676126"
+}

@@ -1,0 +1,71 @@
+{
+  "type": "panel",
+  "panel_id": "p1",
+  "panel_number": 1,
+  "scene_number": 2,
+  "chapter_number": 1,
+  "prompt": "Create a webtoon/manga panel in webtoon art style.\n\n## ATMOSPHERE & MOOD\nLIGHTING: Bright natural daylight - warm golden tones, soft shadows, clear visibility\n\n\n## COMPOSITION\n- Shot: wide establishing shot showing full environment and characters\n- Angle: eye level, straight on view\n- Location: Cartenon Temple (The Double Dungeon) (A massive, ancient stone chamber hidden inside a cave. Walls are lined with unlit torches that flare blue when the door shuts.) - Visual elements: Lighting: Eerie blue torchlight casting long shadows, Key Object: The Statue of God (massive stone figure with a creepy smile), Atmosphere: Claustrophobic, ancient, divine dread, Palette: Cold blues and stone greys\n## CHARACTERS (CRITICAL: Match reference images EXACTLY)\nFor each character, you MUST:\n- Use the EXACT same costume/outfit as shown in their reference image\n- Match hair color, style, and accessories exactly\n- Keep facial features consistent with reference\n- Only change: expression, pose, and camera angle as specified\n\n**Hwang Kang** (MUST match reference image exactly)\n  Appearance: Bulky, muscular build, towering height.\n  Visual details: Hair: Buzz-cut blonde hair, Eyes: Narrow, predatory eyes with a scar across the left eyebrow, Top: Silver breastplate armor over a red tight-fitting shirt, Bottom: Heavy metallic greaves and plate skirt, Footwear: Steel-plated sabatons, Accessory: Massive rectangular tower shield on back\n  Expression: arrogant\n  Position: left of frame\n**Sung Jin-woo** (MUST match reference image exactly)\n  Appearance: Lean, scarred body, sharp jawline but exhausted eyes. Initially has bad posture that straightens as he levels up.\n  Visual details: Hair: Shaggy black hair that hangs over eyes, Eyes: Dark grey, glowing blue when System activates, Top: Faded grey oversized hoodie with a small rip on the shoulder, Bottom: Black cargo pants with multiple pockets, Footwear: Scuffed black combat boots, Accessory: Cheap bandage on left cheek, jagged iron dagger\n  Expression: exhausted\n  Position: center of frame\n**Lee Hana** (MUST match reference image exactly)\n  Appearance: Petite, trembling hands, wide expressive eyes.\n  Visual details: Hair: Short strawberry-blonde bob cut with blunt bangs, Eyes: Large amber eyes, often teary, Top: White cleric-style robe with gold trim, Bottom: Brown leggings under the robe, Footwear: Brown leather ankle boots, Accessory: Oversized wooden staff with a glowing crystal tip\n  Expression: neutral\n  Position: right of frame\n\n## ACTION & EMOTION\nThe hunting party walks down a long, torch-lit corridor. Hwang Kang leads confidently. Jin-woo trails behind, carrying a large backpack of supplies.\n\n## VISUAL EFFECTS (if appropriate)\n- Motion lines for movement\n- Speed lines for action\n- Sparkles/glow for magical/emotional moments\n- Dramatic lighting for tension\n\n## TECHNICAL REQUIREMENTS\n- FULL BLEED composition (art to all edges, NO white borders)\n- NO text, speech bubbles, or sound effects in image\n- Clean professional linework\n- Expressive faces with clear emotions\n- Dynamic poses with weight and balance\n- Rich background detail that supports the mood",
+  "parameters": {
+    "aspect_ratio": "3:4",
+    "resolution": "1K",
+    "style": "webtoon",
+    "panel_type": "panel",
+    "model": "gemini-3-pro-image-preview"
+  },
+  "references": [
+    {
+      "path": "/Users/long/Documents/Github/dreamright-20251126/projects/the-last-hunter/assets/characters/hwang-kang/sheet.png",
+      "role": "character reference for Hwang Kang"
+    },
+    {
+      "path": "/Users/long/Documents/Github/dreamright-20251126/projects/the-last-hunter/assets/characters/sung-jin-woo/sheet.png",
+      "role": "character reference for Sung Jin-woo"
+    },
+    {
+      "path": "/Users/long/Documents/Github/dreamright-20251126/projects/the-last-hunter/assets/characters/lee-hana/sheet.png",
+      "role": "character reference for Lee Hana"
+    },
+    {
+      "path": "/Users/long/Documents/Github/dreamright-20251126/projects/the-last-hunter/assets/locations/cartenon-temple-the-double-dungeon/reference.png",
+      "role": "location/background reference"
+    }
+  ],
+  "panel_data": {
+    "action": "The hunting party walks down a long, torch-lit corridor. Hwang Kang leads confidently. Jin-woo trails behind, carrying a large backpack of supplies.",
+    "composition": {
+      "shot_type": "wide",
+      "angle": "eye_level"
+    },
+    "characters": [
+      {
+        "character_id": "char_hwang_kang",
+        "expression": "arrogant",
+        "position": "left"
+      },
+      {
+        "character_id": "char_sung_jin_woo",
+        "expression": "exhausted",
+        "position": "center"
+      },
+      {
+        "character_id": "char_lee_hana",
+        "expression": "neutral",
+        "position": "right"
+      }
+    ],
+    "continues_from_previous": false,
+    "continuity_note": "Jin-woo looks physically smaller/weaker than the others."
+  },
+  "location_id": "loc_cartenon_temple_the_double_dun",
+  "location_name": "Cartenon Temple (The Double Dungeon)",
+  "time_of_day": "day",
+  "response": {
+    "finish_reason": "FinishReason.STOP",
+    "usage": {
+      "prompt_tokens": 1780,
+      "candidates_tokens": 1440,
+      "total_tokens": 3440
+    }
+  },
+  "generated_at": "2025-11-27T15:48:10.667706"
+}

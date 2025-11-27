@@ -161,8 +161,13 @@ class CharacterService:
         overwrite: bool = False,
         on_start: Optional[OnCharacterStart] = None,
         on_complete: Optional[OnCharacterComplete] = None,
+        on_progress: Optional[Callable[[str], None]] = None,
     ) -> dict:
-        """Generate character portrait asset.
+        """Generate character reference assets (portrait + full-body three-view).
+
+        Two-step process for best consistency:
+        1. Generate portrait first (establishes face and features)
+        2. Use portrait as reference to generate three-view character sheet
 
         Args:
             character_id: Character ID
@@ -170,9 +175,10 @@ class CharacterService:
             overwrite: Whether to overwrite existing
             on_start: Callback when generation starts
             on_complete: Callback when generation completes
+            on_progress: Callback for progress updates (step description)
 
         Returns:
-            Generation result with path
+            Generation result with paths
 
         Raises:
             AssetExistsError: If asset exists and overwrite is False
@@ -191,16 +197,20 @@ class CharacterService:
         if on_start:
             on_start(char)
 
-        # Generate
         generator = CharacterGenerator()
-        image_data, gen_info = await generator.generate_portrait(
+
+        # Step 1: Generate portrait first (establishes the face/look)
+        if on_progress:
+            on_progress("Step 1/2: Generating portrait...")
+
+        portrait_data, portrait_info = await generator.generate_portrait(
             char,
             style=style,
             overwrite_cache=overwrite,
         )
 
-        # Save
-        metadata = {
+        # Save portrait
+        portrait_metadata = {
             "type": "character",
             "character_id": char.id,
             "character_name": char.name,
@@ -213,25 +223,67 @@ class CharacterService:
                 "personality": char.description.personality,
             },
             "asset_type": "portrait",
-            "gemini": gen_info,
+            "gemini": portrait_info,
         }
 
-        path = self.manager.save_asset(
+        portrait_path = self.manager.save_asset(
             char_folder,
             "portrait.png",
-            image_data,
-            metadata=metadata,
+            portrait_data,
+            metadata=portrait_metadata,
         )
-        char.assets.portrait = path
+        char.assets.portrait = portrait_path
+
+        # Step 2: Generate three-view character sheet using portrait as reference
+        if on_progress:
+            on_progress("Step 2/2: Generating full-body three-view using portrait as reference...")
+
+        portrait_abs_path = self.manager.storage.get_absolute_asset_path(portrait_path)
+
+        sheet_data, sheet_info = await generator.generate_character_sheet(
+            char,
+            reference_image=portrait_abs_path,  # Use portrait for consistency
+            style=style,
+            overwrite_cache=overwrite,
+        )
+
+        # Save character sheet
+        sheet_metadata = {
+            "type": "character",
+            "character_id": char.id,
+            "character_name": char.name,
+            "role": char.role.value,
+            "age": char.age,
+            "style": style,
+            "visual_tags": char.visual_tags,
+            "description": {
+                "physical": char.description.physical,
+                "personality": char.description.personality,
+            },
+            "asset_type": "character_sheet",
+            "reference_portrait": portrait_path,
+            "gemini": sheet_info,
+        }
+
+        sheet_path = self.manager.save_asset(
+            char_folder,
+            "sheet.png",  # Three-view character sheet
+            sheet_data,
+            metadata=sheet_metadata,
+        )
+        # Store the sheet path in three_view for panel generation reference
+        char.assets.three_view["sheet"] = sheet_path
+
         self.manager.save()
 
         # Notify complete
         if on_complete:
-            on_complete(char, path)
+            on_complete(char, sheet_path)
 
         return {
             "character_id": char.id,
-            "path": path,
+            "portrait_path": portrait_path,
+            "sheet_path": sheet_path,
             "style": style,
         }
 
@@ -242,8 +294,9 @@ class CharacterService:
         on_start: Optional[OnCharacterStart] = None,
         on_complete: Optional[OnCharacterComplete] = None,
         on_skip: Optional[OnCharacterSkip] = None,
+        on_progress: Optional[Callable[[str], None]] = None,
     ) -> list[dict]:
-        """Generate assets for all characters without portraits.
+        """Generate assets for all characters (portrait + three-view sheet).
 
         Args:
             style: Art style
@@ -251,6 +304,7 @@ class CharacterService:
             on_start: Callback when generation starts for each character
             on_complete: Callback when generation completes for each character
             on_skip: Callback when character is skipped
+            on_progress: Callback for progress updates
 
         Returns:
             List of generation results
@@ -274,6 +328,7 @@ class CharacterService:
                     overwrite=overwrite,
                     on_start=on_start,
                     on_complete=on_complete,
+                    on_progress=on_progress,
                 )
                 results.append(result)
         return results

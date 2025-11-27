@@ -1,0 +1,2264 @@
+openapi: 3.1.0
+info:
+  title: DreamRight API
+  description: |
+    AI-powered webtoon and short-form drama production API.
+
+    ## Authentication
+    All endpoints require Bearer token authentication. Include the token in the Authorization header:
+    ```
+    Authorization: Bearer <your-api-token>
+    ```
+
+    ## Workflow
+    The typical workflow for creating a webtoon project is:
+    1. Create a project (`POST /projects`)
+    2. Expand a story prompt (`POST /projects/{id}/story`)
+    3. Generate character assets (`POST /projects/{id}/characters/{id}/assets`)
+    4. Generate location assets (`POST /projects/{id}/locations/{id}/assets`)
+    5. Generate chapters sequentially (`POST /projects/{id}/chapters`)
+    6. Generate panels for each chapter (`POST /projects/{id}/chapters/{id}/panels`)
+
+    ## Asset Dependencies
+    - Panel generation requires character portraits and location references to exist
+    - Chapter N generation requires Chapter N-1 to exist (for story continuity)
+    - Panel generation for Chapter N requires Chapter N-1 panels to exist (for visual continuity)
+
+    ## Async Operations
+    Long-running generation operations return `202 Accepted` with a job resource.
+    Poll the job status endpoint or use webhooks for completion notifications.
+  version: 1.0.0
+  contact:
+    name: DreamRight Support
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local development server
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Projects
+    description: Project management
+  - name: Story
+    description: Story expansion and management
+  - name: Characters
+    description: Character management and asset generation
+  - name: Locations
+    description: Location management and asset generation
+  - name: Chapters
+    description: Chapter generation and management
+  - name: Panels
+    description: Panel generation and management
+  - name: Assets
+    description: Asset retrieval
+  - name: Jobs
+    description: Async job management
+
+paths:
+  /projects:
+    get:
+      tags: [Projects]
+      summary: List all projects
+      operationId: listProjects
+      parameters:
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/ProjectStatus'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Projects]
+      summary: Create a new project
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+            example:
+              name: "My Webtoon"
+              format: "webtoon"
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Projects]
+      summary: Get project details
+      operationId: getProject
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    patch:
+      tags: [Projects]
+      summary: Update project
+      operationId: updateProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectRequest'
+      responses:
+        '200':
+          description: Project updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [Projects]
+      summary: Delete project
+      operationId: deleteProject
+      responses:
+        '204':
+          description: Project deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/status:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Projects]
+      summary: Get project generation status
+      description: Returns detailed status of all assets and generation progress
+      operationId: getProjectStatus
+      responses:
+        '200':
+          description: Project status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectStatusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Story endpoints - Resource-oriented: POST creates/expands the story
+  /projects/{projectId}/story:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Story]
+      summary: Get story details
+      operationId: getStory
+      responses:
+        '200':
+          description: Story details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Story'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Story]
+      summary: Create/expand story from prompt
+      description: |
+        Uses AI to expand a story prompt into a full story structure including:
+        - Title, logline, and synopsis
+        - Genre and tone
+        - Story beats for each episode
+        - Character definitions
+        - Location definitions
+
+        This is an async operation. Returns 202 with a job ID to poll for completion.
+      operationId: createStory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStoryRequest'
+            example:
+              prompt: "A shy high school girl discovers she can see ghosts"
+              genre: "fantasy"
+              episodes: 10
+      responses:
+        '202':
+          description: Story expansion started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Story already exists (use PUT to replace)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    put:
+      tags: [Story]
+      summary: Replace/re-expand story
+      description: Replace existing story with a new expansion. Async operation.
+      operationId: replaceStory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStoryRequest'
+      responses:
+        '202':
+          description: Story replacement started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Character endpoints
+  /projects/{projectId}/characters:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Characters]
+      summary: List all characters
+      operationId: listCharacters
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of characters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCharacterList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Characters]
+      summary: Create a character
+      operationId: createCharacter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterRequest'
+      responses:
+        '201':
+          description: Character created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/characters/{characterId}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/characterId'
+
+    get:
+      tags: [Characters]
+      summary: Get character details
+      operationId: getCharacter
+      responses:
+        '200':
+          description: Character details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    patch:
+      tags: [Characters]
+      summary: Update character
+      operationId: updateCharacter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCharacterRequest'
+      responses:
+        '200':
+          description: Character updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [Characters]
+      summary: Delete character
+      operationId: deleteCharacter
+      responses:
+        '204':
+          description: Character deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Character assets - Resource-oriented: POST creates the asset
+  /projects/{projectId}/characters/{characterId}/assets:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/characterId'
+
+    get:
+      tags: [Characters]
+      summary: Get character assets metadata
+      operationId: getCharacterAssets
+      responses:
+        '200':
+          description: Character assets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterAssets'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Characters]
+      summary: Generate character portrait
+      description: |
+        Generates a character portrait image using AI.
+        The portrait is used as a reference for panel generation.
+        This is an async operation.
+      operationId: createCharacterAsset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterAssetRequest'
+      responses:
+        '202':
+          description: Asset generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Asset already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetExistsError'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    put:
+      tags: [Characters]
+      summary: Regenerate character portrait
+      description: Force regenerate the character portrait, replacing existing asset.
+      operationId: replaceCharacterAsset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterAssetRequest'
+      responses:
+        '202':
+          description: Asset regeneration started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/characters/assets:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    post:
+      tags: [Characters]
+      summary: Generate all missing character assets
+      description: Batch generate portraits for all characters without assets.
+      operationId: createAllCharacterAssets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterAssetRequest'
+      responses:
+        '202':
+          description: Batch generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchJobResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Location endpoints
+  /projects/{projectId}/locations:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Locations]
+      summary: List all locations
+      operationId: listLocations
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of locations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLocationList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Locations]
+      summary: Create a location
+      operationId: createLocation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLocationRequest'
+      responses:
+        '201':
+          description: Location created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/locations/{locationId}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/locationId'
+
+    get:
+      tags: [Locations]
+      summary: Get location details
+      operationId: getLocation
+      responses:
+        '200':
+          description: Location details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    patch:
+      tags: [Locations]
+      summary: Update location
+      operationId: updateLocation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLocationRequest'
+      responses:
+        '200':
+          description: Location updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [Locations]
+      summary: Delete location
+      operationId: deleteLocation
+      responses:
+        '204':
+          description: Location deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Location assets - Resource-oriented
+  /projects/{projectId}/locations/{locationId}/assets:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/locationId'
+
+    get:
+      tags: [Locations]
+      summary: Get location assets metadata
+      operationId: getLocationAssets
+      responses:
+        '200':
+          description: Location assets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationAssets'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Locations]
+      summary: Generate location reference
+      description: |
+        Generates a location reference image using AI.
+        This is an async operation.
+      operationId: createLocationAsset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLocationAssetRequest'
+      responses:
+        '202':
+          description: Asset generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Asset already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetExistsError'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    put:
+      tags: [Locations]
+      summary: Regenerate location reference
+      description: Force regenerate the location reference, replacing existing asset.
+      operationId: replaceLocationAsset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLocationAssetRequest'
+      responses:
+        '202':
+          description: Asset regeneration started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/locations/assets:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    post:
+      tags: [Locations]
+      summary: Generate all missing location assets
+      description: Batch generate references for all locations without assets.
+      operationId: createAllLocationAssets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLocationAssetRequest'
+      responses:
+        '202':
+          description: Batch generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchJobResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Chapter endpoints - Resource-oriented with stable IDs
+  /projects/{projectId}/chapters:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Chapters]
+      summary: List all chapters
+      operationId: listChapters
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of chapters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedChapterList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Chapters]
+      summary: Generate chapter from story beat
+      description: |
+        Generates a chapter script from a story beat using AI.
+
+        **Dependency**: Chapter N requires Chapter N-1 to exist for story continuity.
+        The AI uses previous chapters as context when generating new chapters.
+
+        This is an async operation.
+      operationId: createChapter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChapterRequest'
+            example:
+              beat_number: 1
+              panels_per_scene: 6
+      responses:
+        '202':
+          description: Chapter generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Dependency not met or chapter already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependencyError'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/chapters/{chapterId}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/chapterId'
+
+    get:
+      tags: [Chapters]
+      summary: Get chapter details
+      operationId: getChapter
+      responses:
+        '200':
+          description: Chapter details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chapter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [Chapters]
+      summary: Delete chapter
+      operationId: deleteChapter
+      responses:
+        '204':
+          description: Chapter deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Panel endpoints - Resource-oriented
+  /projects/{projectId}/chapters/{chapterId}/panels:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/chapterId'
+
+    get:
+      tags: [Panels]
+      summary: List panels for a chapter
+      operationId: listPanels
+      parameters:
+        - name: scene_number
+          in: query
+          description: Filter by scene number
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of panels
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPanelList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      tags: [Panels]
+      summary: Generate panels for chapter
+      description: |
+        Generates panel images for all scenes in a chapter using AI.
+
+        **Dependencies**:
+        - All characters referenced in panels must have portrait assets
+        - All locations referenced in scenes must have reference assets
+        - Chapter N-1 must exist (for story context)
+        - Chapter N-1 panels should exist (for visual continuity across chapters)
+
+        Panels are generated sequentially within each scene to maintain visual continuity.
+
+        This is an async operation.
+      operationId: createPanels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePanelsRequest'
+      responses:
+        '202':
+          description: Panel generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchJobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Dependencies not met
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependencyError'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/chapters/{chapterId}/scenes/{sceneNumber}/panels:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/chapterId'
+      - $ref: '#/components/parameters/sceneNumber'
+
+    post:
+      tags: [Panels]
+      summary: Generate panels for a specific scene
+      description: Generate panel images for a single scene. Async operation.
+      operationId: createScenePanels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateScenePanelsRequest'
+      responses:
+        '202':
+          description: Panel generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchJobResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Dependencies not met
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependencyError'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Asset file endpoints
+  /projects/{projectId}/assets:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+
+    get:
+      tags: [Assets]
+      summary: List all assets
+      description: List all generated asset files for a project
+      operationId: listAssets
+      parameters:
+        - name: type
+          in: query
+          description: Filter by asset type
+          schema:
+            type: string
+            enum: [character, location, panel]
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of assets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAssetList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/assets/{assetType}/{assetId}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: assetType
+        in: path
+        required: true
+        description: Type of asset (characters, locations, panels)
+        schema:
+          type: string
+          enum: [characters, locations, panels]
+      - name: assetId
+        in: path
+        required: true
+        description: Asset identifier (e.g., character slug, panel path)
+        schema:
+          type: string
+
+    get:
+      tags: [Assets]
+      summary: Get asset file
+      description: Retrieve a generated asset file (image)
+      operationId: getAssetFile
+      responses:
+        '200':
+          description: Asset file
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  /projects/{projectId}/assets/{assetType}/{assetId}/metadata:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: assetType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum: [characters, locations, panels]
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+
+    get:
+      tags: [Assets]
+      summary: Get asset metadata
+      description: Retrieve generation metadata for an asset
+      operationId: getAssetMetadata
+      responses:
+        '200':
+          description: Asset metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetMetadata'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+  # Job endpoints for async operations
+  /jobs/{jobId}:
+    parameters:
+      - $ref: '#/components/parameters/jobId'
+
+    get:
+      tags: [Jobs]
+      summary: Get job status
+      description: Poll for the status of an async job
+      operationId: getJob
+      responses:
+        '200':
+          description: Job status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+    delete:
+      tags: [Jobs]
+      summary: Cancel job
+      description: Attempt to cancel a running job
+      operationId: cancelJob
+      responses:
+        '200':
+          description: Job cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Job cannot be cancelled (already completed or failed)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        default:
+          $ref: '#/components/responses/InternalError'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token for authentication
+
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID
+      schema:
+        type: string
+
+    characterId:
+      name: characterId
+      in: path
+      required: true
+      description: Character ID
+      schema:
+        type: string
+
+    locationId:
+      name: locationId
+      in: path
+      required: true
+      description: Location ID
+      schema:
+        type: string
+
+    chapterId:
+      name: chapterId
+      in: path
+      required: true
+      description: Chapter ID (e.g., ch1, ch2)
+      schema:
+        type: string
+
+    sceneNumber:
+      name: sceneNumber
+      in: path
+      required: true
+      description: Scene number (1-indexed)
+      schema:
+        type: integer
+        minimum: 1
+
+    jobId:
+      name: jobId
+      in: path
+      required: true
+      description: Job ID for async operation
+      schema:
+        type: string
+        format: uuid
+
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
+
+    offset:
+      name: offset
+      in: query
+      description: Number of items to skip
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: "unauthorized"
+            message: "Authentication required"
+
+    Forbidden:
+      description: Access denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: "forbidden"
+            message: "You do not have access to this resource"
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    RateLimited:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: "rate_limited"
+            message: "Rate limit exceeded. Try again in 60 seconds."
+      headers:
+        Retry-After:
+          description: Seconds to wait before retrying
+          schema:
+            type: integer
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    # Enums
+    ProjectFormat:
+      type: string
+      enum: [webtoon, short_drama]
+
+    ProjectStatus:
+      type: string
+      enum: [draft, in_progress, completed]
+
+    Genre:
+      type: string
+      enum: [romance, action, fantasy, thriller, slice_of_life, horror, comedy, drama, mystery, scifi]
+
+    Tone:
+      type: string
+      enum: [comedic, dramatic, dark, lighthearted, romantic, suspenseful]
+
+    CharacterRole:
+      type: string
+      enum: [protagonist, antagonist, supporting, minor]
+
+    LocationType:
+      type: string
+      enum: [interior, exterior]
+
+    TimeOfDay:
+      type: string
+      enum: [morning, day, evening, night]
+
+    ShotType:
+      type: string
+      enum: [wide, medium, close_up, extreme_close_up]
+
+    CameraAngle:
+      type: string
+      enum: [eye_level, high, low, dutch]
+
+    DialogueType:
+      type: string
+      enum: [speech, thought, narration]
+
+    ChapterStatus:
+      type: string
+      enum: [outlined, generating, completed]
+
+    JobStatus:
+      type: string
+      enum: [pending, running, completed, failed, cancelled]
+
+    ErrorCode:
+      type: string
+      enum:
+        - bad_request
+        - validation_error
+        - unauthorized
+        - forbidden
+        - not_found
+        - conflict
+        - dependency_not_met
+        - asset_exists
+        - rate_limited
+        - internal_error
+
+    DependencyType:
+      type: string
+      enum:
+        - chapter
+        - character_asset
+        - location_asset
+        - panel
+        - story
+
+    # Error schemas
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          $ref: '#/components/schemas/ErrorCode'
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+
+    DependencyError:
+      type: object
+      required: [code, message, missing_dependencies]
+      properties:
+        code:
+          type: string
+          enum: [dependency_not_met]
+        message:
+          type: string
+        missing_dependencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissingDependency'
+
+    MissingDependency:
+      type: object
+      required: [type, id, name, resolution]
+      properties:
+        type:
+          $ref: '#/components/schemas/DependencyType'
+        id:
+          type: string
+          description: Resource ID
+        name:
+          type: string
+          description: Human-readable name
+        resolution:
+          type: string
+          description: How to resolve this dependency
+          example: "Generate character portrait: POST /projects/{id}/characters/{id}/assets"
+
+    AssetExistsError:
+      type: object
+      required: [code, message, asset_path]
+      properties:
+        code:
+          type: string
+          enum: [asset_exists]
+        message:
+          type: string
+        asset_path:
+          type: string
+          description: Path to existing asset
+        use_put_to_replace:
+          type: boolean
+          default: true
+
+    # Pagination wrapper
+    PaginationMeta:
+      type: object
+      required: [total, limit, offset]
+      properties:
+        total:
+          type: integer
+          description: Total number of items
+        limit:
+          type: integer
+        offset:
+          type: integer
+        has_more:
+          type: boolean
+
+    # Paginated lists
+    PaginatedProjectList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSummary'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    PaginatedCharacterList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    PaginatedLocationList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    PaginatedChapterList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChapterSummary'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    PaginatedPanelList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Panel'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    PaginatedAssetList:
+      type: object
+      required: [items, meta]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetInfo'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    # Job schemas
+    Job:
+      type: object
+      required: [id, status, type, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        type:
+          type: string
+          description: Type of job (story_expansion, character_asset, panel_generation, etc.)
+        progress:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Progress from 0.0 to 1.0
+        created_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+        result:
+          type: object
+          nullable: true
+          description: Result data when job completes
+        error:
+          $ref: '#/components/schemas/Error'
+          nullable: true
+
+    JobResponse:
+      type: object
+      required: [job_id, status, poll_url]
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        poll_url:
+          type: string
+          format: uri
+          description: URL to poll for job status
+
+    BatchJobResponse:
+      type: object
+      required: [job_id, status, poll_url, total_items]
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        poll_url:
+          type: string
+          format: uri
+        total_items:
+          type: integer
+          description: Number of items to process
+
+    # Project schemas
+    ProjectSummary:
+      type: object
+      required: [id, name, format, status, created_at]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        format:
+          $ref: '#/components/schemas/ProjectFormat'
+        status:
+          $ref: '#/components/schemas/ProjectStatus'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        story_title:
+          type: string
+          nullable: true
+        character_count:
+          type: integer
+        location_count:
+          type: integer
+        chapter_count:
+          type: integer
+
+    Project:
+      type: object
+      required: [id, name, format, status, created_at, characters, locations, chapters]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        format:
+          $ref: '#/components/schemas/ProjectFormat'
+        status:
+          $ref: '#/components/schemas/ProjectStatus'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        story:
+          $ref: '#/components/schemas/Story'
+          nullable: true
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+        chapters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChapterSummary'
+        original_prompt:
+          type: string
+
+    CreateProjectRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        format:
+          $ref: '#/components/schemas/ProjectFormat'
+          default: webtoon
+
+    UpdateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        status:
+          $ref: '#/components/schemas/ProjectStatus'
+
+    ProjectStatusResponse:
+      type: object
+      required: [project_id, status, story_expanded, characters, locations, chapters]
+      properties:
+        project_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/ProjectStatus'
+        story_expanded:
+          type: boolean
+        characters:
+          type: object
+          required: [total, with_assets, missing_assets]
+          properties:
+            total:
+              type: integer
+            with_assets:
+              type: integer
+            missing_assets:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetStatusItem'
+        locations:
+          type: object
+          required: [total, with_assets, missing_assets]
+          properties:
+            total:
+              type: integer
+            with_assets:
+              type: integer
+            missing_assets:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetStatusItem'
+        chapters:
+          type: object
+          required: [total_beats, generated, with_panels]
+          properties:
+            total_beats:
+              type: integer
+            generated:
+              type: integer
+            with_panels:
+              type: integer
+            missing_chapters:
+              type: array
+              items:
+                type: object
+                required: [beat_number, beat_name]
+                properties:
+                  beat_number:
+                    type: integer
+                  beat_name:
+                    type: string
+        panels:
+          type: object
+          required: [total, generated]
+          properties:
+            total:
+              type: integer
+            generated:
+              type: integer
+
+    AssetStatusItem:
+      type: object
+      required: [id, name, asset_type]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        asset_type:
+          type: string
+          enum: [portrait, reference, panel]
+
+    # Story schemas
+    StoryBeat:
+      type: object
+      required: [beat, description]
+      properties:
+        beat:
+          type: string
+        description:
+          type: string
+
+    Story:
+      type: object
+      required: [id, title, genre, tone, episode_count]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        logline:
+          type: string
+        genre:
+          $ref: '#/components/schemas/Genre'
+        tone:
+          $ref: '#/components/schemas/Tone'
+        themes:
+          type: array
+          items:
+            type: string
+        target_audience:
+          type: string
+        episode_count:
+          type: integer
+        synopsis:
+          type: string
+        story_beats:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoryBeat'
+
+    CreateStoryRequest:
+      type: object
+      required: [prompt]
+      properties:
+        prompt:
+          type: string
+          description: Story idea/prompt to expand
+          minLength: 10
+        genre:
+          $ref: '#/components/schemas/Genre'
+          description: Genre hint (optional, AI will decide if not specified)
+        tone:
+          $ref: '#/components/schemas/Tone'
+          description: Tone hint (optional, AI will decide if not specified)
+        episodes:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 50
+          description: Target number of episodes
+
+    # Character schemas
+    CharacterDescription:
+      type: object
+      properties:
+        physical:
+          type: string
+        personality:
+          type: string
+        background:
+          type: string
+        motivation:
+          type: string
+
+    CharacterAssets:
+      type: object
+      properties:
+        portrait:
+          type: string
+          nullable: true
+          description: Path to portrait image
+        portrait_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to download portrait
+        three_view:
+          type: object
+          properties:
+            front:
+              type: string
+              nullable: true
+            side:
+              type: string
+              nullable: true
+            back:
+              type: string
+              nullable: true
+
+    Character:
+      type: object
+      required: [id, name, role]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/CharacterRole'
+        age:
+          type: string
+        description:
+          $ref: '#/components/schemas/CharacterDescription'
+        visual_tags:
+          type: array
+          items:
+            type: string
+        assets:
+          $ref: '#/components/schemas/CharacterAssets'
+
+    CreateCharacterRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/CharacterRole'
+        age:
+          type: string
+        description:
+          $ref: '#/components/schemas/CharacterDescription'
+        visual_tags:
+          type: array
+          items:
+            type: string
+
+    UpdateCharacterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/CharacterRole'
+        age:
+          type: string
+        description:
+          $ref: '#/components/schemas/CharacterDescription'
+        visual_tags:
+          type: array
+          items:
+            type: string
+
+    CreateCharacterAssetRequest:
+      type: object
+      properties:
+        style:
+          type: string
+          default: webtoon
+          description: Art style for generation
+        portrait_only:
+          type: boolean
+          default: true
+          description: Generate only portrait (not three-view)
+
+    # Location schemas
+    LocationAssets:
+      type: object
+      properties:
+        reference:
+          type: string
+          nullable: true
+          description: Path to reference image
+        reference_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL to download reference
+
+    Location:
+      type: object
+      required: [id, name, type]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/LocationType'
+        description:
+          type: string
+        visual_tags:
+          type: array
+          items:
+            type: string
+        assets:
+          $ref: '#/components/schemas/LocationAssets'
+
+    CreateLocationRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/LocationType'
+        description:
+          type: string
+        visual_tags:
+          type: array
+          items:
+            type: string
+
+    UpdateLocationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/LocationType'
+        description:
+          type: string
+        visual_tags:
+          type: array
+          items:
+            type: string
+
+    CreateLocationAssetRequest:
+      type: object
+      properties:
+        style:
+          type: string
+          default: webtoon
+          description: Art style for generation
+
+    # Chapter schemas
+    ChapterSummary:
+      type: object
+      required: [id, number, title, status]
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+        title:
+          type: string
+        status:
+          $ref: '#/components/schemas/ChapterStatus'
+        scene_count:
+          type: integer
+        panel_count:
+          type: integer
+        generated_panel_count:
+          type: integer
+
+    Chapter:
+      type: object
+      required: [id, number, title, status, scenes]
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+        title:
+          type: string
+        summary:
+          type: string
+        status:
+          $ref: '#/components/schemas/ChapterStatus'
+        scenes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scene'
+
+    CreateChapterRequest:
+      type: object
+      required: [beat_number]
+      properties:
+        beat_number:
+          type: integer
+          minimum: 1
+          description: Story beat number to generate chapter for (1-indexed)
+        panels_per_scene:
+          type: integer
+          default: 6
+          minimum: 1
+          maximum: 20
+          description: Target number of panels per scene
+
+    # Scene schemas
+    Scene:
+      type: object
+      required: [id, number, panels]
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+        location_id:
+          type: string
+          nullable: true
+        time_of_day:
+          $ref: '#/components/schemas/TimeOfDay'
+        weather:
+          type: string
+        character_ids:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        mood:
+          type: string
+        panels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Panel'
+        continues_from_previous_chapter:
+          type: boolean
+
+    # Panel schemas
+    Dialogue:
+      type: object
+      required: [text, type]
+      properties:
+        character_id:
+          type: string
+          nullable: true
+        text:
+          type: string
+        type:
+          $ref: '#/components/schemas/DialogueType'
+
+    PanelCharacter:
+      type: object
+      required: [character_id]
+      properties:
+        character_id:
+          type: string
+        expression:
+          type: string
+          default: neutral
+        pose:
+          type: string
+        position:
+          type: string
+          enum: [left, center, right, background]
+          default: center
+
+    PanelComposition:
+      type: object
+      properties:
+        shot_type:
+          $ref: '#/components/schemas/ShotType'
+        angle:
+          $ref: '#/components/schemas/CameraAngle'
+        focus:
+          type: string
+
+    Panel:
+      type: object
+      required: [id, number]
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+        type:
+          type: string
+          enum: [panel, transition, splash]
+          default: panel
+        composition:
+          $ref: '#/components/schemas/PanelComposition'
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/PanelCharacter'
+        action:
+          type: string
+        dialogue:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dialogue'
+        sfx:
+          type: array
+          items:
+            type: string
+        continues_from_previous:
+          type: boolean
+        continuity_note:
+          type: string
+        image_path:
+          type: string
+          nullable: true
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+
+    CreatePanelsRequest:
+      type: object
+      properties:
+        style:
+          type: string
+          default: webtoon
+          description: Art style for generation
+
+    CreateScenePanelsRequest:
+      type: object
+      properties:
+        style:
+          type: string
+          default: webtoon
+          description: Art style for generation
+
+    # Asset schemas
+    AssetInfo:
+      type: object
+      required: [id, type, path, created_at]
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [character, location, panel]
+        path:
+          type: string
+        url:
+          type: string
+          format: uri
+        created_at:
+          type: string
+          format: date-time
+        metadata_url:
+          type: string
+          format: uri
+
+    AssetMetadata:
+      type: object
+      required: [type, generated_at]
+      properties:
+        type:
+          type: string
+        generated_at:
+          type: string
+          format: date-time
+        prompt:
+          type: string
+          description: The prompt used for generation
+        parameters:
+          type: object
+          description: Generation parameters
+          properties:
+            style:
+              type: string
+            resolution:
+              type: string
+            aspect_ratio:
+              type: string
+            model:
+              type: string
+        references:
+          type: array
+          description: Reference images used
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              role:
+                type: string

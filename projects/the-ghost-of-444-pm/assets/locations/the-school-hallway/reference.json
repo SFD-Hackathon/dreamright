@@ -1,0 +1,37 @@
+{
+  "type": "location",
+  "location_id": "loc_the_school_hallway",
+  "location_name": "The School Hallway",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "Normal to others, but a horror show for Mina. The lighting shifts when she focuses on spirits.",
+  "visual_tags": [
+    "flickering fluorescent lights",
+    "greenish tint",
+    "rows of metal lockers",
+    "shadowy figures in corners",
+    "claustrophobic perspective"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_the_school_hallway",
+    "location_name": "The School Hallway",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: The School Hallway\nType: interior\nDescription: Normal to others, but a horror show for Mina. The lighting shifts when she focuses on spirits.\nVisual details: flickering fluorescent lights, greenish tint, rows of metal lockers, shadowy figures in corners, claustrophobic perspective",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 128,
+        "candidates_tokens": 1308,
+        "total_tokens": 1693
+      }
+    }
+  },
+  "generated_at": "2025-11-27T11:29:02.747666"
+}

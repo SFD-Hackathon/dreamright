@@ -115,24 +115,34 @@ class PanelGenerator:
         panel_char: PanelCharacter,
         character: Optional[Character],
     ) -> str:
-        """Build description for a character in the panel."""
-        parts = []
+        """Build description for a character in the panel.
+
+        Includes FULL appearance details to ensure costume/look consistency.
+        """
+        lines = []
 
         if character:
-            parts.append(f"Character '{character.name}'")
-            if character.visual_tags:
-                parts.append(f"({', '.join(character.visual_tags[:5])})")
-        else:
-            parts.append("Character")
+            lines.append(f"**{character.name}** (MUST match reference image exactly)")
 
-        parts.append(f"- Expression: {panel_char.expression}")
+            # Include physical description for appearance consistency
+            if character.description.physical:
+                lines.append(f"  Appearance: {character.description.physical}")
+
+            # Include ALL visual tags for costume/appearance consistency
+            if character.visual_tags:
+                lines.append(f"  Visual details: {', '.join(character.visual_tags)}")
+        else:
+            lines.append("Character")
+
+        # Panel-specific attributes
+        lines.append(f"  Expression: {panel_char.expression}")
 
         if panel_char.pose:
-            parts.append(f"- Pose: {panel_char.pose}")
+            lines.append(f"  Pose: {panel_char.pose}")
 
-        parts.append(f"- Position: {panel_char.position} of frame")
+        lines.append(f"  Position: {panel_char.position} of frame")
 
-        return " ".join(parts)
+        return "\n".join(lines)
 
     async def generate_panel(
         self,

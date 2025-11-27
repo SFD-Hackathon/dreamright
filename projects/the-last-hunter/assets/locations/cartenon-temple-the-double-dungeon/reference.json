@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_cartenon_temple_the_double_dun",
+  "location_name": "Cartenon Temple (The Double Dungeon)",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A massive, ancient stone chamber hidden inside a cave. Walls are lined with unlit torches that flare blue when the door shuts.",
+  "visual_tags": [
+    "Lighting: Eerie blue torchlight casting long shadows",
+    "Key Object: The Statue of God (massive stone figure with a creepy smile)",
+    "Atmosphere: Claustrophobic, ancient, divine dread",
+    "Palette: Cold blues and stone greys"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_cartenon_temple_the_double_dun",
+    "location_name": "Cartenon Temple (The Double Dungeon)",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: Cartenon Temple (The Double Dungeon)\nType: interior\nDescription: A massive, ancient stone chamber hidden inside a cave. Walls are lined with unlit torches that flare blue when the door shuts.\nVisual details: Lighting: Eerie blue torchlight casting long shadows, Key Object: The Statue of God (massive stone figure with a creepy smile), Atmosphere: Claustrophobic, ancient, divine dread, Palette: Cold blues and stone greys",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 165,
+        "candidates_tokens": 1304,
+        "total_tokens": 1724
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:43:59.422440"
+}

@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_lee_hana",
+  "character_name": "Lee Hana",
+  "role": "supporting",
+  "age": "20",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Short strawberry-blonde bob cut with blunt bangs",
+    "Eyes: Large amber eyes, often teary",
+    "Top: White cleric-style robe with gold trim",
+    "Bottom: Brown leggings under the robe",
+    "Footwear: Brown leather ankle boots",
+    "Accessory: Oversized wooden staff with a glowing crystal tip"
+  ],
+  "description": {
+    "physical": "Petite, trembling hands, wide expressive eyes.",
+    "personality": "Compassionate but easily frightened. The moral compass of the raid."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_lee_hana",
+    "character_name": "Lee Hana",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Lee Hana\nAge: 20\nPhysical appearance: Petite, trembling hands, wide expressive eyes.\nVisual details: Hair: Short strawberry-blonde bob cut with blunt bangs, Eyes: Large amber eyes, often teary, Top: White cleric-style robe with gold trim, Bottom: Brown leggings under the robe, Footwear: Brown leather ankle boots, Accessory: Oversized wooden staff with a glowing crystal tip\nPersonality (for expression): Compassionate but easily frightened. The moral compass of the raid.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 192,
+        "candidates_tokens": 1302,
+        "total_tokens": 1727
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:40:29.009243"
+}

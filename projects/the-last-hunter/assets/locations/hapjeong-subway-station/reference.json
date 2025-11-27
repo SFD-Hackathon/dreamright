@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_hapjeong_subway_station",
+  "location_name": "Hapjeong Subway Station",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "An abandoned version of a modern subway station. Vines grow through the cracked tiles and the air is thick with dust.",
+  "visual_tags": [
+    "Lighting: Flickering fluorescent emergency lights",
+    "Key Object: Broken turnstiles covered in rust",
+    "Atmosphere: Liminal, abandoned, silent",
+    "Palette: Sickly greens and rust oranges"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_hapjeong_subway_station",
+    "location_name": "Hapjeong Subway Station",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: Hapjeong Subway Station\nType: interior\nDescription: An abandoned version of a modern subway station. Vines grow through the cracked tiles and the air is thick with dust.\nVisual details: Lighting: Flickering fluorescent emergency lights, Key Object: Broken turnstiles covered in rust, Atmosphere: Liminal, abandoned, silent, Palette: Sickly greens and rust oranges",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 147,
+        "candidates_tokens": 1301,
+        "total_tokens": 1710
+      }
+    }
+  },
+  "generated_at": "2025-11-27T15:44:27.721093"
+}

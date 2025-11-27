@@ -229,10 +229,14 @@ def expand(
 def generate_character(
     name: Optional[str] = typer.Option(None, help="Character name (generates all if not specified)"),
     style: str = typer.Option("webtoon", help="Art style"),
-    portrait_only: bool = typer.Option(True, help="Generate only portrait (not full three-view)"),
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if exists (bypass cache)"),
 ):
-    """Generate character visual assets."""
+    """Generate character reference sheets (full-body three-view turnaround).
+
+    Creates a single image showing front, side, and back views of each character.
+    This provides the best reference for panel generation with consistent
+    costume and appearance from all angles.
+    """
     from .services import CharacterService
     from .services.exceptions import NotFoundError
 
@@ -261,96 +265,43 @@ def generate_character(
     def on_start(char):
         console.print(f"\n[cyan]Generating assets for {char.name}...[/cyan]")
 
+    def on_progress(step_desc):
+        console.print(f"  [dim]{step_desc}[/dim]")
+
     def on_complete(char, path):
-        console.print(f"  [green]Portrait saved: {path}[/green]")
+        console.print(f"  [green]Complete! Sheet saved: {path}[/green]")
 
     def on_skip(char, reason):
-        console.print(f"\n[dim]{char.name}: portrait already exists (use --overwrite to regenerate)[/dim]")
+        console.print(f"\n[dim]{char.name}: assets already exist (use --overwrite to regenerate)[/dim]")
 
     async def do_generate():
-        if portrait_only:
-            # Use service for portrait generation
-            if character_ids:
-                # Single character
-                return await service.generate_asset(
-                    character_ids[0],
-                    style=style,
-                    overwrite=overwrite,
-                    on_start=on_start,
-                    on_complete=on_complete,
-                )
-            else:
-                # All characters
-                return await service.generate_all_assets(
-                    style=style,
-                    overwrite=overwrite,
-                    on_start=on_start,
-                    on_complete=on_complete,
-                    on_skip=on_skip,
-                )
+        if character_ids:
+            # Single character
+            return await service.generate_asset(
+                character_ids[0],
+                style=style,
+                overwrite=overwrite,
+                on_start=on_start,
+                on_complete=on_complete,
+                on_progress=on_progress,
+            )
         else:
-            # Three-view mode: use generator directly (not in service yet)
-            generator = CharacterGenerator()
-            chars = [service.get_character(cid) for cid in character_ids] if character_ids else manager.project.characters
-
-            for char in chars:
-                char_slug = slugify(char.name)
-                char_folder = f"characters/{char_slug}"
-
-                # Check if all three views exist (unless --overwrite)
-                views_to_generate = ["front", "side", "back"]
-                if not overwrite:
-                    existing_views = []
-                    for view_name in views_to_generate:
-                        view_path = manager.storage.get_absolute_asset_path(f"{char_folder}/{view_name}.png")
-                        if view_path.exists():
-                            existing_views.append(view_name)
-                            if view_name not in char.assets.three_view:
-                                char.assets.three_view[view_name] = f"assets/{char_folder}/{view_name}.png"
-
-                    if len(existing_views) == len(views_to_generate):
-                        console.print(f"\n[dim]{char.name}: three-view already exists (use --overwrite to regenerate)[/dim]")
-                        continue
-
-                console.print(f"\n[cyan]Generating assets for {char.name}...[/cyan]")
-
-                char_metadata = {
-                    "type": "character",
-                    "character_id": char.id,
-                    "character_name": char.name,
-                    "role": char.role.value,
-                    "age": char.age,
-                    "style": style,
-                    "visual_tags": char.visual_tags,
-                    "description": {
-                        "physical": char.description.physical,
-                        "personality": char.description.personality,
-                    },
-                }
-
-                views = await generator.generate_three_view(char, style=style, overwrite_cache=overwrite)
-                for view_name, (image_data, gen_info) in views.items():
-                    path = manager.save_asset(
-                        char_folder,
-                        f"{view_name}.png",
-                        image_data,
-                        metadata={
-                            **char_metadata,
-                            "asset_type": f"three_view_{view_name}",
-                            "gemini": gen_info,
-                        },
-                    )
-                    char.assets.three_view[view_name] = path
-                    console.print(f"  [green]{view_name.title()} view saved: {path}[/green]")
-
-            manager.save()
+            # All characters
+            return await service.generate_all_assets(
+                style=style,
+                overwrite=overwrite,
+                on_start=on_start,
+                on_complete=on_complete,
+                on_skip=on_skip,
+                on_progress=on_progress,
+            )
 
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
         console=console,
     ) as progress:
-        progress.add_task("Generating character assets...", total=None)
+        progress.add_task("Generating character sheets...", total=None)
         run_async(do_generate())
 
     console.print("\n[green]Character generation complete![/green]")
