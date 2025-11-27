@@ -28,6 +28,28 @@ def escape(text: str) -> str:
     return html_escape.escape(str(text))
 
 
+def slugify(text: str) -> str:
+    """Convert text to a URL/filename-friendly slug.
+
+    Args:
+        text: Text to slugify
+
+    Returns:
+        Slugified text (lowercase, hyphens instead of spaces)
+    """
+    # Convert to lowercase
+    text = text.lower()
+    # Replace spaces and underscores with hyphens
+    text = re.sub(r'[\s_]+', '-', text)
+    # Remove any characters that aren't alphanumeric or hyphens
+    text = re.sub(r'[^\w\-]', '', text)
+    # Remove multiple consecutive hyphens
+    text = re.sub(r'-+', '-', text)
+    # Strip leading/trailing hyphens
+    text = text.strip('-')
+    return text
+
+
 def validate_project_id(project_id: str) -> bool:
     """Validate project ID to prevent path traversal."""
     if not project_id or not SAFE_ID_PATTERN.match(project_id):
@@ -313,7 +335,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
         cover_img = ""
         if characters:
             first_char = characters[0]
-            char_name = first_char.get("name", "").lower().replace(" ", "-")
+            char_name = slugify(first_char.get("name", ""))
             portrait_path = PROJECTS_DIR / project_id / "assets" / "characters" / char_name / "portrait.png"
             if portrait_path.exists():
                 cover_img = f"/projects/{project_id}/assets/characters/{char_name}/portrait.png"
@@ -481,7 +503,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
         .character-card.protagonist {{ border-color: #e94560; }}
         .character-img {{
             width: 100%;
-            height: 200px;
+            height: 500px;
             object-fit: cover;
             background: rgba(0,0,0,0.3);
         }}
@@ -637,7 +659,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
 """
         for char in main_chars + supporting_chars:
             char_name = char.get("name", "")
-            char_slug = char_name.lower().replace(" ", "-")
+            char_slug = slugify(char_name)
             char_img = f"/projects/{project_id}/assets/characters/{char_slug}/portrait.png"
             role = char.get("role", "supporting")
             role_class = "protagonist" if role == "protagonist" else ""
