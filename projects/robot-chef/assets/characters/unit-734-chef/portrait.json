@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_unit_734_chef",
+  "character_name": "Unit 734 ('Chef')",
+  "role": "supporting",
+  "age": "150 years (manufacturing date)",
+  "style": "webtoon",
+  "visual_tags": [
+    "Head: Boxy rusted metal head with one large, glowing yellow lens (cracked)",
+    "Body: Bulky industrial chassis, beige paint peeling to reveal steel",
+    "OUTFIT: A pristine, white traditional chef's apron tied over its rusty metal waist",
+    "Accessory: A bent, high-carbon steel ladle magnetized to its hip",
+    "Details: Oil leaks that look like tear tracks"
+  ],
+  "description": {
+    "physical": "A bulky, industrial waste-disposal droid with a hunched silhouette. Its metal is pitted and rusted.",
+    "personality": "Stoic, meticulous, protective. Speaks only in cooking terminology."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_unit_734_chef",
+    "character_name": "Unit 734 ('Chef')",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Unit 734 ('Chef')\nAge: 150 years (manufacturing date)\nPhysical appearance: A bulky, industrial waste-disposal droid with a hunched silhouette. Its metal is pitted and rusted.\nVisual details: Head: Boxy rusted metal head with one large, glowing yellow lens (cracked), Body: Bulky industrial chassis, beige paint peeling to reveal steel, OUTFIT: A pristine, white traditional chef's apron tied over its rusty metal waist, Accessory: A bent, high-carbon steel ladle magnetized to its hip, Details: Oil leaks that look like tear tracks\nPersonality (for expression): Stoic, meticulous, protective. Speaks only in cooking terminology.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 233,
+        "candidates_tokens": 1303,
+        "total_tokens": 1824
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:30:01.763435"
+}

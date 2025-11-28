@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_elaras_dorm_room",
+  "location_name": "Elara's Dorm Room",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "Tiny, cluttered, and covered in preventative measures.",
+  "visual_tags": [
+    "Lighting: Warm candlelight, cozy but messy",
+    "Key Object: A wall covered in sticky notes with future dates/times crossed out",
+    "Atmosphere: Paranoiac safety",
+    "Palette: Warm browns, parchment yellow"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_elaras_dorm_room",
+    "location_name": "Elara's Dorm Room",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: Elara's Dorm Room\nType: interior\nDescription: Tiny, cluttered, and covered in preventative measures.\nVisual details: Lighting: Warm candlelight, cozy but messy, Key Object: A wall covered in sticky notes with future dates/times crossed out, Atmosphere: Paranoiac safety, Palette: Warm browns, parchment yellow",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 247,
+        "candidates_tokens": 1338,
+        "total_tokens": 1896
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:24:49.154071"
+}

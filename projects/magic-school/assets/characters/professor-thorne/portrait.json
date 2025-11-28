@@ -1,0 +1,40 @@
+{
+  "type": "character",
+  "character_id": "char_professor_thorne",
+  "character_name": "Professor Thorne",
+  "role": "supporting",
+  "age": "50s",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Slicked back black hair greying at temples",
+    "Outfit: High-collared black robe with purple velvet lining",
+    "Accessory: A monocle that detects magic fluctuations"
+  ],
+  "description": {
+    "physical": "Imposing height, gaunt face, scar running down left cheek.",
+    "personality": "Strict, suspicious, hates incompetence."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_professor_thorne",
+    "character_name": "Professor Thorne",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Professor Thorne\nAge: 50s\nPhysical appearance: Imposing height, gaunt face, scar running down left cheek.\nVisual details: Hair: Slicked back black hair greying at temples, Outfit: High-collared black robe with purple velvet lining, Accessory: A monocle that detects magic fluctuations\nPersonality (for expression): Strict, suspicious, hates incompetence.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 166,
+        "candidates_tokens": 1298,
+        "total_tokens": 1743
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:22:38.353791"
+}

@@ -1,0 +1,45 @@
+{
+  "type": "character",
+  "character_id": "char_kenji",
+  "character_name": "Kenji",
+  "role": "protagonist",
+  "age": "30s",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Messy black topknot with shaved sides",
+    "Eyes: Sharp, dark eyes with a digital HUD monocle over the left eye",
+    "Top: Tattered grey sleeveless undershirt revealing cybernetic shoulder",
+    "Outerwear: Red holographic Haori jacket with circuitry patterns",
+    "Bottom: Black tactical hakama pants with cargo pockets",
+    "Footwear: Split-toe tactical boots (Tabi style)",
+    "Accessory: The Glitch Blade (Katana with data cables running from hilt to his arm)",
+    "Colors: Black, Grey, Crimson"
+  ],
+  "description": {
+    "physical": "Tall, muscular but scarred build. Has a cybernetic left arm that glows overheat-orange when stressed. Weary expression.",
+    "personality": "Stoic, disciplined, haunted by failure. Speaks rarely, letting his sword do the talking."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_kenji",
+    "character_name": "Kenji",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kenji\nAge: 30s\nPhysical appearance: Tall, muscular but scarred build. Has a cybernetic left arm that glows overheat-orange when stressed. Weary expression.\nVisual details: Hair: Messy black topknot with shaved sides, Eyes: Sharp, dark eyes with a digital HUD monocle over the left eye, Top: Tattered grey sleeveless undershirt revealing cybernetic shoulder, Outerwear: Red holographic Haori jacket with circuitry patterns, Bottom: Black tactical hakama pants with cargo pockets, Footwear: Split-toe tactical boots (Tabi style), Accessory: The Glitch Blade (Katana with data cables running from hilt to his arm), Colors: Black, Grey, Crimson\nPersonality (for expression): Stoic, disciplined, haunted by failure. Speaks rarely, letting his sword do the talking.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 260,
+        "candidates_tokens": 1307,
+        "total_tokens": 1772
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:44:02.026649"
+}

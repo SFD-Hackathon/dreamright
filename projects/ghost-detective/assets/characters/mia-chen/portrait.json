@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_mia_chen",
+  "character_name": "Mia Chen",
+  "role": "protagonist",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "OUTFIT: Oversized bright yellow hoodie (signature color)",
+    "BOTTOM: Black pleated skirt with sheer black tights",
+    "FOOTWEAR: Chunky black combat boots",
+    "ACCESSORY: Large white noise-canceling headphones around neck or on ears",
+    "MOTIF: Water droplets appearing on her skin when ghosts are near"
+  ],
+  "description": {
+    "physical": "Petite build, pale skin, shoulder-length messy black hair with blue dyed tips. Large expressive eyes with dark circles.",
+    "personality": "Introverted, anxious, observant, but fiercely brave when cornered."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_mia_chen",
+    "character_name": "Mia Chen",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Mia Chen\nAge: 17\nPhysical appearance: Petite build, pale skin, shoulder-length messy black hair with blue dyed tips. Large expressive eyes with dark circles.\nVisual details: OUTFIT: Oversized bright yellow hoodie (signature color), BOTTOM: Black pleated skirt with sheer black tights, FOOTWEAR: Chunky black combat boots, ACCESSORY: Large white noise-canceling headphones around neck or on ears, MOTIF: Water droplets appearing on her skin when ghosts are near\nPersonality (for expression): Introverted, anxious, observant, but fiercely brave when cornered.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 210,
+        "candidates_tokens": 1301,
+        "total_tokens": 1734
+      }
+    }
+  },
+  "generated_at": "2025-11-27T19:14:39.193260"
+}

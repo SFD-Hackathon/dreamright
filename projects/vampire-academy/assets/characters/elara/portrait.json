@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_elara",
+  "character_name": "Elara",
+  "role": "supporting",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Knee-length jet black hair, straight, usually worn loose",
+    "Eyes: Crimson red (classic vampire) but soft when looking at Ren",
+    "Face: Perfect porcelain skin, heart-shaped face",
+    "OUTFIT: White Victorian gothic blouse with high lace collar, deep crimson corset vest, floor-length black skirt with slit",
+    "Accessory: A velvet choker with a ruby pendant"
+  ],
+  "description": {
+    "physical": "Ethereal, pale skin, delicate features but with a commanding posture.",
+    "personality": "Compassionate, rebellious against tradition, secretly studies forbidden healing magic."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_elara",
+    "character_name": "Elara",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Elara\nAge: 17\nPhysical appearance: Ethereal, pale skin, delicate features but with a commanding posture.\nVisual details: Hair: Knee-length jet black hair, straight, usually worn loose, Eyes: Crimson red (classic vampire) but soft when looking at Ren, Face: Perfect porcelain skin, heart-shaped face, OUTFIT: White Victorian gothic blouse with high lace collar, deep crimson corset vest, floor-length black skirt with slit, Accessory: A velvet choker with a ruby pendant\nPersonality (for expression): Compassionate, rebellious against tradition, secretly studies forbidden healing magic.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 214,
+        "candidates_tokens": 1296,
+        "total_tokens": 1784
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:49:27.928560"
+}

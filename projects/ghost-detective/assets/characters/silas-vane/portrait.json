@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_silas_vane",
+  "character_name": "Silas Vane",
+  "role": "supporting",
+  "age": "28",
+  "style": "webtoon",
+  "visual_tags": [
+    "OUTFIT: Long charcoal grey wool trench coat over a black turtleneck",
+    "BOTTOM: Tailored black slacks",
+    "FOOTWEAR: Polished dress shoes",
+    "ACCESSORY: A sleek silver cane with runic carvings",
+    "MOTIF: Sound waves visualized as ripples around him"
+  ],
+  "description": {
+    "physical": "Tall, lanky, sharp jawline. Silver-white hair (prematurely graying). Always wears dark sunglasses.",
+    "personality": "Cynical, dry-witted, professional, secretly protective."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_silas_vane",
+    "character_name": "Silas Vane",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Silas Vane\nAge: 28\nPhysical appearance: Tall, lanky, sharp jawline. Silver-white hair (prematurely graying). Always wears dark sunglasses.\nVisual details: OUTFIT: Long charcoal grey wool trench coat over a black turtleneck, BOTTOM: Tailored black slacks, FOOTWEAR: Polished dress shoes, ACCESSORY: A sleek silver cane with runic carvings, MOTIF: Sound waves visualized as ripples around him\nPersonality (for expression): Cynical, dry-witted, professional, secretly protective.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 203,
+        "candidates_tokens": 1292,
+        "total_tokens": 1771
+      }
+    }
+  },
+  "generated_at": "2025-11-27T18:16:44.333480"
+}

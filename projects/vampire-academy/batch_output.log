@@ -1,0 +1,179 @@
+[2025-11-28 11:42:38] 
+################################################################################
+[2025-11-28 11:42:38] # BATCH PROJECT GENERATION
+[2025-11-28 11:42:38] # Total projects: 3
+[2025-11-28 11:42:38] # Started at: 2025-11-28 11:42:38
+[2025-11-28 11:42:38] ################################################################################
+
+[2025-11-28 11:42:38] 
+[Project 1/3]
+[2025-11-28 11:42:38] 
+================================================================================
+[2025-11-28 11:42:38] Starting project: Vampire Academy
+[2025-11-28 11:42:38] Prompt: At an elite boarding school for vampires, a dhampir guardian-in-training uncovers a conspiracy that threatens both vampire and human worlds.
+[2025-11-28 11:42:38] Episodes: 2
+[2025-11-28 11:42:38] ================================================================================
+
+[2025-11-28 11:42:38] Using executable: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright
+[2025-11-28 11:42:38]   → Initialize project 'Vampire Academy'
+[2025-11-28 11:42:38]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright init Vampire Academy
+[2025-11-28 11:42:39]     ✗ Failed (exit code 1)
+[2025-11-28 11:42:39]     Sleeping 5 seconds before retry...
+[2025-11-28 11:42:44]     ↻ Retry attempt 2/3
+[2025-11-28 11:42:45]     ✗ Failed (exit code 1)
+[2025-11-28 11:42:45]     Sleeping 5 seconds before retry...
+[2025-11-28 11:42:50]     ↻ Retry attempt 3/3
+[2025-11-28 11:42:51]     ✗ Failed (exit code 1)
+[2025-11-28 11:42:51]     ✗ All 3 attempts failed
+[2025-11-28 11:42:51] ✗ Failed to initialize project 'Vampire Academy', skipping
+[2025-11-28 11:42:51] 
+  Brief pause before next project...
+
+[2025-11-28 11:42:53] 
+[Project 2/3]
+[2025-11-28 11:42:53] 
+================================================================================
+[2025-11-28 11:42:53] Starting project: Time Loop Detective
+[2025-11-28 11:42:53] Prompt: A detective stuck in a 24-hour time loop must solve a murder that resets every day, with each loop revealing new clues and suspects.
+[2025-11-28 11:42:53] Episodes: 3
+[2025-11-28 11:42:53] ================================================================================
+
+[2025-11-28 11:42:53] Using executable: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright
+[2025-11-28 11:42:53]   → Initialize project 'Time Loop Detective'
+[2025-11-28 11:42:53]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright init Time Loop Detective
+[2025-11-28 11:42:54]     ✗ Failed (exit code 1)
+[2025-11-28 11:42:54]     Sleeping 5 seconds before retry...
+[2025-11-28 11:42:59]     ↻ Retry attempt 2/3
+[2025-11-28 11:43:00]     ✗ Failed (exit code 1)
+[2025-11-28 11:43:00]     Sleeping 5 seconds before retry...
+[2025-11-28 11:43:05]     ↻ Retry attempt 3/3
+[2025-11-28 11:43:06]     ✗ Failed (exit code 1)
+[2025-11-28 11:43:06]     ✗ All 3 attempts failed
+[2025-11-28 11:43:06] ✗ Failed to initialize project 'Time Loop Detective', skipping
+[2025-11-28 11:43:06] 
+  Brief pause before next project...
+
+[2025-11-28 11:43:08] 
+[Project 3/3]
+[2025-11-28 11:43:08] 
+================================================================================
+[2025-11-28 11:43:08] Starting project: Cyber Samurai
+[2025-11-28 11:43:08] Prompt: In a dystopian future Tokyo, a former samurai turned hacker fights against megacorporations using both ancient sword techniques and advanced technology.
+[2025-11-28 11:43:08] Episodes: 3
+[2025-11-28 11:43:08] ================================================================================
+
+[2025-11-28 11:43:08] Using executable: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright
+[2025-11-28 11:43:08]   → Initialize project 'Cyber Samurai'
+[2025-11-28 11:43:08]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright init Cyber Samurai
+[2025-11-28 11:43:09]     ✓ Success
+[2025-11-28 11:43:09]     Output: Project 'Cyber Samurai' created at 
+/Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+
+Next steps:
+  1. cd /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+  2. dreamright expand ...
+[2025-11-28 11:43:09]   → Generate story for 'Cyber Samurai'
+[2025-11-28 11:43:09]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright expand In a dystopian future Tokyo, a former samurai turned hacker fights against megacorporations using both ancient sword techniques and advanced technology. --episodes 3
+[2025-11-28 11:43:09]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:43:45]     ✓ Success
+[2025-11-28 11:43:45]     Output: ╭──────────────────────────────── Story Prompt ────────────────────────────────╮
+│ In a dystopian future Tokyo, a former samurai turned hacker fights against   │
+│ megacorporations using both ancient ...
+[2025-11-28 11:43:45]   → Generate all characters for 'Cyber Samurai'
+[2025-11-28 11:43:45]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate character
+[2025-11-28 11:43:45]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:45:36]     ✓ Success
+[2025-11-28 11:45:36]     Output: 
+Generating assets for Kenji...
+  Step 1/2: Generating portrait...
+  Step 2/2: Generating full-body three-view using portrait as reference...
+  Complete! Sheet saved: assets/characters/kenji/sheet.png...
+[2025-11-28 11:45:36]   → Generate all locations for 'Cyber Samurai'
+[2025-11-28 11:45:36]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate location
+[2025-11-28 11:45:36]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:46:28]     ✓ Success
+[2025-11-28 11:46:28]     Output: 
+Generating Sector 4 Slums (The Dregs) reference...
+  Saved: assets/locations/sector-4-slums-the-dregs/reference.png
+
+Generating Riko's Safehouse reference...
+  Saved: assets/locations/rikos-safehouse...
+[2025-11-28 11:46:28]   → Generate chapter script for beat 1
+[2025-11-28 11:46:28]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate chapter --beat 1
+[2025-11-28 11:46:28]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:47:28]     ✓ Success
+[2025-11-28 11:47:28]     Output: 
+Generating Chapter 1: Hook (Episode 1)...
+  Calling Gemini API...
+  Saved Chapter 1: Episode 1: Terminal Velocity
+
+Chapter generation complete!
+
+Chapter 1: Episode 1: Terminal Velocity
+  Summary: Ken...
+[2025-11-28 11:47:28]   → Generate panels for chapter 1
+[2025-11-28 11:47:28]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate panels --chapter 1
+[2025-11-28 11:47:28]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:54:29]     ✓ Success
+[2025-11-28 11:54:29]     Output: 
+Generating 18 panels for Chapter 1: Episode 1: Terminal Velocity
+
+  Scene 1: Kenji is in freefall between megastructures. The a...
+    Panel 1: generating...    Panel 1: saved           
+    Panel 2:...
+[2025-11-28 11:54:29]   → Generate chapter script for beat 2
+[2025-11-28 11:54:29]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate chapter --beat 2
+[2025-11-28 11:54:29]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 11:55:28]     ✓ Success
+[2025-11-28 11:55:28]     Output: 
+Generating Chapter 2: Inciting Incident (Episode 1)...
+  Using 1 previous chapter(s) for context
+  Calling Gemini API...
+  Saved Chapter 2: Episode 2: Ghost in the Drive
+
+Chapter generation complete!...
+[2025-11-28 11:55:28]   → Generate panels for chapter 2
+[2025-11-28 11:55:28]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate panels --chapter 2
+[2025-11-28 11:55:28]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 12:02:16]     ✓ Success
+[2025-11-28 12:02:16]     Output: 
+Generating 18 panels for Chapter 2: Episode 2: Ghost in the Drive
+
+  Scene 1: Rows of humming server racks bathed in ice-blue li...
+    Panel 1: generating...    Panel 1: saved           
+    Panel 2...
+[2025-11-28 12:02:16]   → Generate chapter script for beat 3
+[2025-11-28 12:02:16]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate chapter --beat 3
+[2025-11-28 12:02:16]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 12:03:08]     ✓ Success
+[2025-11-28 12:03:08]     Output: 
+Generating Chapter 3: Rising Action (Episode 2)...
+  Using 2 previous chapter(s) for context
+  Calling Gemini API...
+  Saved Chapter 3: Episode 3: Soul Code
+
+Chapter generation complete!
+
+Chapter 3: ...
+[2025-11-28 12:03:08]   → Generate panels for chapter 3
+[2025-11-28 12:03:08]     Command: /Users/wangyuchen/Desktop/dreamright/.venv/bin/dreamright generate panels --chapter 3
+[2025-11-28 12:03:08]     Working directory: /Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai
+[2025-11-28 12:05:01]     ✓ Success
+[2025-11-28 12:05:01]     Output: 
+Generating 18 panels for Chapter 3: Episode 3: Soul Code
+
+  Scene 1: The rusted exterior of the subway car safehouse. R...
+    Panel 1: generating...    Panel 1: saved           
+    Panel 2: generat...
+[2025-11-28 12:05:01] 
+✓ Completed project: Cyber Samurai
+
+[2025-11-28 12:05:01] 
+################################################################################
+[2025-11-28 12:05:01] # BATCH GENERATION COMPLETE
+[2025-11-28 12:05:01] # Successful: 1/3
+[2025-11-28 12:05:01] # Failed: 2/3
+[2025-11-28 12:05:01] # Total time: 0h 22m 23s
+[2025-11-28 12:05:01] # Finished at: 2025-11-28 12:05:01
+[2025-11-28 12:05:01] ################################################################################
+

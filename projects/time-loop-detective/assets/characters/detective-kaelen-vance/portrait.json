@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_detective_kaelen_vance",
+  "character_name": "Detective Kaelen Vance",
+  "role": "protagonist",
+  "age": "32",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Messy, neck-length dark brown hair, constantly wet or sweaty.",
+    "Eyes: Sharp steel-gray eyes with heavy dark circles.",
+    "Face: Stubble on jaw, a small scar through the left eyebrow.",
+    "OUTFIT: Charcoal grey turtleneck sweater, black tactical cargo pants, heavy black combat boots, long beige trench coat (often stained with rain/blood).",
+    "Accessory: A silver pocket watch with a cracked face attached to his belt loop."
+  ],
+  "description": {
+    "physical": "Tall, exhausted, athletic build but slouching from weight of the world.",
+    "personality": "Cynical, observant, desperate, fiercely protective."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_detective_kaelen_vance",
+    "character_name": "Detective Kaelen Vance",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Detective Kaelen Vance\nAge: 32\nPhysical appearance: Tall, exhausted, athletic build but slouching from weight of the world.\nVisual details: Hair: Messy, neck-length dark brown hair, constantly wet or sweaty., Eyes: Sharp steel-gray eyes with heavy dark circles., Face: Stubble on jaw, a small scar through the left eyebrow., OUTFIT: Charcoal grey turtleneck sweater, black tactical cargo pants, heavy black combat boots, long beige trench coat (often stained with rain/blood)., Accessory: A silver pocket watch with a cracked face attached to his belt loop.\nPersonality (for expression): Cynical, observant, desperate, fiercely protective.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 230,
+        "candidates_tokens": 1286,
+        "total_tokens": 1757
+      }
+    }
+  },
+  "generated_at": "2025-11-28T13:40:08.210359"
+}

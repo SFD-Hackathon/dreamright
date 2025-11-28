@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_elara_vance",
+  "character_name": "Elara Vance",
+  "role": "supporting",
+  "age": "19",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Chin-length, jaggedly cut ash-blonde hair, usually greasy",
+    "Eyes: Large, dull grey eyes (turn vibrant emerald green after eating)",
+    "Face: smudge of grease on left cheekbone",
+    "OUTFIT: Oversized, dark charcoal mechanic's jumpsuit with patch 'SECTOR 4'",
+    "Footwear: Heavy, magnetic-soled black industrial boots",
+    "Accessory: A bright red wire tied around her wrist (her only color)"
+  ],
+  "description": {
+    "physical": "Petite, malnourished build with a sharp, angular face and hollow cheeks.",
+    "personality": "Cynical, exhausted, but possessing a hidden spark of curiosity."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_elara_vance",
+    "character_name": "Elara Vance",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Elara Vance\nAge: 19\nPhysical appearance: Petite, malnourished build with a sharp, angular face and hollow cheeks.\nVisual details: Hair: Chin-length, jaggedly cut ash-blonde hair, usually greasy, Eyes: Large, dull grey eyes (turn vibrant emerald green after eating), Face: smudge of grease on left cheekbone, OUTFIT: Oversized, dark charcoal mechanic's jumpsuit with patch 'SECTOR 4', Footwear: Heavy, magnetic-soled black industrial boots, Accessory: A bright red wire tied around her wrist (her only color)\nPersonality (for expression): Cynical, exhausted, but possessing a hidden spark of curiosity.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 229,
+        "candidates_tokens": 1303,
+        "total_tokens": 1788
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:30:55.877593"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "character",
+  "character_id": "char_enforcer_krell",
+  "character_name": "Enforcer Krell",
+  "role": "antagonist",
+  "age": "30s",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Shaved head",
+    "Eyes: Red digital visor covering upper face",
+    "OUTFIT: Sleek, white tactical armor with blue glowing trim",
+    "Weapon: Shock-baton attached to thigh"
+  ],
+  "description": {
+    "physical": "Tall, physically imposing, cybernetically enhanced.",
+    "personality": "Cold, efficient, disgusted by 'organic filth'."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_enforcer_krell",
+    "character_name": "Enforcer Krell",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Enforcer Krell\nAge: 30s\nPhysical appearance: Tall, physically imposing, cybernetically enhanced.\nVisual details: Hair: Shaved head, Eyes: Red digital visor covering upper face, OUTFIT: Sleek, white tactical armor with blue glowing trim, Weapon: Shock-baton attached to thigh\nPersonality (for expression): Cold, efficient, disgusted by 'organic filth'.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 172,
+        "candidates_tokens": 1270,
+        "total_tokens": 1660
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:31:59.174058"
+}

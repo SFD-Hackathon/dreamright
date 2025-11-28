@@ -1,0 +1,1332 @@
+{
+  "id": "proj_vampire_academy",
+  "name": "Vampire Academy",
+  "created_at": "2025-11-28T11:31:14.498371",
+  "updated_at": "2025-11-28T12:04:45.566239",
+  "format": "webtoon",
+  "status": "in_progress",
+  "story": {
+    "id": "story_the_crimson_oath",
+    "title": "The Crimson Oath",
+    "logline": "In an academy where pureblood vampires are royalty and dhampirs are their bodyguards, a student guardian must race against time to synthesize a cure when a bio-engineered virus turns the elite student body into feral monsters.",
+    "genre": "drama",
+    "tone": "dramatic",
+    "themes": [
+      "Duty vs. Morality",
+      "Class Divide",
+      "Corruption of Authority",
+      "Identity"
+    ],
+    "target_audience": "Young Adult / 15-30 demographic",
+    "episode_count": 2,
+    "synopsis": "Ren is a Dhampir—half-human, half-vampire—training at the prestigious Nocturne Academy to become a Guardian for the vampire elite. While the purebloods enjoy luxury, Ren and his kind are treated as disposable protectors. The delicate balance of the school shatters during the Midnight Gala when a student suddenly goes 'Feral,' a primal state of mindless aggression thought to be extinct. Ren discovers a shattered vial containing a synthetic blood substitute labeled with a Black Lily insignia. Before he can investigate, his charge and best friend, Princess Elara, drinks a tainted toast. With Elara's humanity slipping away by the second, Ren has only until sunrise to infiltrate the faculty's restricted apothecary, uncover the traitor manufacturing the virus, and synthesize an antidote before he is forced to execute the person he swore to protect.",
+    "story_beats": [
+      {
+        "beat": "Hook (Episode 1)",
+        "description": "Opens mid-action in the Grand Hall. A 'Feral' student is tearing through furniture. Ren, moving with supernatural speed, tackles the student, pinning them down not to kill, but to sedate. The fear in the room is palpable. Close up on Ren's eyes: determined, terrified."
+      },
+      {
+        "beat": "Inciting Incident (Episode 1)",
+        "description": "In the aftermath, Ren finds a shard of glass near the feral student's goblet. It has a 'Black Lily' etched into it. He recognizes the symbol from a restricted book in the library. He realizes the blood supply wasn't spoiled; it was poisoned intentionally."
+      },
+      {
+        "beat": "Rising Action (Episode 1)",
+        "description": "Ren rushes to the Midnight Gala to warn Elara. He is stopped by pureblood guards who look down on his caste. He fights his way past them, but he is too late. The toast has begun."
+      },
+      {
+        "beat": "Cliffhanger (Episode 1)",
+        "description": "Elara drinks from her chalice. She drops the glass. The sound of shattering crystal echoes. She looks at Ren, her eyes bleeding from blue to a glowing, feral red. She hisses, her fangs extending unnaturally long. Cut to black."
+      },
+      {
+        "beat": "Rising Action (Episode 2)",
+        "description": "Ren refuses to kill Elara. He uses his defensive training to contain her in a magical binding circle. He sprints to the Greenhouse/Apothecary, the only place where the antidote ingredients exist. He finds the Headmaster there, destroying evidence."
+      },
+      {
+        "beat": "Climax (Episode 2)",
+        "description": "Ren battles the Headmaster amidst the poisonous flora. The Headmaster reveals the plan: to make Dhampirs necessary again by manufacturing a threat. Ren uses a carnivorous plant to trap the Headmaster, grabs the base reagent, and mixes the antidote as the sun begins to rise."
+      },
+      {
+        "beat": "Resolution (Episode 2)",
+        "description": "Ren injects Elara just as she breaks the binding circle. She collapses, then wakes up with normal eyes. The immediate threat is over, but Ren finds a dossier in the Headmaster's jacket indicating the Black Lily order goes higher than the school. Ren looks at the horizon; the war has just begun."
+      }
+    ]
+  },
+  "characters": [
+    {
+      "id": "char_ren",
+      "name": "Ren",
+      "role": "supporting",
+      "age": "18",
+      "description": {
+        "physical": "Lean but muscular build, scarred knuckles, sharp jawline. He looks perpetually alert.",
+        "personality": "Stoic, fiercely loyal, observant, harbors a deep resentment for the caste system but loves his friends.",
+        "background": "Orphaned at a young age, raised by the Academy to be a weapon. He wants to prove Dhampirs are more than just shields.",
+        "motivation": "To protect Elara and expose the truth about the Academy."
+      },
+      "visual_tags": [
+        "Hair: Shaggy silver hair, undercut on the sides, often falls in eyes",
+        "Eyes: Heterochromia - one ice blue, one dark brown",
+        "Face: A small vertical scar through his left eyebrow",
+        "OUTFIT: Black tactical vest with silver buckles over a rolled-up white dress shirt, black cargo trousers tucked into heavy combat boots, fingerless leather gloves",
+        "Accessory: A silver whistle on a chain (guardian signal)"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/ren/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/ren/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_elara",
+      "name": "Elara",
+      "role": "supporting",
+      "age": "17",
+      "description": {
+        "physical": "Ethereal, pale skin, delicate features but with a commanding posture.",
+        "personality": "Compassionate, rebellious against tradition, secretly studies forbidden healing magic.",
+        "background": "Heir to one of the oldest vampire clans. She treats Ren as an equal, which causes rumors.",
+        "motivation": "To change vampire society from within."
+      },
+      "visual_tags": [
+        "Hair: Knee-length jet black hair, straight, usually worn loose",
+        "Eyes: Crimson red (classic vampire) but soft when looking at Ren",
+        "Face: Perfect porcelain skin, heart-shaped face",
+        "OUTFIT: White Victorian gothic blouse with high lace collar, deep crimson corset vest, floor-length black skirt with slit",
+        "Accessory: A velvet choker with a ruby pendant"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/elara/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/elara/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_headmaster_vane",
+      "name": "Headmaster Vane",
+      "role": "antagonist",
+      "age": "Appears 40s (actually 400+)",
+      "description": {
+        "physical": "Tall, imposing, moves with predatory grace.",
+        "personality": "Charismatic, manipulative, believes the ends justify the means.",
+        "background": "A war veteran who believes vampires have become too soft.",
+        "motivation": "To radicalize the student body and start a war with humans."
+      },
+      "visual_tags": [
+        "Hair: Slicked back dark grey hair, widow's peak",
+        "Eyes: Pitch black (sign of age and power)",
+        "Face: Gaunt cheeks, sharp nose",
+        "OUTFIT: Immaculate charcoal three-piece suit, long black trench coat draped over shoulders",
+        "Accessory: A cane with a silver wolf's head handle"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/headmaster-vane/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/headmaster-vane/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_kael",
+      "name": "Kael",
+      "role": "supporting",
+      "age": "18",
+      "description": {
+        "physical": "Bulky build, taller than Ren.",
+        "personality": "Arrogant, competitive, follows rules blindly.",
+        "background": "Top of the guardian class until Ren started outperforming him.",
+        "motivation": "To prove he is the superior guardian."
+      },
+      "visual_tags": [
+        "Hair: Buzzcut, blonde",
+        "Eyes: Dull grey",
+        "Face: Square jaw, often sneering",
+        "OUTFIT: Standard pristine school uniform (grey blazer, red tie), perfectly buttoned",
+        "Accessory: A golden prefect badge on his lapel"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/kael/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/kael/sheet.png"
+        }
+      },
+      "voice_description": ""
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_the_grand_hall",
+      "name": "The Grand Hall",
+      "type": "interior",
+      "description": "A massive gothic cathedral-style room with high vaulted ceilings and stained glass that blocks UV rays.",
+      "visual_tags": [
+        "Lighting: Dim, candle-lit chandeliers, deep purple ambient light",
+        "Objects: Long mahogany banquet tables, floating candles",
+        "Atmosphere: Majestic during day, ominous shadows at night",
+        "Palette: Gold, Purple, Black",
+        "Sensory: Echoing footsteps, smell of wax and old wood"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-grand-hall/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_the_poison_greenhouse",
+      "name": "The Poison Greenhouse",
+      "type": "interior",
+      "description": "A glass structure filled with beautiful but deadly bioluminescent plants. The air is thick and humid.",
+      "visual_tags": [
+        "Lighting: Neon blue and green bioluminescence from plants",
+        "Objects: Distillation equipment, vines that move slightly on their own",
+        "Atmosphere: Claustrophobic, beautiful but deadly",
+        "Palette: Neon Green, Teal, Black",
+        "Sensory: Hum of ventilation, sweet sickly smell of nightshade"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-poison-greenhouse/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_the_dormitory_rooftop",
+      "name": "The Dormitory Rooftop",
+      "type": "interior",
+      "description": "The only place where Ren and Elara can talk freely. Overlooks the misty school grounds.",
+      "visual_tags": [
+        "Lighting: Moonlight, cold blue hues",
+        "Objects: Stone gargoyles, a hidden stash of human snacks",
+        "Atmosphere: Serene, windy, isolated",
+        "Palette: Silver, Grey, Navy Blue",
+        "Sensory: Sound of wind, cold air"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-dormitory-rooftop/reference.png",
+        "reference_sheet": null
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Blood & Duty",
+      "summary": "Ren intervenes when a noble student goes feral in the Grand Hall, but the Headmaster's reaction to the incident raises dangerous questions.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_grand_hall",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_ren",
+            "char_elara"
+          ],
+          "description": "A lavish banquet turned into a war zone. Overturned tables, shattered crystal, and a noble student transformed into a beast.",
+          "mood": "Chaotic, Terrifying",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The Grand Hall is in disarray. Noble vampires are screaming and backing away. In the center, a blur of motion smashes a heavy oak table.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "Monster!!",
+                  "type": "speech"
+                },
+                {
+                  "character_id": null,
+                  "text": "Someone stop him!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "CRASH",
+                "SCREAM"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Lighting is flickering from damaged chandeliers.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "terrified",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara is on the floor, shielding a younger student. The Feral Student, veins bulging black against pale skin, lunges at her with claws extended.",
+              "dialogue": [],
+              "sfx": [
+                "HISS"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Elara's dress is torn at the hem.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren enters the frame from the side with extreme speed (motion blur), intercepting the lunge with his forearm guard.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Not today.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SLAM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Ren is wearing his guardian uniform.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren struggles to hold back the Feral Student. He is physically overpowered but using leverage. We see the madness in the Feral's eyes.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Hold... still!",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "GRRRR"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Sweat on Ren's brow.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren's hand jams a syringe into the Feral Student's neck. Green liquid plunges down.",
+              "dialogue": [],
+              "sfx": [
+                "PSSHH"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Focus on the syringe.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "The Feral Student collapses, unconscious. Ren kneels over him, panting. The crowd is silent, staring.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "This isn't just bloodlust...",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "HEAVY BREATHING"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Smoke/steam rising from the Feral's skin.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_grand_hall",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_ren",
+            "char_headmaster_vane",
+            "char_kael"
+          ],
+          "description": "The immediate danger is over, replaced by political tension as the authorities arrive.",
+          "mood": "Tense, Authoritarian",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Slow pan up from polished black shoes to Headmaster Vane standing tall. He looks bored rather than concerned.",
+              "dialogue": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "text": "An unfortunate display.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "CLICK CLACK (footsteps)"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Vane is backlit by the moon through stained glass.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kael",
+                  "expression": "arrogant",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kael steps in front of Ren, holstering a silver pistol. He looks down at Ren who is still kneeling.",
+              "dialogue": [
+                {
+                  "character_id": "char_kael",
+                  "text": "You hesitated, half-breed. A silver bullet would have been cleaner.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Kael's uniform is pristine compared to Ren's.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren stands up, wiping dust from his coat. He stares directly at Kael.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "He's a student, Kael. Not a stray.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren has a small cut on his cheek.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "expression": "mischievous",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Vane waves a hand dismissively. Two masked guards drag the unconscious student away.",
+              "dialogue": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "text": "Enough. The boy merely had a reaction to... poor quality blood wine. We shall treat him privately.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "DRAG"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The hall is being magically cleaned in the background.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren's reaction shot. He knows that's a lie.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Blood wine? That wasn't intoxication. That was evolution.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Lighting shifts to cold blue.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                },
+                {
+                  "character_id": "char_kael",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "Vane turns to leave, casting a long shadow over Ren and Kael. The Grand Hall feels like a cage.",
+              "dialogue": [
+                {
+                  "character_id": "char_headmaster_vane",
+                  "text": "Clear the hall. Morning classes await.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_dormitory_rooftop",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_ren",
+            "char_elara"
+          ],
+          "description": "A quiet moment between Ren and Elara away from the prying eyes of the administration.",
+          "mood": "Secretive, Melancholic",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren sits on the ledge of the gothic roof, looking out over the misty academy grounds. Elara stands behind him.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "You're hurt.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "WIND HOWLING"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Atmosphere is misty and dark.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "focused",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Elara's hands hover over the cut on Ren's cheek. A soft, forbidden violet light glows from her palms.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Be careful, Elara. If Vane sees you using life magic...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "HUMMM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The glow illuminates their faces.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara pulls back, the wound healed. She looks troubled, clutching a small vial in her hand.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "I managed to get a sample. Before the guards took him.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "She is holding the vial tight.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Focus on the vial. The blood inside isn't red. It's black and seems to be moving on its own, pressing against the glass.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "Look at it, Ren. It's aggressive.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "TINK TINK (glass sound)"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The liquid is bioluminescent.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren looks at the vial, horror dawning on his face. The background is the looming tower of the Headmaster's office.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "It's engineered. Someone is doing this to us on purpose.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Visual connection between the virus and the Headmaster's tower.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren turns to Elara, grabbing her shoulders. Intense eye contact. Cliffhanger moment.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "We need to find the source. Before the whole school turns.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Wind blows Elara's hair across her face.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "number": 2,
+      "title": "The Black Lily",
+      "summary": "In the aftermath of the banquet incident, Ren investigates the scene and discovers a shard of glass bearing a forbidden symbol. Seeking answers, he brings the evidence to Elara in the Poison Greenhouse, leading to a terrifying realization about the nature of the 'feral' outbreak.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_grand_hall",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_ren",
+            "char_kael"
+          ],
+          "description": "The lavish hall is being scrubbed clean by servants. The smell of bleach barely masks the metallic scent of blood. The broken crystal and overturned furniture are being cleared away with suspicious haste.",
+          "mood": "Tense, sterile, oppressive",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kael",
+                  "expression": "arrogant",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Servants are hurriedly scrubbing bloodstains from the marble floor. Kael stands with his arms crossed, supervising the cleanup with a look of disdain.",
+              "dialogue": [
+                {
+                  "character_id": "char_kael",
+                  "text": "Scrub harder. The Headmaster wants this embarrassment erased before dawn.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "scrub",
+                "clatter"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "The hall is in disarray but being rapidly cleaned.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "focused",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_kael",
+                  "expression": "mocking",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren is crouched near the spot where the feral student's goblet fell, pretending to pick up debris. He is scanning the floor intensely.",
+              "dialogue": [
+                {
+                  "character_id": "char_kael",
+                  "text": "Still playing detective, mongrel? You should have pulled the trigger, not stared at the mess.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren is in his guardian uniform, slightly disheveled from the fight.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren ignores Kael. His hand hovers over a specific jagged shard of glass hidden under a table leg. It glints oddly in the moonlight.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "The blood didn't smell spoiled... it smelled sweet.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "glint"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Lighting is cold blue moonlight filtering through stained glass.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Ren's gloved fingers pick up the shard. On the curved glass, a faint, etched symbol is visible: a stylized lily with thorns.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Focus on the etching.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren's eyes widen in recognition. A visual overlay (flashback effect) shows a dusty page from a book titled 'Flora of the Damned'.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "The Black Lily... I saw this in the restricted archives.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren's face is partially shadowed.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren quickly pockets the shard and stands up, turning his back to Kael.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Just cleaning up, Kael. Like you said.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "swish"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Ren walks away from the camera.",
+              "image_path": "assets/panels/chapter-2/scene-1/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": true
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_poison_greenhouse",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_ren",
+            "char_elara"
+          ],
+          "description": "Rows of bioluminescent plants cast a sickly green and purple glow. The air is thick with moisture and the scent of dangerous flora. Shadows stretch long between the glass panes.",
+          "mood": "Eerie, humid, secretive",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "alert",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren enters the greenhouse, pushing aside hanging vines. The atmosphere is suffocatingly humid.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Elara? We need to talk. Now.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "rustle"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Lighting shifts to bioluminescent green/purple.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "surprised",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara emerges from behind a cluster of Wolfsbane, wiping dirt from her hands. She looks concerned.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "Ren? You shouldn't be here. The prefects are on high alert after the banquet.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Elara is wearing her student uniform with an apron.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "serious",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren holds up the glass shard, the symbol catching the eerie light of the plants.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "It wasn't an accident. Look at the etching.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Focus on the shard against the green background.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara leans in, and her face goes pale. The lighting emphasizes her fear.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "That's... the Black Lily. But that's impossible. It's an extinct neurotoxin.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Dutch angle to show unease.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Elara turns to a locked glass cabinet in the back of the greenhouse, pointing at an empty pedestal inside.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara",
+                  "text": "It was supposed to be a specimen for history class. Someone harvested it.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_ren",
+                  "text": "And synthesized it.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "The empty cabinet is the focus.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren clenches his fist around the shard (safely). His eyes are burning with intensity.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "The student didn't just go feral, Elara. They were turned. We're not guards anymore...",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_ren",
+                  "text": "...we're targets.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "thump"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Dramatic lighting, shadows over Ren's eyes.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    }
+  ],
+  "original_prompt": "At an elite boarding school for vampires, a dhampir guardian-in-training uncovers a conspiracy that threatens both vampire and human worlds.",
+  "reference_images": []
+}

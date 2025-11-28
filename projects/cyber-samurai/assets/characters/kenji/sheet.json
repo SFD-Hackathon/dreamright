@@ -1,0 +1,46 @@
+{
+  "type": "character",
+  "character_id": "char_kenji",
+  "character_name": "Kenji",
+  "role": "protagonist",
+  "age": "30s",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Messy black topknot with shaved sides",
+    "Eyes: Sharp, dark eyes with a digital HUD monocle over the left eye",
+    "Top: Tattered grey sleeveless undershirt revealing cybernetic shoulder",
+    "Outerwear: Red holographic Haori jacket with circuitry patterns",
+    "Bottom: Black tactical hakama pants with cargo pockets",
+    "Footwear: Split-toe tactical boots (Tabi style)",
+    "Accessory: The Glitch Blade (Katana with data cables running from hilt to his arm)",
+    "Colors: Black, Grey, Crimson"
+  ],
+  "description": {
+    "physical": "Tall, muscular but scarred build. Has a cybernetic left arm that glows overheat-orange when stressed. Weary expression.",
+    "personality": "Stoic, disciplined, haunted by failure. Speaks rarely, letting his sword do the talking."
+  },
+  "asset_type": "character_sheet",
+  "reference_portrait": "assets/characters/kenji/portrait.png",
+  "gemini": {
+    "type": "character_sheet",
+    "character_id": "char_kenji",
+    "character_name": "Kenji",
+    "prompt": "Create a CHARACTER TURNAROUND SHEET in webtoon art style.\n\n## LAYOUT\nCreate a SINGLE IMAGE showing the SAME character THREE times side by side:\n- LEFT: Full body FRONT view (facing viewer)\n- CENTER: Full body SIDE view (profile, facing right)\n- RIGHT: Full body BACK view (facing away)\n\n## REQUIREMENTS\n- All three views show the EXACT SAME character with IDENTICAL outfit\n- Full body from head to feet in each view\n- Relaxed standing pose (arms slightly away from body to show costume)\n- Clean white or light gray background\n- Character sheet/model sheet style for animation reference\n- All views at the same scale and aligned at feet level\n- Show clothing, hair, and accessories clearly from all angles\n- Professional quality suitable for production reference\n\n## ANATOMICAL CORRECTNESS (CRITICAL FOR SIDE VIEW)\n- SIDE VIEW: The character's head, torso, and feet MUST all face the same direction\n- SIDE VIEW: If the face is looking right, the body must be standing/oriented right (toes pointing right)\n- SIDE VIEW: If the face is looking left, the body must be standing/oriented left (toes pointing left)\n- SIDE VIEW: Create a proper 90-degree profile where the entire body is naturally aligned\n- All views must show anatomically correct human proportions and natural poses\n- No twisted or contorted body positions - everything should look natural\n\n## CONSISTENCY IS CRITICAL\n- Same hair style/color in all views\n- Same outfit in all views (every detail must match)\n- Same accessories and items in all views\n- Same body proportions in all views\n\n\nCharacter: Kenji\nAge: 30s\nPhysical appearance: Tall, muscular but scarred build. Has a cybernetic left arm that glows overheat-orange when stressed. Weary expression.\nVisual details: Hair: Messy black topknot with shaved sides, Eyes: Sharp, dark eyes with a digital HUD monocle over the left eye, Top: Tattered grey sleeveless undershirt revealing cybernetic shoulder, Outerwear: Red holographic Haori jacket with circuitry patterns, Bottom: Black tactical hakama pants with cargo pockets, Footwear: Split-toe tactical boots (Tabi style), Accessory: The Glitch Blade (Katana with data cables running from hilt to his arm), Colors: Black, Grey, Crimson\nPersonality (for expression): Stoic, disciplined, haunted by failure. Speaks rarely, letting his sword do the talking.",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": "/Users/wangyuchen/Desktop/dreamright/projects/cyber-samurai/assets/characters/kenji/portrait.png"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 811,
+        "candidates_tokens": 1519,
+        "total_tokens": 2602
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:44:21.787934"
+}

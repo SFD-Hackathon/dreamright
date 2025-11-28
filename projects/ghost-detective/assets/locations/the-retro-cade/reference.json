@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_the_retro_cade",
+  "location_name": "The Retro-cade",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A dusty 90s arcade that has been closed for years. Filled with rows of dead cabinets.",
+  "visual_tags": [
+    "LIGHTING: Eerie green glow from emergency exit signs, sudden strobe lights from games",
+    "OBJECTS: Dusty claw machine with one pristine teddy bear, cracked CRT screens",
+    "ATMOSPHERE: Nostalgic but sinister, smell of ozone and dust",
+    "COLOR PALETTE: Deep purples, greens, and shadows"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_the_retro_cade",
+    "location_name": "The Retro-cade",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: The Retro-cade\nType: interior\nDescription: A dusty 90s arcade that has been closed for years. Filled with rows of dead cabinets.\nVisual details: LIGHTING: Eerie green glow from emergency exit signs, sudden strobe lights from games, OBJECTS: Dusty claw machine with one pristine teddy bear, cracked CRT screens, ATMOSPHERE: Nostalgic but sinister, smell of ozone and dust, COLOR PALETTE: Deep purples, greens, and shadows",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 170,
+        "candidates_tokens": 1331,
+        "total_tokens": 1757
+      }
+    }
+  },
+  "generated_at": "2025-11-27T19:03:37.543486"
+}

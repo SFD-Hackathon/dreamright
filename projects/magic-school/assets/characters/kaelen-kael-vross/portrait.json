@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_kaelen_kael_vross",
+  "character_name": "Kaelen 'Kael' Vross",
+  "role": "supporting",
+  "age": "18",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Sleek silver hair, undercut style, perfectly coiffed",
+    "Eyes: Ice blue eyes, sharp and judgmental gaze",
+    "Top: Fitted navy academy blazer with gold trim and crest",
+    "Bottom: Tailored charcoal trousers with sharp crease",
+    "Footwear: Polished black dress shoes",
+    "Accessories: Silver pocket watch on a chain he checks constantly"
+  ],
+  "description": {
+    "physical": "Tall, athletic build, rigid posture, immaculate presentation.",
+    "personality": "Arrogant, perfectionist, obsessive about rules, but secretly insecure about his family's decline."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_kaelen_kael_vross",
+    "character_name": "Kaelen 'Kael' Vross",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kaelen 'Kael' Vross\nAge: 18\nPhysical appearance: Tall, athletic build, rigid posture, immaculate presentation.\nVisual details: Hair: Sleek silver hair, undercut style, perfectly coiffed, Eyes: Ice blue eyes, sharp and judgmental gaze, Top: Fitted navy academy blazer with gold trim and crest, Bottom: Tailored charcoal trousers with sharp crease, Footwear: Polished black dress shoes, Accessories: Silver pocket watch on a chain he checks constantly\nPersonality (for expression): Arrogant, perfectionist, obsessive about rules, but secretly insecure about his family's decline.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 217,
+        "candidates_tokens": 1301,
+        "total_tokens": 1743
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:22:01.876822"
+}

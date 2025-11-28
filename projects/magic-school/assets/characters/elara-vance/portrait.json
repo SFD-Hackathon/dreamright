@@ -1,0 +1,43 @@
+{
+  "type": "character",
+  "character_id": "char_elara_vance",
+  "character_name": "Elara Vance",
+  "role": "protagonist",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Messy auburn bun with loose strands falling in face",
+    "Eyes: Amber eyes that glow faintly gold when predicting (hidden by glasses)",
+    "Top: Oversized beige cable-knit sweater vest over untucked white shirt",
+    "Bottom: Faded navy pleated skirt, hem undone on one side",
+    "Footwear: Scuffed brown loafers with mismatched socks (one cream, one white)",
+    "Accessories: Cracked round spectacles taped at the bridge (Signature Item)"
+  ],
+  "description": {
+    "physical": "Petite build, constantly looks sleep-deprived, hunched posture to appear smaller.",
+    "personality": "Anxious, quick-witted, self-sacrificing. Acts ditzy to hide her hyper-awareness."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_elara_vance",
+    "character_name": "Elara Vance",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Elara Vance\nAge: 17\nPhysical appearance: Petite build, constantly looks sleep-deprived, hunched posture to appear smaller.\nVisual details: Hair: Messy auburn bun with loose strands falling in face, Eyes: Amber eyes that glow faintly gold when predicting (hidden by glasses), Top: Oversized beige cable-knit sweater vest over untucked white shirt, Bottom: Faded navy pleated skirt, hem undone on one side, Footwear: Scuffed brown loafers with mismatched socks (one cream, one white), Accessories: Cracked round spectacles taped at the bridge (Signature Item)\nPersonality (for expression): Anxious, quick-witted, self-sacrificing. Acts ditzy to hide her hyper-awareness.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 241,
+        "candidates_tokens": 1302,
+        "total_tokens": 1852
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:21:26.970762"
+}

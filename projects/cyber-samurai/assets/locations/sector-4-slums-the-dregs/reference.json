@@ -1,0 +1,37 @@
+{
+  "type": "location",
+  "location_id": "loc_sector_4_slums_the_dregs",
+  "location_name": "Sector 4 Slums (The Dregs)",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "The lowest level of the city where sunlight never reaches. Crowded, dirty, but vibrant with life.",
+  "visual_tags": [
+    "Lighting: Neon signs reflecting in oily puddles, flickering fluorescent tubes",
+    "Key Object: A ramen stand with a glitching holographic chef",
+    "Atmosphere: Claustrophobic, humid, smells of ozone and frying oil",
+    "Colors: Dark blues, purples, and neon pinks",
+    "Sound: Constant hum of ventilation fans and distant sirens"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_sector_4_slums_the_dregs",
+    "location_name": "Sector 4 Slums (The Dregs)",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: Sector 4 Slums (The Dregs)\nType: interior\nDescription: The lowest level of the city where sunlight never reaches. Crowded, dirty, but vibrant with life.\nVisual details: Lighting: Neon signs reflecting in oily puddles, flickering fluorescent tubes, Key Object: A ramen stand with a glitching holographic chef, Atmosphere: Claustrophobic, humid, smells of ozone and frying oil, Colors: Dark blues, purples, and neon pinks, Sound: Constant hum of ventilation fans and distant sirens",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 288,
+        "candidates_tokens": 1318,
+        "total_tokens": 1814
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:45:57.560439"
+}

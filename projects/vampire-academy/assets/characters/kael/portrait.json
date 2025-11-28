@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_kael",
+  "character_name": "Kael",
+  "role": "supporting",
+  "age": "18",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Buzzcut, blonde",
+    "Eyes: Dull grey",
+    "Face: Square jaw, often sneering",
+    "OUTFIT: Standard pristine school uniform (grey blazer, red tie), perfectly buttoned",
+    "Accessory: A golden prefect badge on his lapel"
+  ],
+  "description": {
+    "physical": "Bulky build, taller than Ren.",
+    "personality": "Arrogant, competitive, follows rules blindly."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_kael",
+    "character_name": "Kael",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kael\nAge: 18\nPhysical appearance: Bulky build, taller than Ren.\nVisual details: Hair: Buzzcut, blonde, Eyes: Dull grey, Face: Square jaw, often sneering, OUTFIT: Standard pristine school uniform (grey blazer, red tie), perfectly buttoned, Accessory: A golden prefect badge on his lapel\nPersonality (for expression): Arrogant, competitive, follows rules blindly.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 178,
+        "candidates_tokens": 1277,
+        "total_tokens": 1689
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:50:34.306819"
+}

@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_ren",
+  "character_name": "Ren",
+  "role": "supporting",
+  "age": "18",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Shaggy silver hair, undercut on the sides, often falls in eyes",
+    "Eyes: Heterochromia - one ice blue, one dark brown",
+    "Face: A small vertical scar through his left eyebrow",
+    "OUTFIT: Black tactical vest with silver buckles over a rolled-up white dress shirt, black cargo trousers tucked into heavy combat boots, fingerless leather gloves",
+    "Accessory: A silver whistle on a chain (guardian signal)"
+  ],
+  "description": {
+    "physical": "Lean but muscular build, scarred knuckles, sharp jawline. He looks perpetually alert.",
+    "personality": "Stoic, fiercely loyal, observant, harbors a deep resentment for the caste system but loves his friends."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_ren",
+    "character_name": "Ren",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Ren\nAge: 18\nPhysical appearance: Lean but muscular build, scarred knuckles, sharp jawline. He looks perpetually alert.\nVisual details: Hair: Shaggy silver hair, undercut on the sides, often falls in eyes, Eyes: Heterochromia - one ice blue, one dark brown, Face: A small vertical scar through his left eyebrow, OUTFIT: Black tactical vest with silver buckles over a rolled-up white dress shirt, black cargo trousers tucked into heavy combat boots, fingerless leather gloves, Accessory: A silver whistle on a chain (guardian signal)\nPersonality (for expression): Stoic, fiercely loyal, observant, harbors a deep resentment for the caste system but loves his friends.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 234,
+        "candidates_tokens": 1287,
+        "total_tokens": 1768
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:48:52.590507"
+}

@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_metro_station_4",
+  "location_name": "Metro Station 4",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A slick, tiled subway station. Cold and industrial.",
+  "visual_tags": [
+    "LIGHTING: Flickering fluorescent blue and pink neon signs",
+    "OBJECTS: A glitching digital billboard, wet floor signs",
+    "ATMOSPHERE: Claustrophobic, echoing, damp",
+    "COLOR PALETTE: Cold blues, greys, and harsh whites"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_metro_station_4",
+    "location_name": "Metro Station 4",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: Metro Station 4\nType: interior\nDescription: A slick, tiled subway station. Cold and industrial.\nVisual details: LIGHTING: Flickering fluorescent blue and pink neon signs, OBJECTS: A glitching digital billboard, wet floor signs, ATMOSPHERE: Claustrophobic, echoing, damp, COLOR PALETTE: Cold blues, greys, and harsh whites",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 149,
+        "candidates_tokens": 1413,
+        "total_tokens": 1828
+      }
+    }
+  },
+  "generated_at": "2025-11-27T19:03:07.197240"
+}

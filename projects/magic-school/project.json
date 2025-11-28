@@ -1,0 +1,892 @@
+{
+  "id": "proj_magic_school",
+  "name": "Magic School",
+  "created_at": "2025-11-27T22:19:09.393358",
+  "updated_at": "2025-11-27T23:06:04.384066",
+  "format": "webtoon",
+  "status": "in_progress",
+  "story": {
+    "id": "story_the_fractured_second",
+    "title": "The Fractured Second",
+    "logline": "A clumsy student at an elite magic academy must ruin her own reputation to stop a deadly explosion she foresaw, all while hiding the forbidden ability that predicts the future.",
+    "genre": "drama",
+    "tone": "dramatic",
+    "themes": [
+      "Fate vs. Free Will",
+      "Perception vs. Reality",
+      "The burden of secret knowledge"
+    ],
+    "target_audience": "Young Adult (15-25), fans of magical school tropes with a psychological twist",
+    "episode_count": 1,
+    "synopsis": "Elara Vance is known as the 'Walking Disaster' of Aethelgard Academy. She trips over nothing, drops potions, and answers questions before teachers ask them. But Elara isn't clumsy; she is cursed with 'Chronos Sight,' seeing ten seconds into the future. She lives in a disorienting double-vision world where she must dodge debris that hasn't fallen yet. In a society where Prophets are imprisoned as unstable weapons, she plays the fool to survive.\n\nThe story takes place during the high-stakes Midterm Alchemy Exam. Elara has a terrifying vision: the star student, Kaelen, is going to add the wrong ingredient, causing a chain reaction that destroys the wing and kills him. Elara has one hour to sabotage the exam and prevent the disaster. Every attempt she makes to intervene subtly is thwarted by Kaelen's perfectionism and the strict proctor. As the clock ticks down to the fatal moment, Elara realizes she can't save him without using magic that will expose her secret identity. She must choose between her safety and her rival's life.",
+    "story_beats": [
+      {
+        "beat": "Hook",
+        "description": "OPENING PANEL: Extreme close-up of a coffee mug shattering on the floor. NEXT PANEL: Elara catches the mug in mid-air *before* it falls. She looks terrified, realizes she reacted too fast, and deliberately drops it to maintain her cover. Caption: 'I saw it break ten seconds ago.'"
+      },
+      {
+        "beat": "Inciting Incident",
+        "description": "In the Alchemy Lab, Professor Thorne unveils the 'Volatile Phoenix Ash' for the midterm. Elara touches the jar and is hit with a violent vision: Green fire, Kaelen screaming, the clock tower crumbling. She snaps back to reality, gasping. The exam begins now."
+      },
+      {
+        "beat": "Rising Action",
+        "description": "Elara tries to steal Kaelen's ingredients to stop him, but he catches her and humiliates her for being 'incompetent.' She tries to spill water on his burner, but he blocks it with a shield spell. The class laughs. The clock ticks closer to the vision's timestamp. The tension rises as Kaelen reaches for the catalyst ingredient."
+      },
+      {
+        "beat": "Climax",
+        "description": "Kaelen holds the catalyst. In Elara's vision, the explosion happens NOW. She abandons subtlety. She sprints across the room, tackling Kaelen. As they fall, she instinctively casts a 'Stasis Bubble'—high-level forbidden magic—to contain the reaction of the dropped vial. The vial explodes silently inside the bubble, mere inches from their faces."
+      },
+      {
+        "beat": "Resolution",
+        "description": "The smoke clears. Elara plays it off as a clumsy fall that luckily knocked the vial away. The Professor buys it, scolding her for running. But as Elara walks away, shaking, Kaelen grabs her wrist. He looks at the remnants of the high-level Stasis spell fading on the floor, then at her. 'You didn't trip,' he whispers. Cliffhanger: Elara's secret is compromised."
+      }
+    ]
+  },
+  "characters": [
+    {
+      "id": "char_elara_vance",
+      "name": "Elara Vance",
+      "role": "protagonist",
+      "age": "17",
+      "description": {
+        "physical": "Petite build, constantly looks sleep-deprived, hunched posture to appear smaller.",
+        "personality": "Anxious, quick-witted, self-sacrificing. Acts ditzy to hide her hyper-awareness.",
+        "background": "Orphaned when the last Prophets were hunted down; terrified of the Authority discovering her lineage.",
+        "motivation": "To survive graduation without being identified as a Prophet."
+      },
+      "visual_tags": [
+        "Hair: Messy auburn bun with loose strands falling in face",
+        "Eyes: Amber eyes that glow faintly gold when predicting (hidden by glasses)",
+        "Top: Oversized beige cable-knit sweater vest over untucked white shirt",
+        "Bottom: Faded navy pleated skirt, hem undone on one side",
+        "Footwear: Scuffed brown loafers with mismatched socks (one cream, one white)",
+        "Accessories: Cracked round spectacles taped at the bridge (Signature Item)"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/elara-vance/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/elara-vance/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_kaelen_kael_vross",
+      "name": "Kaelen 'Kael' Vross",
+      "role": "supporting",
+      "age": "18",
+      "description": {
+        "physical": "Tall, athletic build, rigid posture, immaculate presentation.",
+        "personality": "Arrogant, perfectionist, obsessive about rules, but secretly insecure about his family's decline.",
+        "background": "Heir to a fallen magical house, desperate to restore honor through academic excellence.",
+        "motivation": "To be the top sorcerer and prove his family's worth."
+      },
+      "visual_tags": [
+        "Hair: Sleek silver hair, undercut style, perfectly coiffed",
+        "Eyes: Ice blue eyes, sharp and judgmental gaze",
+        "Top: Fitted navy academy blazer with gold trim and crest",
+        "Bottom: Tailored charcoal trousers with sharp crease",
+        "Footwear: Polished black dress shoes",
+        "Accessories: Silver pocket watch on a chain he checks constantly"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/kaelen-kael-vross/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/kaelen-kael-vross/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_professor_thorne",
+      "name": "Professor Thorne",
+      "role": "supporting",
+      "age": "50s",
+      "description": {
+        "physical": "Imposing height, gaunt face, scar running down left cheek.",
+        "personality": "Strict, suspicious, hates incompetence.",
+        "background": "Former Inquisitor who hunted Prophets.",
+        "motivation": "To weed out weak students."
+      },
+      "visual_tags": [
+        "Hair: Slicked back black hair greying at temples",
+        "Outfit: High-collared black robe with purple velvet lining",
+        "Accessory: A monocle that detects magic fluctuations"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/professor-thorne/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/professor-thorne/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_mimi_lo",
+      "name": "Mimi Lo",
+      "role": "supporting",
+      "age": "17",
+      "description": {
+        "physical": "Curvy build, expressive face, constantly moving hands.",
+        "personality": "Bubbly, gossip-loving, oblivious to danger.",
+        "background": "Commoner witch who idolizes Elara's 'luck'.",
+        "motivation": "To have fun and pass classes."
+      },
+      "visual_tags": [
+        "Hair: Pink bob cut with bangs",
+        "Top: Standard white shirt customized with colorful pins",
+        "Accessory: Oversized white headphones around neck always playing music"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/mimi-lo/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/mimi-lo/sheet.png"
+        }
+      },
+      "voice_description": ""
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_the_alchemy_lab",
+      "name": "The Alchemy Lab",
+      "type": "interior",
+      "description": "A circular stone room filled with fumes and bubbling sounds. It feels claustrophobic and volatile.",
+      "visual_tags": [
+        "Lighting: Dim, illuminated by green and orange liquid glows",
+        "Key Object: The central copper distiller that hisses rhythmically",
+        "Atmosphere: Suffocating, humid, tense",
+        "Palette: Rust orange, copper, toxic green"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-alchemy-lab/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_the_clock_tower_atrium",
+      "name": "The Clock Tower Atrium",
+      "type": "interior",
+      "description": "A massive open space with a glass ceiling showing the sky. The only place Elara feels she can breathe.",
+      "visual_tags": [
+        "Lighting: Bright, natural sunlight casting long shadows (God rays)",
+        "Key Object: Giant mechanical clock gears visible in the walls",
+        "Atmosphere: Serene but echoing, 'Time' motif",
+        "Palette: White marble, gold, sky blue"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-clock-tower-atrium/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_elaras_dorm_room",
+      "name": "Elara's Dorm Room",
+      "type": "interior",
+      "description": "Tiny, cluttered, and covered in preventative measures.",
+      "visual_tags": [
+        "Lighting: Warm candlelight, cozy but messy",
+        "Key Object: A wall covered in sticky notes with future dates/times crossed out",
+        "Atmosphere: Paranoiac safety",
+        "Palette: Warm browns, parchment yellow"
+      ],
+      "assets": {
+        "reference": "assets/locations/elaras-dorm-room/reference.png",
+        "reference_sheet": null
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "The Fractured Second",
+      "summary": "Elara Vance tries to survive a potions class without revealing her forbidden foresight, but a reflex action draws the suspicion of the class prodigy, Kaelen Vross.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_alchemy_lab",
+          "time_of_day": "morning",
+          "weather": "clear",
+          "character_ids": [
+            "char_elara_vance",
+            "char_kaelen_kael_vross",
+            "char_professor_thorne"
+          ],
+          "description": "A cramped circular room filled with green haze. Bubbling beakers and scratching quills dominate the soundscape.",
+          "mood": "Tense, Volatile",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "A ceramic mug hits the stone floor and shatters into jagged pieces. Coffee splashes in a violent, frozen arc. The colors are slightly inverted/distorted to indicate a vision.",
+              "dialogue": [],
+              "sfx": [
+                "SHATTER",
+                "GLITCH_NOISE"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "This is a vision of the immediate future.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "focused",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Return to reality. Kaelen, looking annoyed, abruptly turns to grab an ingredient, his elbow swinging back toward Elara's mug sitting on the desk edge. The mug hasn't fallen yet.",
+              "dialogue": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "text": "You're crowding the workspace, Vance.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "Normal lighting returns.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "In a blur of motion, Elara's hand snaps out. She catches the mug in mid-air just as Kaelen's elbow makes contact, preventing it from even wobbling. Her eyes are wide, pupils dilated.",
+              "dialogue": [],
+              "sfx": [
+                "SWISH",
+                "GRIP"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Elara's movement should look unnaturally fast, almost blurred.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "terrified",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "suspicious",
+                  "pose": "",
+                  "position": "center"
+                },
+                {
+                  "character_id": "char_professor_thorne",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "Time seems to freeze. Kaelen stares at her hand. Professor Thorne looks up from his desk, eyes narrowing. Elara freezes, sweat forming on her brow.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "(Too fast. I moved too fast. They saw.)",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Atmosphere shifts to heavy/suspicious.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara deliberately opens her fingers. The mug falls from her hand to the floor.",
+              "dialogue": [],
+              "sfx": [
+                "CRASH",
+                "SPLASH"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Focus on the hand releasing the object.",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_professor_thorne",
+                  "expression": "furious",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "embarrassed",
+                  "pose": "",
+                  "position": "center"
+                },
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "Thorne towers over them, shadow cast across Elara. Elara puts on a fake, ditzy smile, scratching the back of her head. Kaelen is wiping coffee off his pristine robes, looking furious.",
+              "dialogue": [
+                {
+                  "character_id": "char_professor_thorne",
+                  "text": "MISS VANCE! Detentions. For a week.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "I saw it break ten seconds ago.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "None",
+              "image_path": "assets/panels/chapter-1/scene-1/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_clock_tower_atrium",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_elara_vance",
+            "char_mimi_lo",
+            "char_kaelen_kael_vross"
+          ],
+          "description": "A massive open space with a glass ceiling showing the sky. Gears turn slowly in the walls.",
+          "mood": "Open but Uneasy",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_mimi_lo",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Elara sits on a bench, looking exhausted. Mimi is aggressively scrubbing a coffee stain out of Elara's sleeve with a glowing handkerchief.",
+              "dialogue": [
+                {
+                  "character_id": "char_mimi_lo",
+                  "text": "Honestly, El! How do you even manage to trip while standing still?",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "It's a gift, Mimi. A curse, really.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SCRUB_SCRUB"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Bright, airy lighting contrasts the previous dark lab.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "surprised",
+                  "pose": "",
+                  "position": "center"
+                },
+                {
+                  "character_id": "char_mimi_lo",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "A shadow falls over them. Kaelen stands there, arms crossed, looking down at Elara. He ignores Mimi completely.",
+              "dialogue": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "text": "You caught it.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Kaelen blocks the light source.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "mischievous",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara forces a confused laugh, waving her hands dismissively. She leans back, trying to look casual.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "Caught what? A cold? Hopefully not, I can't afford more sick days.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Elara is acting 'ditzy'.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "suspicious",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Kaelen's eyes. They are sharp, analytical. He isn't buying it.",
+              "dialogue": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "text": "The mug. You caught it before I even hit it. No one has reflexes like that. Not even a combat mage.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Tension spikes.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_mimi_lo",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "center"
+                },
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "right"
+                }
+              ],
+              "action": "Elara stands up, grabbing Mimi by the arm to drag her away. She turns her back to Kaelen, waving over her shoulder.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "It was just a flail, Kael! A lucky, clumsy flail. See you in History!",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_mimi_lo",
+                  "text": "Wait, my cleaning spell isn't done!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Elara is retreating.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen remains alone in the frame, watching them leave. He looks at his own elbow, then back at Elara's retreating figure. The background gears seem to frame him like a cage.",
+              "dialogue": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "text": "Liar.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "End scene on Kaelen's suspicion.",
+              "image_path": "assets/panels/chapter-1/scene-2/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_elaras_dorm_room",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_elara_vance"
+          ],
+          "description": "Tiny, cluttered room. Every surface is covered in talismans and notes. It feels like a bunker.",
+          "mood": "Foreboding",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara collapses onto her bed, face in the pillow. The room is dark, lit only by moonlight.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "That was too close...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "FLUMP"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Atmosphere change to cold/dark.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-1.png",
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara rolls over, staring at the ceiling. She looks exhausted, the 'clumsy' mask completely gone. Her eyes are hauntingly sad.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "If Kael figures it out, I'm expelled. Or worse.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "None",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-2.png",
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "pain",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara's pupil suddenly constricts. A violet light flares in her iris. A migraine strikes.",
+              "dialogue": [],
+              "sfx": [
+                "RIIIIING",
+                "HEARTBEAT"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Visual distortion effects begin.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-3.png",
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "VISION PANEL: The Alchemy Lab is engulfed in blue fire. The walls are blown out. Students are screaming. The colors are inverted and jagged.",
+              "dialogue": [],
+              "sfx": [
+                "ROAR",
+                "BOOM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "This is a vision of the future.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-4.png",
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kaelen_kael_vross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "VISION PANEL: Close up on Kaelen lying in the rubble, unmoving. A cracked pocket watch lies next to his hand.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Vision aesthetic continues.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-5.png",
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_elara_vance",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Elara shoots up in bed, gasping for air, clutching her chest. She is back in her dark room, terrified.",
+              "dialogue": [
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "No... not the lab. Not him.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_elara_vance",
+                  "text": "I have to stop it.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "GASP"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Vision ends. Normal lighting.",
+              "image_path": "assets/panels/chapter-1/scene-3/panel-6.png",
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    }
+  ],
+  "original_prompt": "A young witch discovers she has a rare ability to see the future, but must keep it secret from her classmates at the magical academy.",
+  "reference_images": []
+}

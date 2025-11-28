@@ -1,0 +1,40 @@
+{
+  "type": "character",
+  "character_id": "char_mimi_lo",
+  "character_name": "Mimi Lo",
+  "role": "supporting",
+  "age": "17",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Pink bob cut with bangs",
+    "Top: Standard white shirt customized with colorful pins",
+    "Accessory: Oversized white headphones around neck always playing music"
+  ],
+  "description": {
+    "physical": "Curvy build, expressive face, constantly moving hands.",
+    "personality": "Bubbly, gossip-loving, oblivious to danger."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_mimi_lo",
+    "character_name": "Mimi Lo",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Mimi Lo\nAge: 17\nPhysical appearance: Curvy build, expressive face, constantly moving hands.\nVisual details: Hair: Pink bob cut with bangs, Top: Standard white shirt customized with colorful pins, Accessory: Oversized white headphones around neck always playing music\nPersonality (for expression): Bubbly, gossip-loving, oblivious to danger.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 162,
+        "candidates_tokens": 1292,
+        "total_tokens": 1683
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:23:15.152419"
+}

@@ -1,0 +1,45 @@
+{
+  "type": "character",
+  "character_id": "char_riko",
+  "character_name": "Riko",
+  "role": "supporting",
+  "age": "19",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Neon pink bob cut with blunt bangs",
+    "Eyes: Bright green eyes, often wide with excitement",
+    "Top: Oversized yellow hoodie with black hazard tape stripes",
+    "Bottom: Purple pleated vinyl mini-skirt",
+    "Footwear: Chunky white platform sneakers with LED soles",
+    "Accessory: Large cat-ear headphones around neck",
+    "Accessory: A floating drone buddy named 'Bit'",
+    "Colors: Yellow, Pink, Purple (CMYK palette)"
+  ],
+  "description": {
+    "physical": "Petite, high energy, constantly moving. Fingers are taped up.",
+    "personality": "Chaotic, brilliant, sarcastic. Uses humor to mask fear."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_riko",
+    "character_name": "Riko",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Riko\nAge: 19\nPhysical appearance: Petite, high energy, constantly moving. Fingers are taped up.\nVisual details: Hair: Neon pink bob cut with blunt bangs, Eyes: Bright green eyes, often wide with excitement, Top: Oversized yellow hoodie with black hazard tape stripes, Bottom: Purple pleated vinyl mini-skirt, Footwear: Chunky white platform sneakers with LED soles, Accessory: Large cat-ear headphones around neck, Accessory: A floating drone buddy named 'Bit', Colors: Yellow, Pink, Purple (CMYK palette)\nPersonality (for expression): Chaotic, brilliant, sarcastic. Uses humor to mask fear.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 222,
+        "candidates_tokens": 1380,
+        "total_tokens": 1838
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:44:37.815172"
+}

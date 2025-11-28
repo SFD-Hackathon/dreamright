@@ -1,0 +1,42 @@
+{
+  "type": "character",
+  "character_id": "char_headmaster_vane",
+  "character_name": "Headmaster Vane",
+  "role": "antagonist",
+  "age": "Appears 40s (actually 400+)",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Slicked back dark grey hair, widow's peak",
+    "Eyes: Pitch black (sign of age and power)",
+    "Face: Gaunt cheeks, sharp nose",
+    "OUTFIT: Immaculate charcoal three-piece suit, long black trench coat draped over shoulders",
+    "Accessory: A cane with a silver wolf's head handle"
+  ],
+  "description": {
+    "physical": "Tall, imposing, moves with predatory grace.",
+    "personality": "Charismatic, manipulative, believes the ends justify the means."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_headmaster_vane",
+    "character_name": "Headmaster Vane",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Headmaster Vane\nAge: Appears 40s (actually 400+)\nPhysical appearance: Tall, imposing, moves with predatory grace.\nVisual details: Hair: Slicked back dark grey hair, widow's peak, Eyes: Pitch black (sign of age and power), Face: Gaunt cheeks, sharp nose, OUTFIT: Immaculate charcoal three-piece suit, long black trench coat draped over shoulders, Accessory: A cane with a silver wolf's head handle\nPersonality (for expression): Charismatic, manipulative, believes the ends justify the means.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 208,
+        "candidates_tokens": 1317,
+        "total_tokens": 1793
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:50:03.467686"
+}

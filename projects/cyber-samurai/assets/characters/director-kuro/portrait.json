@@ -1,0 +1,44 @@
+{
+  "type": "character",
+  "character_id": "char_director_kuro",
+  "character_name": "Director Kuro",
+  "role": "antagonist",
+  "age": "40s",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Slicked back silver hair, immovable",
+    "Eyes: Completely black sclera with glowing white irises",
+    "Top: Pristine white mandarin-collar suit jacket",
+    "Bottom: Matching white dress trousers, perfectly creased",
+    "Footwear: White patent leather shoes",
+    "Accessory: Levitating geometric shapes that orbit his hands",
+    "Colors: White, Silver, Ice Blue"
+  ],
+  "description": {
+    "physical": "Sleek, unnatural perfection. Skin looks like porcelain.",
+    "personality": "Cold, calculating, views humans as raw data."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_director_kuro",
+    "character_name": "Director Kuro",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Director Kuro\nAge: 40s\nPhysical appearance: Sleek, unnatural perfection. Skin looks like porcelain.\nVisual details: Hair: Slicked back silver hair, immovable, Eyes: Completely black sclera with glowing white irises, Top: Pristine white mandarin-collar suit jacket, Bottom: Matching white dress trousers, perfectly creased, Footwear: White patent leather shoes, Accessory: Levitating geometric shapes that orbit his hands, Colors: White, Silver, Ice Blue\nPersonality (for expression): Cold, calculating, views humans as raw data.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 203,
+        "candidates_tokens": 1313,
+        "total_tokens": 1781
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:45:17.366559"
+}

@@ -1,0 +1,37 @@
+{
+  "type": "location",
+  "location_id": "loc_rikos_safehouse",
+  "location_name": "Riko's Safehouse",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A cramped server room converted into a living space inside an abandoned subway car.",
+  "visual_tags": [
+    "Lighting: Warm glow from dozens of CRT monitors",
+    "Key Object: A pile of empty energy drink cans stacked into a pyramid",
+    "Atmosphere: Cozy but messy, wires hanging from the ceiling like vines",
+    "Colors: Amber, green terminal text, rust",
+    "Sound: Typing clatter and lo-fi hip hop beats"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_rikos_safehouse",
+    "location_name": "Riko's Safehouse",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: Riko's Safehouse\nType: interior\nDescription: A cramped server room converted into a living space inside an abandoned subway car.\nVisual details: Lighting: Warm glow from dozens of CRT monitors, Key Object: A pile of empty energy drink cans stacked into a pyramid, Atmosphere: Cozy but messy, wires hanging from the ceiling like vines, Colors: Amber, green terminal text, rust, Sound: Typing clatter and lo-fi hip hop beats",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 273,
+        "candidates_tokens": 1353,
+        "total_tokens": 1949
+      }
+    }
+  },
+  "generated_at": "2025-11-28T11:46:14.955211"
+}

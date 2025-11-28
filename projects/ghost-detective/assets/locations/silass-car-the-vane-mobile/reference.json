@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_silass_car_the_vane_mobile",
+  "location_name": "Silas's Car (The Vane Mobile)",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "Interior of a vintage muscle car. A bubble of warmth in the rain.",
+  "visual_tags": [
+    "LIGHTING: Warm amber dashboard lights, rain shadows on glass",
+    "OBJECTS: Talismans hanging from the rearview mirror, messy backseat with books",
+    "ATMOSPHERE: Intimate, safe, smell of old leather and coffee",
+    "COLOR PALETTE: Warm browns, amber, black"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_silass_car_the_vane_mobile",
+    "location_name": "Silas's Car (The Vane Mobile)",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\n\nLocation: Silas's Car (The Vane Mobile)\nType: interior\nDescription: Interior of a vintage muscle car. A bubble of warmth in the rain.\nVisual details: LIGHTING: Warm amber dashboard lights, rain shadows on glass, OBJECTS: Talismans hanging from the rearview mirror, messy backseat with books, ATMOSPHERE: Intimate, safe, smell of old leather and coffee, COLOR PALETTE: Warm browns, amber, black",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 164,
+        "candidates_tokens": 1303,
+        "total_tokens": 1748
+      }
+    }
+  },
+  "generated_at": "2025-11-27T19:04:10.362964"
+}

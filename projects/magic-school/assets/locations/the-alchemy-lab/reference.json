@@ -1,0 +1,36 @@
+{
+  "type": "location",
+  "location_id": "loc_the_alchemy_lab",
+  "location_name": "The Alchemy Lab",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A circular stone room filled with fumes and bubbling sounds. It feels claustrophobic and volatile.",
+  "visual_tags": [
+    "Lighting: Dim, illuminated by green and orange liquid glows",
+    "Key Object: The central copper distiller that hisses rhythmically",
+    "Atmosphere: Suffocating, humid, tense",
+    "Palette: Rust orange, copper, toxic green"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_the_alchemy_lab",
+    "location_name": "The Alchemy Lab",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: The Alchemy Lab\nType: interior\nDescription: A circular stone room filled with fumes and bubbling sounds. It feels claustrophobic and volatile.\nVisual details: Lighting: Dim, illuminated by green and orange liquid glows, Key Object: The central copper distiller that hisses rhythmically, Atmosphere: Suffocating, humid, tense, Palette: Rust orange, copper, toxic green",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "finish_reason": "FinishReason.STOP",
+      "usage": {
+        "prompt_tokens": 257,
+        "candidates_tokens": 1284,
+        "total_tokens": 1944
+      }
+    }
+  },
+  "generated_at": "2025-11-27T22:24:07.892440"
+}

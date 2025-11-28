@@ -1,0 +1,1772 @@
+{
+  "id": "proj_time_loop_detective",
+  "name": "Time Loop Detective",
+  "created_at": "2025-11-28T11:33:07.884130",
+  "updated_at": "2025-11-28T12:09:58.633241",
+  "format": "webtoon",
+  "status": "in_progress",
+  "story": {
+    "id": "story_midnight_recoil",
+    "title": "Midnight Recoil",
+    "logline": "A disgraced detective is trapped in a rainy neo-noir city, forced to relive the murder of a key witness every time the clock strikes 12, realizing that with every reset, the killer changes tactics.",
+    "genre": "drama",
+    "tone": "dramatic",
+    "themes": [
+      "Redemption through repetition",
+      "The inevitability of fate",
+      "Trust vs. Betrayal"
+    ],
+    "target_audience": "Young adults (18-35) who enjoy fast-paced mysteries and stylized visuals like Cyberpunk or Sin City.",
+    "episode_count": 3,
+    "synopsis": "Detective Kaelen Vance has one job: protect Lena, a whistleblower holding evidence against a crime syndicate. But at 11:59 PM, a sniper's bullet kills her. As Kaelen screams, the world dissolves into static. He wakes up in his bed at 6:00 AM that same morning. \n\nTrapped in a time loop, Kaelen tries to save Lena, but fate seems rigged against him. Sometimes it's a sniper, sometimes a bomb, sometimes a poisoning. With each reset, Kaelen retains his memories, but so does the physical toll on his body. He discovers that the 'syndicate' isn't just a gang, but a corruption deep within his own police force. \n\nIn the final loop, Kaelen realizes the only way to save Lena is to stop playing defense. He must use the knowledge of the previous failures to orchestrate a perfect counter-attack, even if it means sacrificing his own future to break the cycle.",
+    "story_beats": [
+      {
+        "beat": "Hook (Episode 1)",
+        "description": "Panel 1: Extreme close-up of a shattered pocket watch frozen at 11:59. Pull back to see Kaelen covered in blood, holding Lena’s lifeless body in the rain. A gunshot echoes. The world glitches like a corrupted video file."
+      },
+      {
+        "beat": "Inciting Incident (Episode 1)",
+        "description": "Kaelen wakes up gasping in his apartment at 6:00 AM. He thinks it was a nightmare until he sees a bruise on his arm from the 'dream' fight. He rushes to meet Lena early. He changes the route, thinking he's smart, but a truck hits their car at 11:59 PM. Darkness. Reset."
+      },
+      {
+        "beat": "Rising Action (Episode 2)",
+        "description": "Loop 4. Kaelen stops trying to run and starts investigating. He breaks into Lena’s safehouse before she arrives. Discovery: He finds a photo of his partner, Ren, meeting with the syndicate. Character Moment: Kaelen shares a quiet coffee with Lena in a diner, knowing she will die in 4 hours, asking her about her life to keep her calm. Cliffhanger: Kaelen confronts Ren, but Ren shoots himself, triggering a dead-man's switch that blows up the building. Reset."
+      },
+      {
+        "beat": "Climax (Episode 3)",
+        "description": "The Final Loop. Kaelen wakes up. He doesn't run. He gears up. He uses the exact timing of the traffic lights and patrol shifts he memorized to bypass all obstacles. He intercepts the sniper (Ren) at the clock tower before the shot is fired. A brutal hand-to-hand fight ensues amidst the gears of the clock."
+      },
+      {
+        "beat": "Resolution (Episode 3)",
+        "description": "Kaelen handcuffs Ren to the railing just as the police arrive. The clock strikes 12:00. Kaelen flinches, waiting for the reset... but the second hand ticks to 12:01. The loop is broken. He looks down at the street where Lena is being safely escorted away. She looks up, not knowing him, but smiles."
+      }
+    ]
+  },
+  "characters": [
+    {
+      "id": "char_detective_kaelen_vance",
+      "name": "Detective Kaelen Vance",
+      "role": "protagonist",
+      "age": "32",
+      "description": {
+        "physical": "Tall, exhausted, athletic build but slouching from weight of the world.",
+        "personality": "Cynical, observant, desperate, fiercely protective.",
+        "background": "Former star detective demoted after a botched raid. Needs this case to clear his name.",
+        "motivation": "To save Lena and break the hellish time loop."
+      },
+      "visual_tags": [
+        "Hair: Messy, neck-length dark brown hair, constantly wet or sweaty.",
+        "Eyes: Sharp steel-gray eyes with heavy dark circles.",
+        "Face: Stubble on jaw, a small scar through the left eyebrow.",
+        "OUTFIT: Charcoal grey turtleneck sweater, black tactical cargo pants, heavy black combat boots, long beige trench coat (often stained with rain/blood).",
+        "Accessory: A silver pocket watch with a cracked face attached to his belt loop."
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": null,
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_lena_kross",
+      "name": "Lena Kross",
+      "role": "supporting",
+      "age": "24",
+      "description": {
+        "physical": "Petite, alert, striking contrast to the gloomy city.",
+        "personality": "Anxious but intelligent, hiding a hacker background.",
+        "background": "A data clerk who accidentally downloaded the police corruption ledger.",
+        "motivation": "To survive the night and deliver the data."
+      },
+      "visual_tags": [
+        "Hair: Platinum blonde bob cut, very straight and sharp.",
+        "Eyes: Bright teal eyes (possibly contacts), wide with fear.",
+        "Face: Pale skin, distinct mole under right eye.",
+        "OUTFIT: Oversized bright mustard-yellow hoodie (visual anchor), black leggings, red high-top sneakers.",
+        "Accessory: A clunky retro laptop bag she clutches to her chest."
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": null,
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_officer_ren",
+      "name": "Officer Ren",
+      "role": "supporting",
+      "age": "30",
+      "description": {
+        "physical": "Clean-cut, muscular, deceptively friendly.",
+        "personality": "Charming, by-the-book, secretly sociopathic.",
+        "background": "Kaelen's rookie partner who was bought out by the syndicate years ago.",
+        "motivation": "Eliminate loose ends to protect his payoff."
+      },
+      "visual_tags": [
+        "Hair: Buzz cut, black.",
+        "Eyes: Dark brown, warm when smiling but empty when serious.",
+        "Face: Clean-shaven, square jaw.",
+        "OUTFIT: Standard issue navy blue police uniform (impeccably pressed), black tie, polished black dress shoes.",
+        "Accessory: Gold policeman's badge that catches the light frequently."
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": null,
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_the_clockmaker",
+      "name": "The Clockmaker",
+      "role": "supporting",
+      "age": "70s",
+      "description": {
+        "physical": "Fraile, hunched, almost blends into the shadows.",
+        "personality": "Cryptic, speaks in riddles about time.",
+        "background": "A homeless man who seems to be the only other person aware of the loop.",
+        "motivation": "To guide Kaelen without interfering directly."
+      },
+      "visual_tags": [
+        "Hair: Long, stringy white hair and beard.",
+        "Eyes: Milky white (blind).",
+        "Face: Deeply wrinkled, weathered skin.",
+        "OUTFIT: Tattered olive green military parka, fingerless wool gloves, mismatched boots.",
+        "Accessory: Holding a cardboard sign that changes text in every loop (e.g., 'TICK TOCK', 'TRY AGAIN')."
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": null,
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null
+        }
+      },
+      "voice_description": ""
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_the_neon_rooftop",
+      "name": "The Neon Rooftop",
+      "type": "interior",
+      "description": "The roof of an abandoned gothic clock tower overlooking the cyber-noir city.",
+      "visual_tags": [
+        "Lighting: Harsh pink and blue neon light from nearby billboards, cutting through heavy rain.",
+        "Key Object: A massive, rusted clock face that Kaelen can use for cover.",
+        "Atmosphere: Vertiginous, slick, dangerous.",
+        "Colors: Cyan, Magenta, Rust.",
+        "Sensory: Sound of heavy rain hitting metal, the grinding of clock gears."
+      ],
+      "assets": {
+        "reference": null,
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_kaelens_apartment",
+      "name": "Kaelen's Apartment",
+      "type": "interior",
+      "description": "A cramped, messy studio apartment where Kaelen wakes up every loop.",
+      "visual_tags": [
+        "Lighting: Morning grey light filtering through blinds (Mood 1), or flickering yellow lamp at night (Mood 2).",
+        "Key Object: A corkboard covered in red string and photos that gets more complex each loop.",
+        "Atmosphere: Claustrophobic, stagnant, lonely.",
+        "Colors: Desaturated greys, browns, and pale yellow.",
+        "Sensory: The sound of a digital alarm clock beeping incessantly."
+      ],
+      "assets": {
+        "reference": null,
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_the_midnight_diner",
+      "name": "The Midnight Diner",
+      "type": "interior",
+      "description": "A retro-style diner where Kaelen takes Lena to hide in Loop 2.",
+      "visual_tags": [
+        "Lighting: Warm, buzzing fluorescent interior vs. pitch black outside windows.",
+        "Key Object: A jukebox that always plays the same song when the loop is about to end.",
+        "Atmosphere: False sense of safety, nostalgic.",
+        "Colors: Checkerboard black/white, red leather booths.",
+        "Sensory: Smell of cheap coffee and frying grease."
+      ],
+      "assets": {
+        "reference": null,
+        "reference_sheet": null
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Episode 1: 11:59",
+      "summary": "Detective Kaelen Vance watches key witness Lena Kross die as the clock strikes midnight, only to wake up hours earlier in his apartment, realizing the nightmare has reset.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_neon_rooftop",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance",
+            "char_lena_kross"
+          ],
+          "description": "A gothic clock tower roof under heavy, neon-lit rain. The atmosphere is suffocating and loud.",
+          "mood": "Tragic, Chaotic, Cyber-Noir",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Focus on a silver pocket watch lying on wet concrete. The glass is spider-webbed with cracks. The hands are frozen at one minute to midnight. Raindrops hit the face of the watch heavily.",
+              "dialogue": [],
+              "sfx": [
+                "TICK...",
+                "TICK...",
+                "TICK..."
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Color palette is cold blues and harsh neon pinks.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kaelen is on his knees in the center of the roof, cradling Lena's limp body. The rain is torrential. In the background, the massive clock face of the tower glows ominously.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "No... no, no, no!",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Lena! Open your eyes!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "THUNDER_CRACK",
+                "HISS of rain"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Kaelen's trench coat is soaked and stained dark.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "desperate",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kaelen presses his hand against a wound on Lena's abdomen. Blood seeps through his fingers, mixing with the neon-reflected rainwater. He looks up, eyes wild with panic.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Don't do this. We were right there. We had him.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Lighting flickers as lightning strikes nearby.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "POV from Kaelen looking up. A dark silhouette stands over them, gun raised. The killer's face is obscured by shadow and rain, but the barrel of the gun catches a lens flare.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "Time's up, Detective.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "CLICK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The silhouette dominates the frame.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Extreme close up on Kaelen's eye widening. Reflected in his pupil is the muzzle flash of the gun.",
+              "dialogue": [],
+              "sfx": [
+                "BANG"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Time seems to freeze at the moment of the shot.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The entire world—the rain, the roof, the blood—shatters into digital artifacts and RGB static. The image is tearing apart like a corrupted video file.",
+              "dialogue": [],
+              "sfx": [
+                "ZZZZZT",
+                "GLITCH_NOISE"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Visual transition to the next scene.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_kaelens_apartment",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance"
+          ],
+          "description": "A small, messy studio apartment. Venetian blinds cast slat-shadows across the room. It is suddenly quiet compared to the previous scene.",
+          "mood": "Disorienting, Grimy, Quiet",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen shoots up in bed, gasping for air, sweat dripping down his face. He is clutching his chest where the bullet would have hit.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "HAAH!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "GASP"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Sudden lighting change from cold blue to warm, sickly amber streetlights outside.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen sits on the edge of the bed, looking at his hands. He turns them over, expecting blood, but they are clean. His hands are shaking.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "The blood... it's gone.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "He is wearing a white undershirt, drench in sweat.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "He looks at the digital alarm clock on the nightstand. It glows red in the dark room.",
+              "dialogue": [],
+              "sfx": [
+                "BEEP"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The clock reads 8:00 PM.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on the clock reading: 8:00 PM. In the background, slightly out of focus, Kaelen holds his head in his hands.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Eight o'clock. Again.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Atmosphere is heavy with dust motes visible in the light shafts.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen stands up, knocking over a bottle of cheap whiskey on the floor. The apartment is cluttered with case files and takeout boxes. He looks at his reflection in a cracked mirror.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "I can't let her go to the roof. Not this time.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "CLATTER"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The reflection shows a tired, unshaven man.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen grabs his holster and badge off the dresser. The lighting shifts slightly to highlight his grip—tense and aggressive.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Four hours until midnight.",
+                  "type": "thought"
+                },
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Four hours to find the bastard.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "CHK-CHK (Gun loading)"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "End of chapter hook.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "number": 2,
+      "title": "Episode 2: Déjà Bruise",
+      "summary": "Kaelen wakes from the 'nightmare' only to find physical proof it was real. Determined to change fate, he intercepts Lena early and alters their route, only to discover that the city itself seems weaponized against them.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_kaelens_apartment",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance"
+          ],
+          "description": "The abrupt transition from the rainy rooftop to the silent, dusty apartment. The morning light is weak and grey, filtering through cheap blinds.",
+          "mood": "Disorienting, Cold, Gritty",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen sits bolt upright in his messy bed, sweat dripping, chest heaving. The digital clock on the nightstand glows angrily: 06:00 AM.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Guh—!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "BEEP",
+                "BEEP",
+                "BEEP"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Direct cut from the black screen of Chapter 1.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen grips his hair, trying to slow his breathing. The room is quiet, contrasting the loud rain from his memory.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Just a dream... just a whiskey nightmare.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "huff... huff..."
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "pain",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "He swings his legs out of bed. As he puts weight on his left arm to push off the mattress, he winces sharply.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Ngh!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "thud"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Kaelen's forearm. He rolls up the sleeve of his t-shirt. There is a fresh, nasty purple bruise in the shape of a pipe.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "The bruise matches the injury from the rooftop fight in Loop 1.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen stares at the bruise, eyes wide. The realization hits him. The background seems to warp slightly.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "The pipe... on the roof.",
+                  "type": "thought"
+                },
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "It wasn't a dream.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "RING..."
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen is already moving, grabbing his holster and keys off the table. Motion blur indicates speed.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Lena. I have to get to her before tonight.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "CLACK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": null,
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance",
+            "char_lena_kross"
+          ],
+          "description": "Inside Kaelen's beat-up sedan. Outside, the city is a blur of neon streaks and rain. The interior is dark, lit only by the dashboard.",
+          "mood": "Tense, Claustrophobic, Fast-paced",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Exterior shot of the car drifting around a wet corner, tires kicking up water. The city skyline looms in the background.",
+              "dialogue": [],
+              "sfx": [
+                "SCREEECH"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "focused",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Inside the car (Two shot). Kaelen is white-knuckling the steering wheel. Lena looks terrified, gripping the passenger handle.",
+              "dialogue": [
+                {
+                  "character_id": "char_lena_kross",
+                  "text": "Kaelen! Why did you turn?! The safehouse is the other way!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Profile of Kaelen. He checks the rearview mirror, paranoid.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "They know the route, Lena. I'm changing the variables.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Focus on the dashboard clock. The numbers flip from 11:57 to 11:58.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Almost midnight. Just need to clear the intersection.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "click"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "hopeful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "View through the windshield. The traffic light ahead turns Green. Kaelen accelerates.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Green light. We're going to make it.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "VROOOM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kaelen turns to look at Lena, a small, triumphant smile on his face. He relaxes his shoulders.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "See? I told you I'd keep you—",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": null,
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance",
+            "char_lena_kross"
+          ],
+          "description": "The sudden destruction of the car, followed by the silence of the reset.",
+          "mood": "Violent, Sudden, Hopeless",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Lena screams, looking out the passenger window. Harsh, blinding white headlights flood the cabin, washing out all color.",
+              "dialogue": [
+                {
+                  "character_id": "char_lena_kross",
+                  "text": "KAELEN!!!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "HONNNNNK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Lighting shifts instantly from dark/neon to blinding white.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Silhouette shot. A massive cargo truck T-bones the small sedan. Glass shatters outward like diamonds. The impact is visceral.",
+              "dialogue": [],
+              "sfx": [
+                "CRUNCH",
+                "SMASH"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Inside the wrecked car. The world is sideways. Smoke hisses. Kaelen is bleeding from the head, vision blurry.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "L-Lena...?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "hiss...",
+                "drip..."
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen's POV. He looks at the passenger seat. Lena is slumped over, unmoving, hidden mostly by deployed airbags and shadows.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The car's digital clock is cracked but visible. It flickers from 11:59...",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "No... I changed... the route...",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "bzzt"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Pitch black panel. No image.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "RESET.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "number": 3,
+      "title": "Episode 3: Dead Man's Switch",
+      "summary": "In his fourth time loop, Kaelen stops running and starts hunting. He uncovers a betrayal closer to home than he imagined. A moment of respite with Lena in a diner turns into a deadly confrontation with his partner, Ren, leading to an explosive reset.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": null,
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance"
+          ],
+          "description": "Kaelen ransacking the safehouse before Lena arrives.",
+          "mood": "Tense, Investigative",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen is tearing through a desk drawer, tossing aside papers. He looks frantic but focused.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Come on, Lena... you keep backups of everything. Where is it?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "RUSTLE",
+                "THUD"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Kaelen is wearing his rumpled trench coat, looking more exhausted than previous chapters.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen's hand freezes over a loose floorboard beneath the rug. He pries it open.",
+              "dialogue": [],
+              "sfx": [
+                "CREAK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Lighting is dim, blue moonlight from window.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Focus on a physical photograph held in Kaelen's trembling hand. It shows Officer Ren shaking hands with a man with a serpent tattoo.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "No...",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "The photo looks grainy, taken from a distance.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen's face, illuminated by a sudden flash of lightning. Pure betrayal and rage.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Ren. You son of a bitch.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "KRAK-OOM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Lightning casts harsh shadows on his face.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen shoves the photo into his pocket and checks his watch. The time reads 08:00 PM.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Four hours until the reset. Four hours to fix this.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "TICK",
+                "TICK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Watch face is cracked from previous loops.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_midnight_diner",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance",
+            "char_lena_kross"
+          ],
+          "description": "A retro diner with neon pink lights outside reflecting on the wet pavement. Inside is warm, smelling of coffee and grease.",
+          "mood": "Melancholy, Warm",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "anxious",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kaelen and Lena sit in a booth. Outside the window, the rain is torrential. Inside, it's a quiet bubble of safety.",
+              "dialogue": [
+                {
+                  "character_id": "char_lena_kross",
+                  "text": "You've barely touched your coffee, Detective. You look... like you've seen a ghost.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "clink"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Steam rising from mugs.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen looks at Lena. He knows she's died three times already. His look is soft, protective, and sad.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Just a long night, Lena. Tell me... if you get out of this, where do you go?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Kaelen leaning forward on elbows.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "hopeful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Lena looks down at her hands, a small, hopeful smile breaking her anxiety.",
+              "dialogue": [
+                {
+                  "character_id": "char_lena_kross",
+                  "text": "North. Somewhere with snow. Somewhere the neon doesn't reach.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Reflections of neon signs in the window behind her.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The clock on the diner wall. It reads 11:55 PM. The second hand is loud.",
+              "dialogue": [],
+              "sfx": [
+                "TICK-TOCK",
+                "TICK-TOCK"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Focus shift from Lena to the clock.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The diner door chime rings. Kaelen stiffens immediately, hand going to his holster under the table.",
+              "dialogue": [
+                {
+                  "character_id": "char_officer_ren",
+                  "text": "Found you. You're getting sloppy, Vance.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "DING-DONG"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Kaelen's demeanor shifts instantly from sad to combat-ready.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_midnight_diner",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_detective_kaelen_vance",
+            "char_officer_ren",
+            "char_lena_kross"
+          ],
+          "description": "The confrontation inside the diner. The cozy atmosphere is shattered.",
+          "mood": "Dangerous, Chaotic",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_officer_ren",
+                  "expression": "mischievous",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren stands at the entrance, dripping wet, smiling pleasantly. He is holding a detonator in one hand and a gun in the other.",
+              "dialogue": [
+                {
+                  "character_id": "char_officer_ren",
+                  "text": "Quiet night for a date, isn't it?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren wears a police uniform, soaking wet.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "angry",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_lena_kross",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kaelen jumps up, gun aimed at Ren. Lena cowers in the booth behind him.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "I saw the photos, Ren! I know you sold us out!",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Kaelen shielding Lena.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_officer_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren's smile drops. He looks bored. He raises the gun... to his own temple.",
+              "dialogue": [
+                {
+                  "character_id": "char_officer_ren",
+                  "text": "Took you four loops to figure it out? You're losing your touch, Kaelen.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren's eyes are dead/empty.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "expression": "surprised",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kaelen's eyes widen in horror as he realizes Ren knows about the loops.",
+              "dialogue": [
+                {
+                  "character_id": "char_detective_kaelen_vance",
+                  "text": "Wait—you remember?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Sweat on Kaelen's brow.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_officer_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren pulls the trigger on himself while pressing the detonator button. A violent action frozen in time.",
+              "dialogue": [
+                {
+                  "character_id": "char_officer_ren",
+                  "text": "See you at midnight.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "BLAM",
+                "CLICK"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Motion lines indicating the fall.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The entire diner erupts in a massive fireball. The screen is consumed by white and orange light.",
+              "dialogue": [],
+              "sfx": [
+                "KA-BOOOOM"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Total destruction.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    }
+  ],
+  "original_prompt": "A detective stuck in a 24-hour time loop must solve a murder that resets every day, with each loop revealing new clues and suspects.",
+  "reference_images": []
+}
