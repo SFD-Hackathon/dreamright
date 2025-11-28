@@ -481,24 +481,36 @@ class GeminiClient:
             full_prompt = f"{style} style. {full_prompt}"
 
         contents: list[Any] = []
+        loaded_references: list[dict] = []  # Track which references were actually loaded
 
         # Add reference images if provided, each with its role label
         if reference_images:
-            loaded_count = 0
             for ref_path, role in reference_images:
                 part = self._load_reference_image(ref_path)
                 if part:
                     contents.append(f"[{role}]:")
                     contents.append(part)
-                    loaded_count += 1
+                    loaded_references.append({
+                        "path": str(ref_path),
+                        "role": role,
+                        "loaded": True,
+                    })
+                else:
+                    loaded_references.append({
+                        "path": str(ref_path),
+                        "role": role,
+                        "loaded": False,
+                        "error": "File not found or could not be loaded",
+                    })
 
-            if loaded_count > 0:
-                contents.append(
-                    f"Using the labeled reference images above to maintain visual consistency: {full_prompt}"
-                )
+            if loaded_references and any(r["loaded"] for r in loaded_references):
+                final_prompt = f"Using the labeled reference images above to maintain visual consistency: {full_prompt}"
+                contents.append(final_prompt)
             else:
+                final_prompt = full_prompt
                 contents.append(full_prompt)
         else:
+            final_prompt = full_prompt
             contents.append(full_prompt)
 
         config = types.GenerateContentConfig(
@@ -515,22 +527,40 @@ class GeminiClient:
             config=config,
         )
 
-        # Extract response metadata
-        response_metadata: dict[str, Any] = {}
+        # Build comprehensive metadata with inputs and outputs
+        from datetime import datetime, timezone
+        response_metadata: dict[str, Any] = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            # Input metadata - what was sent to the model
+            "input": {
+                "prompt": full_prompt,
+                "final_prompt": final_prompt,  # Includes reference image prefix if applicable
+                "references": loaded_references,
+                "model": self.image_model,
+                "config": {
+                    "aspect_ratio": aspect_ratio,
+                    "resolution": resolution,
+                    "style": style,
+                },
+            },
+            # Output metadata - what came back from the model
+            "output": {},
+        }
+
         candidate = response.candidates[0]
 
         if hasattr(candidate, "finish_reason") and candidate.finish_reason:
-            response_metadata["finish_reason"] = str(candidate.finish_reason)
+            response_metadata["output"]["finish_reason"] = str(candidate.finish_reason)
 
         if hasattr(candidate, "safety_ratings") and candidate.safety_ratings:
-            response_metadata["safety_ratings"] = [
+            response_metadata["output"]["safety_ratings"] = [
                 {"category": str(r.category), "probability": str(r.probability)}
                 for r in candidate.safety_ratings
             ]
 
         if hasattr(response, "usage_metadata") and response.usage_metadata:
             usage = response.usage_metadata
-            response_metadata["usage"] = {
+            response_metadata["output"]["usage"] = {
                 "prompt_tokens": getattr(usage, "prompt_token_count", None),
                 "candidates_tokens": getattr(usage, "candidates_token_count", None),
                 "total_tokens": getattr(usage, "total_token_count", None),
@@ -547,7 +577,7 @@ class GeminiClient:
                 text_parts.append(part.text)
 
         if text_parts:
-            response_metadata["generated_text"] = "\n".join(text_parts)
+            response_metadata["output"]["generated_text"] = "\n".join(text_parts)
 
         if image_data is None:
             raise RuntimeError("No image generated in response")
