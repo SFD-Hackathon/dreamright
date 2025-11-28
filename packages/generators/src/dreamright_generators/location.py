@@ -76,6 +76,13 @@ Requirements:
 - Detailed environment suitable for webtoon backgrounds
 - Wide composition showing the space
 - Atmospheric and immersive
+
+IMPORTANT - Background Only Rules:
+- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere
+- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)
+- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls
+- Interactive props and character positioning will be handled separately during panel composition
+- This is a STATIC BACKGROUND reference that panels will composite characters onto
 """
 
         prompt = self._build_location_prompt(location, base_prompt)
@@ -134,7 +141,7 @@ Requirements:
 CRITICAL: All 4 panels must show the EXACT SAME location with consistent:
 - Architecture and layout
 - Color palette and lighting
-- Props and furniture placement
+- Environmental elements only (walls, floors, lighting, atmosphere)
 - Overall atmosphere and mood
 
 Grid layout (4 panels, separated by thin white lines):
@@ -153,6 +160,12 @@ Requirements for all panels:
 - No characters in the scene
 - Detailed environment suitable for webtoon backgrounds
 - Consistent visual style across all 4 views
+
+IMPORTANT - Background Only Rules:
+- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere
+- DO NOT include interactive objects (furniture, vehicles, seats, controls, etc.)
+- If vehicle interior, show ONLY environment (windows, walls, ambient lighting)
+- This is a STATIC BACKGROUND reference for panel composition
 """
 
         prompt = self._build_location_prompt(location, base_prompt)

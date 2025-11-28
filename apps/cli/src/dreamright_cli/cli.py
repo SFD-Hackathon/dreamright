@@ -160,7 +160,7 @@ def init(
         case_sensitive=False,
         show_choices=True,
     ),
-    path: Optional[Path] = typer.Option(None, help="Project directory (defaults to current dir if empty, else ./<name>)"),
+    path: Optional[Path] = typer.Option(None, help="Project directory (defaults to current dir if empty, else ./projects/<name>)"),
 ):
     """Initialize a new DreamRight project."""
     if path is None:
@@ -169,7 +169,7 @@ def init(
         if not any(f for f in cwd.iterdir() if not f.name.startswith('.')):
             path = cwd
         else:
-            path = cwd / name.lower().replace(" ", "-")
+            path = cwd / "projects" / name.lower().replace(" ", "-")
 
     if path.exists() and any(f for f in path.iterdir() if not f.name.startswith('.')):
         console.print(f"[red]Directory {path} already exists and is not empty.[/red]")
