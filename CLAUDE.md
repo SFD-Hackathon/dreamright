@@ -2,18 +2,29 @@
 
 ## Important: Working Directory
 
-**Always run commands from the project root (`dreamright-20251126/`) folder**, not from subfolders like `test-webtoon/`. This avoids path-related issues when verifying files or running tests.
+**Run commands from the project root (`dreamright-20251126/`) folder** using the `--project` option, or from inside a project folder.
 
 ```bash
-# Good - run from project root
+# Option 1: Use --project from root directory (recommended)
 cd /Users/long/Documents/Github/dreamright-20251126
-dreamright init my-project
-cd my-project && dreamright expand "story idea"
+dreamright status --project the-last-hunter
+dreamright generate panels --chapter 1 --project the-last-hunter
 
-# Bad - can cause path issues
-cd test-webtoon
-ls assets/characters/  # may fail if working directory changes
+# Option 2: cd into project folder
+cd projects/the-last-hunter
+dreamright status
+dreamright generate panels --chapter 1
 ```
+
+The `--project` (or `-p`) option is available on all commands that require a project:
+- `dreamright status -p <project-id>`
+- `dreamright expand -p <project-id>`
+- `dreamright show -p <project-id>`
+- `dreamright generate character -p <project-id>`
+- `dreamright generate location -p <project-id>`
+- `dreamright generate chapter -p <project-id>`
+- `dreamright generate panel -p <project-id>`
+- `dreamright generate panels -p <project-id>`
 
 ## Panel Generation
 

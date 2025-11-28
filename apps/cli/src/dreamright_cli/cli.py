@@ -47,9 +47,71 @@ def get_project_path() -> Path:
     return Path.cwd()
 
 
-def load_project() -> ProjectManager:
-    """Load the project from current directory."""
-    path = get_project_path()
+def resolve_project_path(project: Optional[str] = None) -> Path:
+    """Resolve project path from project ID or use current directory.
+
+    Args:
+        project: Optional project ID or path. If provided, looks for:
+                 1. Exact path if it exists
+                 2. projects/{project} relative to current directory
+                 3. projects/{project} relative to DREAMRIGHT_ROOT env var
+                 If None, uses current working directory.
+
+    Returns:
+        Resolved project path.
+
+    Raises:
+        typer.Exit: If project cannot be found.
+    """
+    import os
+
+    if project is None:
+        return Path.cwd()
+
+    # Try as exact path first
+    project_path = Path(project)
+    if project_path.exists() and ProjectManager.exists(project_path):
+        return project_path
+
+    # Try relative to current directory's projects folder
+    cwd_projects = Path.cwd() / "projects" / project
+    if cwd_projects.exists() and ProjectManager.exists(cwd_projects):
+        return cwd_projects
+
+    # Try relative to DREAMRIGHT_ROOT env var
+    root = os.environ.get("DREAMRIGHT_ROOT")
+    if root:
+        root_projects = Path(root) / "projects" / project
+        if root_projects.exists() and ProjectManager.exists(root_projects):
+            return root_projects
+
+    # Not found - show helpful error
+    console.print(f"[red]Project '{project}' not found.[/red]")
+    console.print("Searched in:")
+    console.print(f"  - {project_path}")
+    console.print(f"  - {cwd_projects}")
+    if root:
+        console.print(f"  - {Path(root) / 'projects' / project}")
+
+    # List available projects if projects/ exists
+    projects_dir = Path.cwd() / "projects"
+    if projects_dir.exists():
+        available = [p.name for p in projects_dir.iterdir() if p.is_dir() and ProjectManager.exists(p)]
+        if available:
+            console.print("\nAvailable projects:")
+            for name in sorted(available):
+                console.print(f"  - {name}")
+
+    raise typer.Exit(1)
+
+
+def load_project(project: Optional[str] = None) -> ProjectManager:
+    """Load the project from specified path or current directory.
+
+    Args:
+        project: Optional project ID or path. See resolve_project_path for details.
+    """
+    path = resolve_project_path(project)
     if not ProjectManager.exists(path):
         console.print("[red]No project found in current directory.[/red]")
         console.print("Run [cyan]dreamright init <name>[/cyan] to create a project.")
@@ -128,9 +190,10 @@ def expand(
     genre: Optional[str] = typer.Option(None, help="Genre hint (romance, action, fantasy, etc.)"),
     tone: Optional[str] = typer.Option(None, help="Tone hint (comedic, dramatic, dark, etc.)"),
     episodes: int = typer.Option(10, help="Target number of episodes"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Expand a story prompt into full story structure."""
-    manager = load_project()
+    manager = load_project(project)
 
     # Parse hints
     genre_hint = None
@@ -230,6 +293,7 @@ def generate_character(
     name: Optional[str] = typer.Option(None, help="Character name (generates all if not specified)"),
     style: str = typer.Option("webtoon", help="Art style"),
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if exists (bypass cache)"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Generate character reference sheets (full-body three-view turnaround).
 
@@ -240,7 +304,7 @@ def generate_character(
     from dreamright_services import CharacterService
     from dreamright_services.exceptions import NotFoundError
 
-    manager = load_project()
+    manager = load_project(project)
     service = CharacterService(manager)
 
     if not manager.project.characters:
@@ -314,6 +378,7 @@ def generate_location(
     style: str = typer.Option("webtoon", help="Art style"),
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if exists (bypass cache)"),
     sheet: bool = typer.Option(False, "--sheet", help="Generate multi-angle reference sheet (2x2 grid)"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Generate location/background visual assets.
 
@@ -323,7 +388,7 @@ def generate_location(
     from dreamright_services import LocationService
     from dreamright_services.exceptions import NotFoundError
 
-    manager = load_project()
+    manager = load_project(project)
     service = LocationService(manager)
 
     if not manager.project.locations:
@@ -418,9 +483,10 @@ def generate_panel(
     style: str = typer.Option("webtoon", help="Art style"),
     scene: int = typer.Option(1, "--scene", "-s", help="Scene number for organizing output"),
     output: Optional[Path] = typer.Option(None, "-o", help="Output file path"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Generate a single panel image."""
-    manager = load_project()
+    manager = load_project(project)
 
     # Parse shot type
     try:
@@ -535,13 +601,14 @@ def generate_panels(
     scene: Optional[int] = typer.Option(None, "--scene", "-s", help="Generate only a specific scene"),
     style: str = typer.Option("webtoon", help="Art style"),
     overwrite: bool = typer.Option(False, "--overwrite", help="Regenerate even if panels exist (bypass cache)"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Generate all panel images for a chapter or scene."""
     from dreamright_generators.panel import PanelResult
     from dreamright_services import PanelService
     from dreamright_services.exceptions import DependencyError, NotFoundError
 
-    manager = load_project()
+    manager = load_project(project)
     service = PanelService(manager)
 
     # Validate chapter exists
@@ -682,6 +749,7 @@ def generate_chapter(
     all_beats: bool = typer.Option(False, "--all", "-a", help="Generate chapters for all remaining story beats"),
     panels_per_scene: int = typer.Option(6, help="Target panels per scene"),
     interactive: bool = typer.Option(False, "--interactive", "-i", help="Interactive mode: confirm prompts and results"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Generate chapter(s) from story beats sequentially.
 
@@ -694,7 +762,7 @@ def generate_chapter(
     from dreamright_services import ChapterService
     from dreamright_services.exceptions import DependencyError, ValidationError
 
-    manager = load_project()
+    manager = load_project(project)
     service = ChapterService(manager)
 
     # Handle no arguments - show status
@@ -796,35 +864,37 @@ def generate_chapter(
 
 
 @app.command()
-def status():
+def status(
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
+):
     """Show project status."""
-    manager = load_project()
-    project = manager.project
+    manager = load_project(project)
+    proj = manager.project
 
     console.print(Panel(
-        f"[bold]{project.name}[/bold]\n"
-        f"Format: {project.format.value}\n"
-        f"Status: {project.status.value}\n"
-        f"Created: {project.created_at.strftime('%Y-%m-%d %H:%M')}",
+        f"[bold]{proj.name}[/bold]\n"
+        f"Format: {proj.format.value}\n"
+        f"Status: {proj.status.value}\n"
+        f"Created: {proj.created_at.strftime('%Y-%m-%d %H:%M')}",
         title="Project",
         border_style="blue",
     ))
 
-    if project.story:
-        console.print(f"\n[cyan]Story:[/cyan] {project.story.title}")
-        console.print(f"[cyan]Logline:[/cyan] {project.story.logline}")
+    if proj.story:
+        console.print(f"\n[cyan]Story:[/cyan] {proj.story.title}")
+        console.print(f"[cyan]Logline:[/cyan] {proj.story.logline}")
 
-    console.print(f"\n[cyan]Characters:[/cyan] {len(project.characters)}")
-    for char in project.characters:
+    console.print(f"\n[cyan]Characters:[/cyan] {len(proj.characters)}")
+    for char in proj.characters:
         has_portrait = "[green]P[/green]" if char.assets.portrait else "[dim]-[/dim]"
         console.print(f"  {has_portrait} {char.name} ({char.role.value})")
 
-    console.print(f"\n[cyan]Locations:[/cyan] {len(project.locations)}")
-    for loc in project.locations:
+    console.print(f"\n[cyan]Locations:[/cyan] {len(proj.locations)}")
+    for loc in proj.locations:
         has_ref = "[green]R[/green]" if loc.assets.reference else "[dim]-[/dim]"
         console.print(f"  {has_ref} {loc.name} ({loc.type.value})")
 
-    console.print(f"\n[cyan]Chapters:[/cyan] {len(project.chapters)}")
+    console.print(f"\n[cyan]Chapters:[/cyan] {len(proj.chapters)}")
 
     # Count generated assets
     assets_path = manager.storage.assets_path
@@ -836,9 +906,10 @@ def status():
 @app.command()
 def show(
     entity: str = typer.Argument(..., help="Entity to show (story, character:<name>, location:<name>)"),
+    project: Optional[str] = typer.Option(None, "--project", "-p", help="Project ID or path (uses current directory if not specified)"),
 ):
     """Show detailed information about an entity."""
-    manager = load_project()
+    manager = load_project(project)
 
     if entity == "story":
         if not manager.project.story:

@@ -32,6 +32,13 @@ ENV/
 *.swo
 .DS_Store
 
+# Secrets and environment files
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
 # Project specific
 uv.lock
 
