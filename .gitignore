@@ -37,3 +37,4 @@ uv.lock
 
 # Keep projects directory but ignore large generated assets
 # projects/*/assets/panels/
+.env
