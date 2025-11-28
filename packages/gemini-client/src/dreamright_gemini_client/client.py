@@ -12,6 +12,12 @@ from typing import Any, Callable, Optional, Type, TypeVar
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 
 T = TypeVar("T", bound=BaseModel)
 F = TypeVar("F", bound=Callable[..., Any])
@@ -303,11 +309,24 @@ class GeminiClient:
         if system_instruction:
             config.system_instruction = system_instruction
 
-        response = await self.client.aio.models.generate_content(
-            model=self.model,
-            contents=prompt,
-            config=config,
-        )
+        # Manual retry logic with exponential backoff for network errors
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                response = await self.client.aio.models.generate_content(
+                    model=self.model,
+                    contents=prompt,
+                    config=config,
+                )
+                break  # Success, exit retry loop
+            except Exception as e:
+                if attempt < max_attempts - 1:  # Don't wait on last attempt
+                    import asyncio
+                    wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+                    print(f"  Network error (attempt {attempt + 1}/{max_attempts}), retrying in {wait_time}s...")
+                    await asyncio.sleep(wait_time)
+                else:
+                    raise  # Re-raise on final attempt
 
         return response.text
 
@@ -415,11 +434,24 @@ class GeminiClient:
         if system_instruction:
             config.system_instruction = system_instruction
 
-        response = await self.client.aio.models.generate_content(
-            model=self.model,
-            contents=prompt,
-            config=config,
-        )
+        # Manual retry logic with exponential backoff for network errors
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                response = await self.client.aio.models.generate_content(
+                    model=self.model,
+                    contents=prompt,
+                    config=config,
+                )
+                break  # Success, exit retry loop
+            except Exception as e:
+                if attempt < max_attempts - 1:  # Don't wait on last attempt
+                    import asyncio
+                    wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+                    print(f"  Network error (attempt {attempt + 1}/{max_attempts}), retrying in {wait_time}s...")
+                    await asyncio.sleep(wait_time)
+                else:
+                    raise  # Re-raise on final attempt
 
         # Extract and clean JSON text
         json_text = self._extract_json_text(response)
@@ -521,11 +553,24 @@ class GeminiClient:
             ),
         )
 
-        response = await self.client.aio.models.generate_content(
-            model=self.image_model,
-            contents=contents,
-            config=config,
-        )
+        # Manual retry logic with exponential backoff for network errors
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                response = await self.client.aio.models.generate_content(
+                    model=self.image_model,
+                    contents=contents,
+                    config=config,
+                )
+                break  # Success, exit retry loop
+            except Exception as e:
+                if attempt < max_attempts - 1:  # Don't wait on last attempt
+                    import asyncio
+                    wait_time = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+                    print(f"  Network error (attempt {attempt + 1}/{max_attempts}), retrying in {wait_time}s...")
+                    await asyncio.sleep(wait_time)
+                else:
+                    raise  # Re-raise on final attempt
 
         # Build comprehensive metadata with inputs and outputs
         from datetime import datetime, timezone
