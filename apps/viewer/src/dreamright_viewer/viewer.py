@@ -21,6 +21,28 @@ PROJECTS_DIR = Path("projects")
 SAFE_ID_PATTERN = re.compile(r"^[a-zA-Z0-9_-]+$")
 
 
+def slugify(text: str) -> str:
+    """Convert text to a URL/filename-friendly slug.
+
+    Args:
+        text: Text to slugify
+
+    Returns:
+        Slugified text (lowercase, hyphens instead of spaces)
+    """
+    # Convert to lowercase
+    text = text.lower()
+    # Replace spaces and underscores with hyphens
+    text = re.sub(r'[\s_]+', '-', text)
+    # Remove any characters that aren't alphanumeric or hyphens
+    text = re.sub(r'[^\w\-]', '', text)
+    # Remove multiple consecutive hyphens
+    text = re.sub(r'-+', '-', text)
+    # Strip leading/trailing hyphens
+    text = text.strip('-')
+    return text
+
+
 def escape(text: str) -> str:
     """Safely escape text for HTML output."""
     if text is None:
@@ -313,7 +335,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
         cover_img = ""
         if characters:
             first_char = characters[0]
-            char_name = first_char.get("name", "").lower().replace(" ", "-")
+            char_name = slugify(first_char.get("name", ""))
             portrait_path = PROJECTS_DIR / project_id / "assets" / "characters" / char_name / "portrait.png"
             if portrait_path.exists():
                 cover_img = f"/projects/{project_id}/assets/characters/{char_name}/portrait.png"
@@ -769,7 +791,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
 """
         for char in main_chars + supporting_chars:
             char_name = char.get("name", "")
-            char_slug = char_name.lower().replace(" ", "-")
+            char_slug = slugify(char_name)
             char_img = f"/projects/{project_id}/assets/characters/{char_slug}/portrait.png"
             char_sheet = f"/projects/{project_id}/assets/characters/{char_slug}/sheet.png"
             role = char.get("role", "supporting")
@@ -833,7 +855,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
 """
         for loc in locations:
             loc_name = loc.get("name", "")
-            loc_slug = loc_name.lower().replace(" ", "-").replace("'", "")
+            loc_slug = slugify(loc_name)
             # Try to get image from assets, fallback to reference.png
             loc_assets = loc.get("assets", {})
             loc_ref = loc_assets.get("reference", "")

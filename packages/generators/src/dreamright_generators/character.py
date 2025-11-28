@@ -91,6 +91,14 @@ Create a SINGLE IMAGE showing the SAME character THREE times side by side:
 - Show clothing, hair, and accessories clearly from all angles
 - Professional quality suitable for production reference
 
+## ANATOMICAL CORRECTNESS (CRITICAL FOR SIDE VIEW)
+- SIDE VIEW: The character's head, torso, and feet MUST all face the same direction
+- SIDE VIEW: If the face is looking right, the body must be standing/oriented right (toes pointing right)
+- SIDE VIEW: If the face is looking left, the body must be standing/oriented left (toes pointing left)
+- SIDE VIEW: Create a proper 90-degree profile where the entire body is naturally aligned
+- All views must show anatomically correct human proportions and natural poses
+- No twisted or contorted body positions - everything should look natural
+
 ## CONSISTENCY IS CRITICAL
 - Same hair style/color in all views
 - Same outfit in all views (every detail must match)
