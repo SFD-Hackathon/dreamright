@@ -1,0 +1,63 @@
+{
+  "type": "character",
+  "character_id": "char_madam_zhu",
+  "character_name": "Madam Zhu",
+  "role": "supporting",
+  "age": "Unknown (looks 60s)",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Silver hair pulled into a tight traditional bun with a jade pin",
+    "Outfit: Traditional navy blue Cheongsam top",
+    "Accessories: A modern digital stopwatch hanging around her neck",
+    "Prop: A massive iron wok that smokes with purple steam",
+    "Eyes: Milky white (blind), but she looks directly at people"
+  ],
+  "description": {
+    "physical": "Short, stern, moves with impossible speed.",
+    "personality": "No-nonsense, mysterious, secretly kind."
+  },
+  "asset_type": "character_sheet",
+  "reference_portrait": "assets/characters/madam-zhu/portrait.png",
+  "gemini": {
+    "type": "character_sheet",
+    "character_id": "char_madam_zhu",
+    "character_name": "Madam Zhu",
+    "prompt": "Create a CHARACTER TURNAROUND SHEET in webtoon art style.\n\n## LAYOUT\nCreate a SINGLE IMAGE showing the SAME character THREE times side by side:\n- LEFT: Full body FRONT view (facing viewer)\n- CENTER: Full body SIDE view (profile, facing right)\n- RIGHT: Full body BACK view (facing away)\n\n## REQUIREMENTS\n- All three views show the EXACT SAME character with IDENTICAL outfit\n- Full body from head to feet in each view\n- Relaxed standing pose (arms slightly away from body to show costume)\n- Clean white or light gray background\n- Character sheet/model sheet style for animation reference\n- All views at the same scale and aligned at feet level\n- Show clothing, hair, and accessories clearly from all angles\n- Professional quality suitable for production reference\n\n## CONSISTENCY IS CRITICAL\n- Same hair style/color in all views\n- Same outfit in all views (every detail must match)\n- Same accessories and items in all views\n- Same body proportions in all views\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": "/Users/long/Documents/Github/dreamright-20251126/projects/midnight-delivery/assets/characters/madam-zhu/portrait.png"
+    },
+    "response": {
+      "timestamp": "2025-11-28T00:40:58.976662+00:00",
+      "input": {
+        "prompt": "webtoon style. Create a CHARACTER TURNAROUND SHEET in webtoon art style.\n\n## LAYOUT\nCreate a SINGLE IMAGE showing the SAME character THREE times side by side:\n- LEFT: Full body FRONT view (facing viewer)\n- CENTER: Full body SIDE view (profile, facing right)\n- RIGHT: Full body BACK view (facing away)\n\n## REQUIREMENTS\n- All three views show the EXACT SAME character with IDENTICAL outfit\n- Full body from head to feet in each view\n- Relaxed standing pose (arms slightly away from body to show costume)\n- Clean white or light gray background\n- Character sheet/model sheet style for animation reference\n- All views at the same scale and aligned at feet level\n- Show clothing, hair, and accessories clearly from all angles\n- Professional quality suitable for production reference\n\n## CONSISTENCY IS CRITICAL\n- Same hair style/color in all views\n- Same outfit in all views (every detail must match)\n- Same accessories and items in all views\n- Same body proportions in all views\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+        "final_prompt": "Using the labeled reference images above to maintain visual consistency: webtoon style. Create a CHARACTER TURNAROUND SHEET in webtoon art style.\n\n## LAYOUT\nCreate a SINGLE IMAGE showing the SAME character THREE times side by side:\n- LEFT: Full body FRONT view (facing viewer)\n- CENTER: Full body SIDE view (profile, facing right)\n- RIGHT: Full body BACK view (facing away)\n\n## REQUIREMENTS\n- All three views show the EXACT SAME character with IDENTICAL outfit\n- Full body from head to feet in each view\n- Relaxed standing pose (arms slightly away from body to show costume)\n- Clean white or light gray background\n- Character sheet/model sheet style for animation reference\n- All views at the same scale and aligned at feet level\n- Show clothing, hair, and accessories clearly from all angles\n- Professional quality suitable for production reference\n\n## CONSISTENCY IS CRITICAL\n- Same hair style/color in all views\n- Same outfit in all views (every detail must match)\n- Same accessories and items in all views\n- Same body proportions in all views\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+        "references": [
+          {
+            "path": "/Users/long/Documents/Github/dreamright-20251126/projects/midnight-delivery/assets/characters/madam-zhu/portrait.png",
+            "role": "existing reference of Madam Zhu - match appearance exactly",
+            "loaded": true
+          }
+        ],
+        "model": "gemini-3-pro-image-preview",
+        "config": {
+          "aspect_ratio": "16:9",
+          "resolution": "1K",
+          "style": "webtoon"
+        }
+      },
+      "output": {
+        "finish_reason": "FinishReason.STOP",
+        "usage": {
+          "prompt_tokens": 609,
+          "candidates_tokens": 1429,
+          "total_tokens": 2296
+        }
+      }
+    }
+  },
+  "generated_at": "2025-11-28T08:40:58.980622"
+}

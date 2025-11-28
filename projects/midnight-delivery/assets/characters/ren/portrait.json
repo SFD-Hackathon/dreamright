@@ -1,0 +1,57 @@
+{
+  "type": "character",
+  "character_id": "char_ren",
+  "character_name": "Ren",
+  "role": "supporting",
+  "age": "24 (at time of death)",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Styled, undercut dark brown hair",
+    "Eyes: Warm amber eyes, slightly glowing",
+    "Outfit: Vintage red and white varsity jacket (high contrast to Kai's dark tones)",
+    "Top: Pristine white t-shirt underneath",
+    "Bottom: Clean blue jeans",
+    "Visual Effect: A subtle static/glitch effect around his outline"
+  ],
+  "description": {
+    "physical": "Handsome, athletic, slightly translucent. He looks exactly as he did the day he died.",
+    "personality": "Charismatic, protective, carefree (a stark contrast to Kai)."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_ren",
+    "character_name": "Ren",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Ren\nAge: 24 (at time of death)\nPhysical appearance: Handsome, athletic, slightly translucent. He looks exactly as he did the day he died.\nVisual details: Hair: Styled, undercut dark brown hair, Eyes: Warm amber eyes, slightly glowing, Outfit: Vintage red and white varsity jacket (high contrast to Kai's dark tones), Top: Pristine white t-shirt underneath, Bottom: Clean blue jeans, Visual Effect: A subtle static/glitch effect around his outline\nPersonality (for expression): Charismatic, protective, carefree (a stark contrast to Kai).",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "timestamp": "2025-11-28T00:40:07.936910+00:00",
+      "input": {
+        "prompt": "webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Ren\nAge: 24 (at time of death)\nPhysical appearance: Handsome, athletic, slightly translucent. He looks exactly as he did the day he died.\nVisual details: Hair: Styled, undercut dark brown hair, Eyes: Warm amber eyes, slightly glowing, Outfit: Vintage red and white varsity jacket (high contrast to Kai's dark tones), Top: Pristine white t-shirt underneath, Bottom: Clean blue jeans, Visual Effect: A subtle static/glitch effect around his outline\nPersonality (for expression): Charismatic, protective, carefree (a stark contrast to Kai).",
+        "final_prompt": "webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Ren\nAge: 24 (at time of death)\nPhysical appearance: Handsome, athletic, slightly translucent. He looks exactly as he did the day he died.\nVisual details: Hair: Styled, undercut dark brown hair, Eyes: Warm amber eyes, slightly glowing, Outfit: Vintage red and white varsity jacket (high contrast to Kai's dark tones), Top: Pristine white t-shirt underneath, Bottom: Clean blue jeans, Visual Effect: A subtle static/glitch effect around his outline\nPersonality (for expression): Charismatic, protective, carefree (a stark contrast to Kai).",
+        "references": [],
+        "model": "gemini-3-pro-image-preview",
+        "config": {
+          "aspect_ratio": "9:16",
+          "resolution": "1K",
+          "style": "webtoon"
+        }
+      },
+      "output": {
+        "finish_reason": "FinishReason.STOP",
+        "usage": {
+          "prompt_tokens": 211,
+          "candidates_tokens": 1275,
+          "total_tokens": 1730
+        }
+      }
+    }
+  },
+  "generated_at": "2025-11-28T08:40:07.937978"
+}

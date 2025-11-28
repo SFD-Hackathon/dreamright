@@ -1,0 +1,64 @@
+{
+  "type": "character",
+  "character_id": "char_kai",
+  "character_name": "Kai",
+  "role": "protagonist",
+  "age": "21",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Messy jet-black hair, often damp from rain",
+    "Eyes: Sharp dark eyes with permanent purple bags under them",
+    "Outfit: Oversized yellow/black windbreaker with 'RUSH' logo on back",
+    "Bottom: Faded dark grey denim jeans with grease stains",
+    "Footwear: Scuffed black combat boots",
+    "Accessories: A cracked smartphone with a distinct blue light glow"
+  ],
+  "description": {
+    "physical": "Lean, tired, messy hair hidden by a helmet. Looks like he hasn't slept in weeks.",
+    "personality": "Stoic, cynical, hardworking, deeply repressed guilt."
+  },
+  "asset_type": "portrait",
+  "reference_sheet": "assets/characters/kai/sheet.png",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_kai",
+    "character_name": "Kai",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kai\nAge: 21\nPhysical appearance: Lean, tired, messy hair hidden by a helmet. Looks like he hasn't slept in weeks.\nVisual details: Hair: Messy jet-black hair, often damp from rain, Eyes: Sharp dark eyes with permanent purple bags under them, Outfit: Oversized yellow/black windbreaker with 'RUSH' logo on back, Bottom: Faded dark grey denim jeans with grease stains, Footwear: Scuffed black combat boots, Accessories: A cracked smartphone with a distinct blue light glow\nPersonality (for expression): Stoic, cynical, hardworking, deeply repressed guilt.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": "/Users/long/Documents/Github/dreamright-20251126/projects/midnight-delivery/assets/characters/kai/sheet.png"
+    },
+    "response": {
+      "timestamp": "2025-11-28T00:48:31.738209+00:00",
+      "input": {
+        "prompt": "webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kai\nAge: 21\nPhysical appearance: Lean, tired, messy hair hidden by a helmet. Looks like he hasn't slept in weeks.\nVisual details: Hair: Messy jet-black hair, often damp from rain, Eyes: Sharp dark eyes with permanent purple bags under them, Outfit: Oversized yellow/black windbreaker with 'RUSH' logo on back, Bottom: Faded dark grey denim jeans with grease stains, Footwear: Scuffed black combat boots, Accessories: A cracked smartphone with a distinct blue light glow\nPersonality (for expression): Stoic, cynical, hardworking, deeply repressed guilt.",
+        "final_prompt": "Using the labeled reference images above to maintain visual consistency: webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Kai\nAge: 21\nPhysical appearance: Lean, tired, messy hair hidden by a helmet. Looks like he hasn't slept in weeks.\nVisual details: Hair: Messy jet-black hair, often damp from rain, Eyes: Sharp dark eyes with permanent purple bags under them, Outfit: Oversized yellow/black windbreaker with 'RUSH' logo on back, Bottom: Faded dark grey denim jeans with grease stains, Footwear: Scuffed black combat boots, Accessories: A cracked smartphone with a distinct blue light glow\nPersonality (for expression): Stoic, cynical, hardworking, deeply repressed guilt.",
+        "references": [
+          {
+            "path": "/Users/long/Documents/Github/dreamright-20251126/projects/midnight-delivery/assets/characters/kai/sheet.png",
+            "role": "existing portrait of Kai for consistency",
+            "loaded": true
+          }
+        ],
+        "model": "gemini-3-pro-image-preview",
+        "config": {
+          "aspect_ratio": "9:16",
+          "resolution": "1K",
+          "style": "webtoon"
+        }
+      },
+      "output": {
+        "finish_reason": "FinishReason.STOP",
+        "usage": {
+          "prompt_tokens": 494,
+          "candidates_tokens": 1339,
+          "total_tokens": 2023
+        }
+      }
+    }
+  },
+  "generated_at": "2025-11-28T08:48:31.741045"
+}

@@ -1,0 +1,56 @@
+{
+  "type": "character",
+  "character_id": "char_madam_zhu",
+  "character_name": "Madam Zhu",
+  "role": "supporting",
+  "age": "Unknown (looks 60s)",
+  "style": "webtoon",
+  "visual_tags": [
+    "Hair: Silver hair pulled into a tight traditional bun with a jade pin",
+    "Outfit: Traditional navy blue Cheongsam top",
+    "Accessories: A modern digital stopwatch hanging around her neck",
+    "Prop: A massive iron wok that smokes with purple steam",
+    "Eyes: Milky white (blind), but she looks directly at people"
+  ],
+  "description": {
+    "physical": "Short, stern, moves with impossible speed.",
+    "personality": "No-nonsense, mysterious, secretly kind."
+  },
+  "asset_type": "portrait",
+  "gemini": {
+    "type": "character_portrait",
+    "character_id": "char_madam_zhu",
+    "character_name": "Madam Zhu",
+    "prompt": "Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+    "parameters": {
+      "aspect_ratio": "9:16",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview",
+      "reference_image": null
+    },
+    "response": {
+      "timestamp": "2025-11-28T00:40:41.049611+00:00",
+      "input": {
+        "prompt": "webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+        "final_prompt": "webtoon style. Create a character portrait in webtoon art style.\n\nRequirements:\n- Upper body portrait (head to waist or chest)\n- Neutral expression showing character's personality\n- Clean background (solid color or simple gradient)\n- High quality, detailed illustration\n- Consistent with webtoon/manhwa aesthetic\n- Front-facing, looking slightly towards viewer\n- Vertical composition suitable for character card\n\n\nCharacter: Madam Zhu\nAge: Unknown (looks 60s)\nPhysical appearance: Short, stern, moves with impossible speed.\nVisual details: Hair: Silver hair pulled into a tight traditional bun with a jade pin, Outfit: Traditional navy blue Cheongsam top, Accessories: A modern digital stopwatch hanging around her neck, Prop: A massive iron wok that smokes with purple steam, Eyes: Milky white (blind), but she looks directly at people\nPersonality (for expression): No-nonsense, mysterious, secretly kind.",
+        "references": [],
+        "model": "gemini-3-pro-image-preview",
+        "config": {
+          "aspect_ratio": "9:16",
+          "resolution": "1K",
+          "style": "webtoon"
+        }
+      },
+      "output": {
+        "finish_reason": "FinishReason.STOP",
+        "usage": {
+          "prompt_tokens": 194,
+          "candidates_tokens": 1329,
+          "total_tokens": 1752
+        }
+      }
+    }
+  },
+  "generated_at": "2025-11-28T08:40:41.050878"
+}

@@ -1,0 +1,2972 @@
+{
+  "id": "proj_midnight_delivery",
+  "name": "Midnight Delivery",
+  "created_at": "2025-11-28T08:36:11.677060",
+  "updated_at": "2025-11-28T08:48:31.741499",
+  "format": "webtoon",
+  "status": "in_progress",
+  "story": {
+    "id": "story_the_last_order",
+    "title": "The Last Order",
+    "logline": "Desperate for cash, a college student accepts 'glitch' delivery orders that only appear between midnight and 1 AM, realizing too late that he is delivering final meals to spirits seeking closure before crossing over.",
+    "genre": "drama",
+    "tone": "dramatic",
+    "themes": [
+      "Grief and Closure",
+      "The Comfort of Food",
+      "Unspoken Regrets",
+      "Urban Isolation"
+    ],
+    "target_audience": "Young Adults (18-30), fans of 'Hotel del Luna' or 'Mystic Pop-up Bar'",
+    "episode_count": 3,
+    "synopsis": "Kai, an exhausted engineering student drowning in debt, works the graveyard shift for a generic food delivery app. One rainy night, his app glitches, turning a ghostly blue and displaying high-paying orders from a restaurant that doesn't exist on any map: 'The Midnight Wok.' Desperate for the payout, he accepts.\n\nHe discovers that between 12:00 AM and 1:00 AM, the veil between the living and the dead thins. His customers are spirits who cannot move on until they taste the specific meal that ties them to their biggest regret. If Kai fails to deliver before the clock strikes 1:00 AM, the spirits become Wandering Shades, trapped forever. \n\nThe episodic jobs escalate until Kai receives an order from a 'User_Ren'—his estranged older brother who died in a motorcycle accident three years ago. The order is simple: 'Mom's Spicy Tofu Stew.' To complete the delivery, Kai must confront the guilt he’s been harboring since the night his brother died.",
+    "story_beats": [
+      {
+        "beat": "Hook (Episode 1)",
+        "description": "Opens with rain-slicked neon streets. Close up on Kai's phone: 11:59 PM. The interface glitches from standard Red to Eerie Blue. A notification pops up: 'ORDER #001 - Payout: $500. Time remaining: 59 mins.' Kai hits accept."
+      },
+      {
+        "beat": "Inciting Incident (Episode 1)",
+        "description": "Kai picks up the food from a foggy alleyway stall that wasn't there yesterday. He delivers to an abandoned apartment complex. The customer, an old man, eats the dumplings weeping, then dissolves into golden dust just as the clock hits 1:00 AM. Kai is left holding an empty container and a heavy envelope of cash."
+      },
+      {
+        "beat": "Rising Action (Episode 2)",
+        "description": "Kai establishes a rhythm. We see a montage of deliveries: a bride waiting at a train station, a child at a playground. The 'Chef' warns him: 'Never let the timer hit zero, and never engage personally.' Kai breaks the rule when he sees the next name: REN. It's his dead brother."
+      },
+      {
+        "beat": "Climax (Episode 3)",
+        "description": "Kai races to the location—the intersection where Ren died. It's 12:50 AM. His scooter breaks down (Time Pressure). He runs the last mile on foot. He meets Ren's spirit under the streetlamp. Ren isn't angry; he's waiting. Kai admits he blamed himself for the accident."
+      },
+      {
+        "beat": "Resolution (Episode 3)",
+        "description": "Ren eats the stew. They share a brief, tearful conversation about forgiveness. Ren fades into light at 12:59 AM. The app reverts to Red. The sun rises over the city. Kai deletes the delivery app, finally free of his debt and his guilt."
+      }
+    ]
+  },
+  "characters": [
+    {
+      "id": "char_kai",
+      "name": "Kai",
+      "role": "protagonist",
+      "age": "21",
+      "description": {
+        "physical": "Lean, tired, messy hair hidden by a helmet. Looks like he hasn't slept in weeks.",
+        "personality": "Stoic, cynical, hardworking, deeply repressed guilt.",
+        "background": "Engineering student working three jobs to pay off family debt left after his brother's funeral.",
+        "motivation": "Money (initially), then Redemption."
+      },
+      "visual_tags": [
+        "Hair: Messy jet-black hair, often damp from rain",
+        "Eyes: Sharp dark eyes with permanent purple bags under them",
+        "Outfit: Oversized yellow/black windbreaker with 'RUSH' logo on back",
+        "Bottom: Faded dark grey denim jeans with grease stains",
+        "Footwear: Scuffed black combat boots",
+        "Accessories: A cracked smartphone with a distinct blue light glow"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/kai/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/kai/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_ren",
+      "name": "Ren",
+      "role": "supporting",
+      "age": "24 (at time of death)",
+      "description": {
+        "physical": "Handsome, athletic, slightly translucent. He looks exactly as he did the day he died.",
+        "personality": "Charismatic, protective, carefree (a stark contrast to Kai).",
+        "background": "Kai's older brother who died in a traffic collision while coming to pick Kai up.",
+        "motivation": "To tell Kai it wasn't his fault so he can move on."
+      },
+      "visual_tags": [
+        "Hair: Styled, undercut dark brown hair",
+        "Eyes: Warm amber eyes, slightly glowing",
+        "Outfit: Vintage red and white varsity jacket (high contrast to Kai's dark tones)",
+        "Top: Pristine white t-shirt underneath",
+        "Bottom: Clean blue jeans",
+        "Visual Effect: A subtle static/glitch effect around his outline"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/ren/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/ren/sheet.png"
+        }
+      },
+      "voice_description": ""
+    },
+    {
+      "id": "char_madam_zhu",
+      "name": "Madam Zhu",
+      "role": "supporting",
+      "age": "Unknown (looks 60s)",
+      "description": {
+        "physical": "Short, stern, moves with impossible speed.",
+        "personality": "No-nonsense, mysterious, secretly kind.",
+        "background": "The guardian of the 'Midnight Wok', cooking memories into food.",
+        "motivation": "Maintaining the balance between worlds."
+      },
+      "visual_tags": [
+        "Hair: Silver hair pulled into a tight traditional bun with a jade pin",
+        "Outfit: Traditional navy blue Cheongsam top",
+        "Accessories: A modern digital stopwatch hanging around her neck",
+        "Prop: A massive iron wok that smokes with purple steam",
+        "Eyes: Milky white (blind), but she looks directly at people"
+      ],
+      "assets": {
+        "reference_input": null,
+        "portrait": "assets/characters/madam-zhu/portrait.png",
+        "three_view": {
+          "front": null,
+          "side": null,
+          "back": null,
+          "sheet": "assets/characters/madam-zhu/sheet.png"
+        }
+      },
+      "voice_description": ""
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_the_midnight_wok",
+      "name": "The Midnight Wok",
+      "type": "interior",
+      "description": "A street food stall that only appears in a foggy alleyway after midnight. It smells of spices and ozone.",
+      "visual_tags": [
+        "Lighting: Sickly green and neon pink signage",
+        "Atmosphere: Steamy, claustrophobic but warm",
+        "Key Object: A hanging red lantern that glows blue when an order is ready",
+        "Sound: Sizzling oil that sounds like whispering voices"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-midnight-wok/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_the_rain_slicked_intersection",
+      "name": "The Rain-Slicked Intersection",
+      "type": "interior",
+      "description": "A busy city intersection that becomes deadly silent during the Witching Hour. Where Ren died.",
+      "visual_tags": [
+        "Lighting: Harsh yellow streetlamps casting long shadows",
+        "Atmosphere: Cold, empty, ominous",
+        "Palette: Greys, blacks, and stark yellow light",
+        "Sensory: The sound of a single dripping drain"
+      ],
+      "assets": {
+        "reference": "assets/locations/the-rain-slicked-intersection/reference.png",
+        "reference_sheet": null
+      }
+    },
+    {
+      "id": "loc_kais_apartment",
+      "name": "Kai's Apartment",
+      "type": "interior",
+      "description": "A tiny, cramped studio apartment filled with textbooks and instant noodle cups.",
+      "visual_tags": [
+        "Lighting: Dim blue light from a computer monitor",
+        "Objects: A shrine with a photo of Ren in the corner",
+        "Atmosphere: Lonely, cluttered, lived-in",
+        "Palette: Muted browns and greys"
+      ],
+      "assets": {
+        "reference": "assets/locations/kais-apartment/reference.png",
+        "reference_sheet": null
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Midnight Glitch",
+      "summary": "Desperate for rent money, Kai accepts a suspicious delivery order at the stroke of midnight, unknowingly stepping into a world that bridges the living and the dead.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_kais_apartment",
+          "time_of_day": "night",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "A cramped, messy studio apartment illuminated only by the glow of a laptop and streetlights filtering through rain-streaked windows.",
+          "mood": "Claustrophobic, Desperate, Cold",
+          "panels": [],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_kais_apartment",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "Kai checking his finances.",
+          "mood": "Depressing",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The room is cluttered with textbooks and empty noodle cups. Kai sits on the edge of his mattress, staring at his phone. The lighting is dim blue from the window.",
+              "dialogue": [],
+              "sfx": [
+                "Heavy Rain",
+                "Distant Sirens"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Focus on the phone screen. A banking app shows a balance of $12.40. A notification banner reads: 'RENT OVERDUE'.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Phone screen light reflects on Kai's face",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai rubs his temples, looking at a framed photo on his desk. The photo shows Kai and Ren laughing together, arms around shoulders.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Just one more week, Ren. I'll figure it out.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai grabs his delivery helmet. His expression shifts from sadness to hardened determination. He zips up a worn windbreaker.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Gotta catch the late-night surge.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Zip"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai steps out of the apartment building door into the pouring rain, his bike waiting on the curb. The city looms over him, dark and oppressive.",
+              "dialogue": [],
+              "sfx": [
+                "THUNDER"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "Kai waiting at a red light. The transition from the mundane world to the supernatural start.",
+          "mood": "Tense, Surreal, Eerie",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai sits on his bike at a red light. The intersection is empty but wet. Neon signs reflect in the puddles (reds and yellows).",
+              "dialogue": [],
+              "sfx": [
+                "Rain Hissing"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Looking down at the phone mounted on the handlebars. The clock changes from 11:59 to 00:00.",
+              "dialogue": [],
+              "sfx": [
+                "Click"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Rain droplets on screen",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The streetlights suddenly flicker. The ambient city noise (cars, hums) cuts out completely, leaving only a heavy silence.",
+              "dialogue": [],
+              "sfx": [
+                "BZZZT",
+                "Silence"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The phone screen glitches. Pixels tear across the interface. The standard 'Red' delivery theme bleeds into a ghostly 'Eerie Blue'.",
+              "dialogue": [],
+              "sfx": [
+                "GLITCH"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The screen stabilizes. Text pops up: 'ORDER #001 - Payout: $500.00'. Kai's face is illuminated by the sickly blue light.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Five hundred...? For one drop?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Blue light on face",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Kai's thumb hovers over the 'ACCEPT' button. The button pulses like a heartbeat.",
+              "dialogue": [],
+              "sfx": [
+                "Thump-Thump"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s4",
+          "number": 4,
+          "location_id": "loc_the_midnight_wok",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_madam_zhu"
+          ],
+          "description": "Kai arrives at the pickup location. A stall that shouldn't exist is there.",
+          "mood": "Mysterious, Otherworldly, Warm",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai pulls his bike into a dark alley. At the end, through a thick unnatural fog, a single food stall glows with warm lanterns.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "GPS says I'm here, but this alley has been empty for years...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai walks the bike closer. Steam rises from a wok. The smell is intense—spices and something metallic like ozone.",
+              "dialogue": [],
+              "sfx": [
+                "SIZZLE"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Madam Zhu is revealed behind the counter. She is tossing food in a wok with expert precision, not looking up. She wears traditional clothes but with a modern smartwatch.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "You're staring. It's rude.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "embarrassed",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai jolts, embarrassed. He holds up his phone showing the blue order screen.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Uh, sorry. Picking up for Order #001?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Madam Zhu slams a takeout box onto the counter. It's tied with a red string instead of tape.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Take it. Don't look inside. And don't stop until you reach the coordinates.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "THUD"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai's hand takes the bag. The red string seems to glow faintly. Shadows in the background of the alley seem to have eyes.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "The customer has been waiting a very long time.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "number": 2,
+      "title": "The First Farewell",
+      "summary": "Kai completes his first delivery to a customer who seems out of place in a condemned building. Witnessing a heartbreaking moment of closure, Kai is left stunned when the customer vanishes into light at 1:00 AM, leaving behind a mysterious payment.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_midnight_wok",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_madam_zhu"
+          ],
+          "description": "Kai stands before the stall that materialized in the fog. The contrast between the cold alley and the warm steam of the stall is sharp.",
+          "mood": "Surreal, warm but eerie",
+          "panels": [],
+          "continues_from_previous_chapter": true
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_midnight_wok",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_madam_zhu"
+          ],
+          "description": "The interaction at the stall.",
+          "mood": "Surreal, warm but eerie",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kai stares at the stall, bewildered. Madam Zhu is visible through thick, aromatic steam, her back turned as she works a wok.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Uh... picking up for order #404?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SIZZLE",
+                "CLANG"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Kai is still wearing his helmet, visor up.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Madam Zhu turns slightly. Only her sharp eyes are visible above the steam. She holds out a brown paper bag that glows faintly from the heat.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Shrimp dumplings. Don't let them get cold. The dead have no patience for cold food.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "skeptical",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai takes the bag. It is unnaturally heavy.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Right. The 'dead'. Look, as long as the payment clears...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Madam Zhu's hand as she releases the bag. Her skin looks slightly translucent against the firelight.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Address is on the receipt. Go. Before the fog lifts.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai walks back to his scooter. The fog swirls around his ankles like grasping hands.",
+              "dialogue": [],
+              "sfx": [
+                "ENGINE START",
+                "VROOM"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "scared",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai looks into his rearview mirror. The alley behind him is completely empty. No stall. No steam. Just trash cans.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "What the hell...",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": null,
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "Kai arrives at a condemned building. The atmosphere is heavy with silence.",
+          "mood": "Desolate, melancholic",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The apartment complex looms against the night sky. Most windows are boarded up, except for one on the 4th floor emitting a warm, golden light.",
+              "dialogue": [],
+              "sfx": [
+                "WIND HOWLING"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai stands in front of Apartment 404. The door is pristine wood, contrasting with the peeling paint of the hallway.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "This place was condemned three years ago. Who orders delivery here?",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [
+                "KNOCK",
+                "KNOCK"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "surprised",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The door creaks open. An Old Man in 1980s attire stands there. The room behind him looks like a cozy home from decades ago.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Delivery... for Mr. Chen?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The Old Man takes the container. His hands are trembling.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "She remembered. My wife's recipe...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The Old Man sits at a small table and eats a dumpling. Tears stream down his face, glowing slightly in the dim light.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "I was so angry when I left. I never got to say sorry.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_kai",
+                  "text": "...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai looks down, feeling a pang of guilt in his own chest. He grips his helmet strap tight.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "We all leave things unfinished, old man.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s4",
+          "number": 4,
+          "location_id": null,
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "The transition from the supernatural hour back to reality.",
+          "mood": "Magical, shocking",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Kai's phone screen. The time flips from 00:59 to 01:00.",
+              "dialogue": [],
+              "sfx": [
+                "DIGITAL BEEP"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The Old Man smiles peacefully. His body begins to fragment into golden dust particles.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "Thank you.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SHIMMER"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The cozy room dissolves. The furniture rots in seconds, the warm light replaced by moonlight streaming through broken boards. The Old Man is gone.",
+              "dialogue": [],
+              "sfx": [
+                "WHOOSH"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai is standing alone in a ruined, dusty room. He looks frantic, scanning the corners.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Hey! Where did you—",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "On the floor, amidst the dust, lies the empty takeout container and a thick red envelope.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "The container looks new, everything else is old.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai picks up the envelope. He opens it, revealing a thick stack of cash. His eyes are wide, reflecting the moonlight.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "This isn't just a delivery job, is it?",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "number": 3,
+      "title": "Rules of Engagement",
+      "summary": "Kai settles into the strange rhythm of the Midnight Delivery service. Madam Zhu lays down the strict rules of the trade, but Kai's resolve is shattered when the algorithm assigns him a delivery for his deceased brother, Ren.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_midnight_wok",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_madam_zhu"
+          ],
+          "description": "A montage sequence showing Kai adapting to the job, intercut with Madam Zhu's strict instructions.",
+          "mood": "Mystical, Melancholic, Fast-paced",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "stern",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Madam Zhu's weathered hand slams a takeout box onto the counter. Steam rises in the shape of a skull before dissipating.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Listen close, boy. There are two rules if you want to keep your soul intact.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SLAM",
+                "HISS"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Lighting is warm orange/red from the stall.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "uncomfortable",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai is handing a bag to a translucent figure of a Bride standing alone at a dark, empty train station. She is weeping silently.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Rule One: Never let the timer hit zero. If the food goes cold, they lose their tether.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Woooosh (train wind)"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Montage transition. Lighting is now cold blue/grey.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai is biking furiously through traffic, sweat dripping down his face. The app on his mounted phone shows a countdown: 03:00... 02:59...",
+              "dialogue": [],
+              "sfx": [
+                "PANT",
+                "SCREECH"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Motion blur on background city lights.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "At a desolate playground, a small child spirit sits on a swing. Kai places a bento box on the swing next to him but steps back quickly.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Rule Two: Deliver the order. Take the payment. Never engage.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "creaaaak (swing)"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Kai is keeping his distance.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "serious",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Madam Zhu's eyes back at the stall. They are sharp, cat-like, and deadly serious.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "You are a courier, not a counselor. Get personal, and the void looks back.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "Return to warm lighting.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "stoic",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai nods, putting on his helmet. He looks exhausted but his pockets are bulging with cash.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Understood. Just the food.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Click (helmet strap)"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Kai is ready to leave.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": true
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_kais_apartment",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "Kai returns to his reality. The money helps, but the isolation is growing.",
+          "mood": "Lonely, Quiet, Cramped",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Top-down view of Kai's tiny apartment. It's a mess of textbooks and instant noodle cups. Kai is lying face down on the mattress, still in his work clothes.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "Only light is from the streetlamp outside.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai holds up his phone. The screen illuminates his face. He's staring at his banking app.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "Balance: $850.00 (Rent Covered)",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Blue light on face.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai sits up and looks at his desk. A framed photo sits among the clutter.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "I'm fixing it, Ren. I promise.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on the photo. It shows Kai and Ren (his brother) laughing. Ren has his arm around Kai's neck. Ren looks vibrant and alive.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "The photo is slightly dusty.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Kai's phone buzzes violently on the mattress next to his hand. The screen flashes red.",
+              "dialogue": [],
+              "sfx": [
+                "BZZZZT",
+                "BZZZZT"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "The red light cuts through the blue room.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "confused",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai grabs the phone, looking confused. The clock reads 11:59 PM. He shouldn't be getting orders yet.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Already...?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_midnight_wok",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_madam_zhu"
+          ],
+          "description": "Kai arrives for a pickup, only to receive an order that shatters his professional distance.",
+          "mood": "Tense, Surreal, Shocking",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kai stands at the counter of the Midnight Wok. The fog is thicker than usual, swirling around his ankles.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "You're early. Good. This one is impatient.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Bubble (boiling broth)"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Scene transition.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Madam Zhu hands over a bag. It smells distinctly of spicy chili oil—a very specific scent.",
+              "dialogue": [
+                {
+                  "character_id": "char_madam_zhu",
+                  "text": "Spicy Szechuan Beef. Extra coriander.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai stiffens. He recognizes the order. His hand hovers over the bag.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "That's... that was his favorite...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Atmosphere shifts to tense silence.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Kai looks down at his phone screen. The 'Accept Order' button is pulsing.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "ORDER #444",
+                  "type": "speech"
+                },
+                {
+                  "character_id": null,
+                  "text": "LOCATION: Rain-Slicked Intersection",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Ping!"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The name on the screen scrolls into view. It fills the panel.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "CUSTOMER: REN",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "THUMP (heartbeat)"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai looks up, his face pale, eyes wide with horror and disbelief. Madam Zhu is already turning her back to him, fading into the steam.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "No... it can't be.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Cliffhanger ending.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "number": 4,
+      "title": "The Intersection",
+      "summary": "Kai races against time to deliver the final meal to his deceased brother, Ren. After a mechanical failure forces him to run the final mile, he arrives at the site of the accident to find Ren waiting. Overwhelmed by years of suppressed guilt, Kai finally confronts the ghost of his past.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": null,
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "A high-speed chase sequence where the antagonist is time itself. The city blurs into streaks of neon and shadow as Kai pushes his scooter to the limit.",
+          "mood": "Frantic, High-Stakes",
+          "panels": [],
+          "continues_from_previous_chapter": true
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "The location is unnaturally quiet compared to the rest of the city. The streetlights flicker with a ghostly rhythm. The atmosphere shifts from frantic action to a suffocating stillness.",
+          "mood": "Ethereal, Silent, Heavy",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The intersection is empty except for a single streetlamp illuminating a patch of wet asphalt. Mist curls around the base of the pole.",
+              "dialogue": [],
+              "sfx": [
+                "HAA... HAA...",
+                "SLAP",
+                "SLAP"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "The sound of running footsteps approaches.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "exhausted",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai bursts into the frame, doubling over, clutching the takeout bag to his chest like a lifeline. He is drenched in sweat and rain.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "I made it...",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_kai",
+                  "text": "12:58...",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Kai is disheveled from the run.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "POV from behind Kai. In front of him, under the streetlamp, a figure sits on the guardrail, back turned to Kai. The figure has a slight digital 'glitch' effect around the edges.",
+              "dialogue": [],
+              "sfx": [
+                "BZZZT"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "The streetlamp flickers.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Kai's face. His exhaustion vanishes, replaced by a look of absolute devastation and disbelief.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Ren?",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The figure hops off the guardrail and turns around. It is Ren. He looks exactly as he did three years ago—wearing his favorite varsity jacket. He is smiling casually.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Took you long enough, slowpoke.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren glows faintly.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "mischievous",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren points a finger at the takeout bag in Kai's hand. His eyes are bright and teasing, contrasting with the gloomy setting.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "That better be extra coriander. I've been craving it for an eternity.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "The barrier between brothers breaks down. The visual tone shifts to soft blues and whites, isolating them from the dark city background.",
+          "mood": "Emotional, Cathartic, Sad",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kai steps forward, his hands trembling violently as he holds out the plastic bag. Ren reaches out to take it.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "I... I didn't know if you'd be here.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "RUSTLE"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Ren's hand passes slightly through the bag before solidifying enough to grab it.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren opens the container. The steam rises up, turning into small, glowing shapes (memories) before fading.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Smells like home.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai collapses to his knees on the wet pavement, unable to hold it in anymore. He covers his face with his hands.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "I'm sorry, Ren. I'm so sorry.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_kai",
+                  "text": "I should have driven. It should have been me.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SOB"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "Kai is on the ground.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren crouches down to be at eye level with Kai. He isn't eating; he's just looking at his brother with deep affection.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Hey. Look at me.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren's hand hovers over Kai's head. He can't fully touch him, but the gesture is clear. Particles of light drift from Ren's fingers onto Kai's hair.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "I never blamed you, Kai. Not for a second.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "SHIMMER"
+              ],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "hopeful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren smiles, but his lower body is starting to dissolve into pixels/light as the clock nears 1:00 AM.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Now stop crying and let a guy enjoy his beef. I've got a long trip ahead.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "Ren is beginning to fade.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "number": 5,
+      "title": "Resolution",
+      "summary": "Kai watches his brother enjoy one last meal at the intersection where he died. After a tearful reconciliation and absolving Kai of his guilt, Ren fades away as the clock strikes 1:00 AM. In the morning light, Kai deletes the delivery app, finally free.",
+      "status": "completed",
+      "scenes": [
+        {
+          "id": "s1",
+          "number": 1,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "The chaotic noise of the city is muted inside the delivery radius. Ren sits on the curb, eating the Szechuan Beef. Kai stands, watching him.",
+          "mood": "Bittersweet, Intimate, Ethereal",
+          "panels": [],
+          "continues_from_previous_chapter": true
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "The time is running out. The magical barrier separating the living and dead begins to thin.",
+          "mood": "Urgent, Sad, Transcendent",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren takes a bite of the beef. Steam rises from the takeout container, swirling into shapes that look like memories.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Still too much coriander. Just like Mom used to make.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Slurp",
+                "Chew"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "devastated",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_ren",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Kai drops to his knees beside Ren. The physical exhaustion of the run catches up to him, mixed with emotional collapse.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "I'm sorry. I'm so sorry, Ren. If I hadn't been late that night...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren stops eating. He looks directly at Kai, his eyes glowing faintly with a soft, blue luminescence.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Stop. Look at me, Kai.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Focus on Kai's trembling hands clenching his jeans.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "It should have been me.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Tremble"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "sad",
+                  "pose": "",
+                  "position": "left"
+                },
+                {
+                  "character_id": "char_kai",
+                  "expression": "surprised",
+                  "pose": "",
+                  "position": "center"
+                }
+              ],
+              "action": "Ren places a hand on Kai's shoulder. The hand is solid, warm, grounding.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "It was an accident. The only person punishing you is you.",
+                  "type": "speech"
+                },
+                {
+                  "character_id": "char_ren",
+                  "text": "Eat well. Sleep well. Live. That's all I ever wanted for you.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "hopeful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai looks up, tears streaming, but the heavy shadow under his eyes seems lighter for the first time in years.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Ren...",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Beep",
+                "Beep"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "The phone alarm sound effect interrupts the moment.",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "location_id": "loc_the_rain_slicked_intersection",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai",
+            "char_ren"
+          ],
+          "description": "The transition from the supernatural hour back to reality.",
+          "mood": "Final, Silent, Empty",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Insert shot of the phone screen. The timer reads 12:59:55. The interface is glitching red and black.",
+              "dialogue": [],
+              "sfx": [
+                "TICK",
+                "TOCK"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_ren",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Ren stands up. His body begins to fragment into digital artifacts and soft white light. He smiles one last time.",
+              "dialogue": [
+                {
+                  "character_id": "char_ren",
+                  "text": "Thanks for the meal, bro. It was perfect.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": true,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "dutch",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "shocked",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai reaches out to grab Ren's hand, but his fingers pass through empty air as Ren dissolves completely.",
+              "dialogue": [],
+              "sfx": [
+                "FWOOSH",
+                "Static"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "high",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "The intersection is suddenly empty. The unnatural silence breaks. Normal city sounds rush back in. The streetlights stop flickering and buzz steady orange.",
+              "dialogue": [],
+              "sfx": [
+                "Traffic noise",
+                "Distant siren"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "Lighting shifts from ethereal blue to harsh sodium orange.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "thoughtful",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai stands alone in the middle of the crosswalk. He looks at his hand where he tried to hold Ren's.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Goodbye, Ren.",
+                  "type": "thought"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "The phone screen lights up in Kai's other hand. A notification banner appears.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "ORDER COMPLETE. ACCOUNT BALANCE: CLEARED.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        },
+        {
+          "id": "s4",
+          "number": 4,
+          "location_id": "loc_kais_apartment",
+          "time_of_day": "day",
+          "weather": "clear",
+          "character_ids": [
+            "char_kai"
+          ],
+          "description": "Kai returns home. The atmosphere is warm and golden, contrasting the cold blues of the previous chapters.",
+          "mood": "Peaceful, New Beginning",
+          "panels": [
+            {
+              "id": "p1",
+              "number": 1,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Establishing shot of the city skyline. The sun is cresting over the buildings, bathing the city in gold.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "Warm color palette.",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p2",
+              "number": 2,
+              "type": "panel",
+              "composition": {
+                "shot_type": "medium",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai sits on his small balcony. He is holding a cup of instant coffee, looking out at the view. He looks exhausted but lighter.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p3",
+              "number": 3,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "determined",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai looks down at his phone. The 'Midnight Delivery' app icon is pulsing faintly.",
+              "dialogue": [],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p4",
+              "number": 4,
+              "type": "panel",
+              "composition": {
+                "shot_type": "extreme_close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [],
+              "action": "Kai's thumb presses down on the icon. A system prompt appears.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "Uninstall 'Midnight Delivery'? All data will be lost.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p5",
+              "number": 5,
+              "type": "panel",
+              "composition": {
+                "shot_type": "close_up",
+                "angle": "eye_level",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "happy",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai taps 'Confirm' without hesitation.",
+              "dialogue": [
+                {
+                  "character_id": "char_kai",
+                  "text": "Order received.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [
+                "Tap"
+              ],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            },
+            {
+              "id": "p6",
+              "number": 6,
+              "type": "panel",
+              "composition": {
+                "shot_type": "wide",
+                "angle": "low",
+                "focus": ""
+              },
+              "characters": [
+                {
+                  "character_id": "char_kai",
+                  "expression": "neutral",
+                  "pose": "",
+                  "position": "left"
+                }
+              ],
+              "action": "Kai stands up and stretches, silhouetted against the rising sun. The phone lies on the table, screen black.",
+              "dialogue": [
+                {
+                  "character_id": null,
+                  "text": "The End.",
+                  "type": "speech"
+                }
+              ],
+              "sfx": [],
+              "continues_from_previous": false,
+              "continuity_note": "",
+              "image_path": null,
+              "video_path": null
+            }
+          ],
+          "continues_from_previous_chapter": false
+        }
+      ]
+    }
+  ],
+  "original_prompt": "A college student working a late-night food delivery job discovers that between midnight and 1 AM, his app shows orders from people who died years ago.",
+  "reference_images": []
+}

@@ -1,0 +1,50 @@
+{
+  "type": "location",
+  "location_id": "loc_the_rain_slicked_intersection",
+  "location_name": "The Rain-Slicked Intersection",
+  "location_type": "interior",
+  "style": "webtoon",
+  "description": "A busy city intersection that becomes deadly silent during the Witching Hour. Where Ren died.",
+  "visual_tags": [
+    "Lighting: Harsh yellow streetlamps casting long shadows",
+    "Atmosphere: Cold, empty, ominous",
+    "Palette: Greys, blacks, and stark yellow light",
+    "Sensory: The sound of a single dripping drain"
+  ],
+  "gemini": {
+    "type": "location_reference",
+    "location_id": "loc_the_rain_slicked_intersection",
+    "location_name": "The Rain-Slicked Intersection",
+    "location_type": "interior",
+    "prompt": "Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: The Rain-Slicked Intersection\nType: interior\nDescription: A busy city intersection that becomes deadly silent during the Witching Hour. Where Ren died.\nVisual details: Lighting: Harsh yellow streetlamps casting long shadows, Atmosphere: Cold, empty, ominous, Palette: Greys, blacks, and stark yellow light, Sensory: The sound of a single dripping drain",
+    "parameters": {
+      "aspect_ratio": "16:9",
+      "resolution": "1K",
+      "style": "webtoon",
+      "model": "gemini-3-pro-image-preview"
+    },
+    "response": {
+      "timestamp": "2025-11-28T00:41:44.398481+00:00",
+      "input": {
+        "prompt": "webtoon style. Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: The Rain-Slicked Intersection\nType: interior\nDescription: A busy city intersection that becomes deadly silent during the Witching Hour. Where Ren died.\nVisual details: Lighting: Harsh yellow streetlamps casting long shadows, Atmosphere: Cold, empty, ominous, Palette: Greys, blacks, and stark yellow light, Sensory: The sound of a single dripping drain",
+        "final_prompt": "webtoon style. Create a background/environment illustration in webtoon art style.\n\nRequirements:\n- Establishing shot of the location\n- Bright daylight, clear visibility, natural lighting\n- Clear sky\n- No characters in the scene\n- Detailed environment suitable for webtoon backgrounds\n- Wide composition showing the space\n- Atmospheric and immersive\n\nIMPORTANT - Background Only Rules:\n- Focus on ENVIRONMENTAL elements: walls, floors, ceilings, architecture, lighting, atmosphere\n- DO NOT include interactive objects that characters would use (cars, furniture, seats, steering wheels, etc.)\n- If the location is a vehicle interior (car, train, etc.), show ONLY the environment (windows, walls, ambient lighting) without seats or controls\n- Interactive props and character positioning will be handled separately during panel composition\n- This is a STATIC BACKGROUND reference that panels will composite characters onto\n\n\nLocation: The Rain-Slicked Intersection\nType: interior\nDescription: A busy city intersection that becomes deadly silent during the Witching Hour. Where Ren died.\nVisual details: Lighting: Harsh yellow streetlamps casting long shadows, Atmosphere: Cold, empty, ominous, Palette: Greys, blacks, and stark yellow light, Sensory: The sound of a single dripping drain",
+        "references": [],
+        "model": "gemini-3-pro-image-preview",
+        "config": {
+          "aspect_ratio": "16:9",
+          "resolution": "1K",
+          "style": "webtoon"
+        }
+      },
+      "output": {
+        "finish_reason": "FinishReason.STOP",
+        "usage": {
+          "prompt_tokens": 255,
+          "candidates_tokens": 1315,
+          "total_tokens": 1940
+        }
+      }
+    }
+  },
+  "generated_at": "2025-11-28T08:41:44.399884"
+}

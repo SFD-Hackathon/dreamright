@@ -163,11 +163,11 @@ class CharacterService:
         on_complete: Optional[OnCharacterComplete] = None,
         on_progress: Optional[Callable[[str], None]] = None,
     ) -> dict:
-        """Generate character reference assets (portrait + full-body three-view).
+        """Generate character reference assets (three-view sheet + portrait).
 
         Two-step process for best consistency:
-        1. Generate portrait first (establishes face and features)
-        2. Use portrait as reference to generate three-view character sheet
+        1. Generate three-view sheet first (establishes full body design with correct proportions)
+        2. Use three-view sheet as reference to generate portrait (ensures face matches body)
 
         Args:
             character_id: Character ID
@@ -199,50 +199,12 @@ class CharacterService:
 
         generator = CharacterGenerator()
 
-        # Step 1: Generate portrait first (establishes the face/look)
+        # Step 1: Generate three-view character sheet first (establishes full body design)
         if on_progress:
-            on_progress("Step 1/2: Generating portrait...")
-
-        portrait_data, portrait_info = await generator.generate_portrait(
-            char,
-            style=style,
-            overwrite_cache=overwrite,
-        )
-
-        # Save portrait
-        portrait_metadata = {
-            "type": "character",
-            "character_id": char.id,
-            "character_name": char.name,
-            "role": char.role.value,
-            "age": char.age,
-            "style": style,
-            "visual_tags": char.visual_tags,
-            "description": {
-                "physical": char.description.physical,
-                "personality": char.description.personality,
-            },
-            "asset_type": "portrait",
-            "gemini": portrait_info,
-        }
-
-        portrait_path = self.manager.save_asset(
-            char_folder,
-            "portrait.png",
-            portrait_data,
-            metadata=portrait_metadata,
-        )
-        char.assets.portrait = portrait_path
-
-        # Step 2: Generate three-view character sheet using portrait as reference
-        if on_progress:
-            on_progress("Step 2/2: Generating full-body three-view using portrait as reference...")
-
-        portrait_abs_path = self.manager.storage.get_absolute_asset_path(portrait_path)
+            on_progress("Step 1/2: Generating full-body three-view sheet...")
 
         sheet_data, sheet_info = await generator.generate_character_sheet(
             char,
-            reference_image=portrait_abs_path,  # Use portrait for consistency
             style=style,
             overwrite_cache=overwrite,
         )
@@ -261,7 +223,6 @@ class CharacterService:
                 "personality": char.description.personality,
             },
             "asset_type": "character_sheet",
-            "reference_portrait": portrait_path,
             "gemini": sheet_info,
         }
 
@@ -273,6 +234,45 @@ class CharacterService:
         )
         # Store the sheet path in three_view for panel generation reference
         char.assets.three_view["sheet"] = sheet_path
+
+        # Step 2: Generate portrait using three-view sheet as reference
+        if on_progress:
+            on_progress("Step 2/2: Generating portrait using three-view as reference...")
+
+        sheet_abs_path = self.manager.storage.get_absolute_asset_path(sheet_path)
+
+        portrait_data, portrait_info = await generator.generate_portrait(
+            char,
+            reference_image=sheet_abs_path,  # Use sheet for consistency
+            style=style,
+            overwrite_cache=overwrite,
+        )
+
+        # Save portrait
+        portrait_metadata = {
+            "type": "character",
+            "character_id": char.id,
+            "character_name": char.name,
+            "role": char.role.value,
+            "age": char.age,
+            "style": style,
+            "visual_tags": char.visual_tags,
+            "description": {
+                "physical": char.description.physical,
+                "personality": char.description.personality,
+            },
+            "asset_type": "portrait",
+            "reference_sheet": sheet_path,
+            "gemini": portrait_info,
+        }
+
+        portrait_path = self.manager.save_asset(
+            char_folder,
+            "portrait.png",
+            portrait_data,
+            metadata=portrait_metadata,
+        )
+        char.assets.portrait = portrait_path
 
         self.manager.save()
 
