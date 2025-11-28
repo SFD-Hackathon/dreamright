@@ -104,6 +104,24 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_error(400, "Invalid project ID")
                     return
                 self.send_project_data(project_id)
+            elif path.startswith("/api/panel-metadata/"):
+                # /api/panel-metadata/{project_id}/chapter/{N}/scene/{S}/panel/{P}
+                parts = path.split("/")
+                if len(parts) >= 10:
+                    project_id = parts[3]
+                    if not validate_project_id(project_id):
+                        self.send_error(400, "Invalid project ID")
+                        return
+                    try:
+                        chapter_num = int(parts[5])
+                        scene_num = int(parts[7])
+                        panel_num = int(parts[9])
+                    except (ValueError, IndexError):
+                        self.send_error(400, "Invalid panel path")
+                        return
+                    self.send_panel_metadata(project_id, chapter_num, scene_num, panel_num)
+                else:
+                    self.send_error(400, "Invalid panel metadata request")
             elif path.startswith("/projects/"):
                 # Serve static files from projects directory only
                 self.serve_project_asset(path)
@@ -837,10 +855,15 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             # Try to get image from assets, fallback to reference.png
             loc_assets = loc.get("assets", {})
             loc_ref = loc_assets.get("reference", "")
+            loc_sheet_ref = loc_assets.get("reference_sheet", "")
             if loc_ref:
                 loc_img = f"/projects/{project_id}/{loc_ref}"
             else:
                 loc_img = f"/projects/{project_id}/assets/locations/{loc_slug}/reference.png"
+            if loc_sheet_ref:
+                loc_sheet = f"/projects/{project_id}/{loc_sheet_ref}"
+            else:
+                loc_sheet = f"/projects/{project_id}/assets/locations/{loc_slug}/reference_sheet.png"
             loc_type = loc.get("type", "interior")
             loc_desc = loc.get("description", "")
             loc_visual_tags = loc.get("visual_tags", [])
@@ -852,6 +875,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
                      data-type="{escape(loc_type)}"
                      data-description="{escape(loc_desc)}"
                      data-image="{loc_img}"
+                     data-sheet="{loc_sheet}"
                      data-tags='{loc_tags_json}'>
                     <img src="{loc_img}" alt="{escape(loc_name)}" onerror="this.style.display='none'">
                     <div class="location-overlay">
@@ -927,6 +951,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             const type = el.dataset.type;
             const description = el.dataset.description;
             const image = el.dataset.image;
+            const sheet = el.dataset.sheet;
             const tags = JSON.parse(el.dataset.tags || '[]');
 
             document.getElementById('modalRole').textContent = type;
@@ -943,6 +968,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
                 bodyHtml += `<div class="modal-section"><div class="modal-section-title">Description</div><p>${description}</p></div>`;
             }
             bodyHtml += `<div class="modal-section"><div class="modal-section-title">Reference Image</div><div class="modal-images"><img src="${image}" alt="${name}"></div></div>`;
+            bodyHtml += `<div class="modal-section"><div class="modal-section-title">Multi-Angle Reference Sheet</div><div class="modal-images"><img src="${sheet}" alt="${name} - Reference Sheet" onerror="this.parentElement.innerHTML='<p style=\\'color:#666\\'>No reference sheet available</p>'"></div></div>`;
 
             document.getElementById('modalBody').innerHTML = bodyHtml;
             document.getElementById('modalOverlay').classList.add('active');
@@ -977,6 +1003,7 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
 
         story = data.get("story", {})
         characters = data.get("characters", [])
+        locations = data.get("locations", [])
         chapters = data.get("chapters", [])
 
         # Find chapter
@@ -990,8 +1017,27 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "Chapter not found")
             return
 
-        # Build character lookup
-        char_lookup = {c.get("id"): c for c in characters}
+        # Build character lookup with portrait paths
+        char_lookup = {}
+        for c in characters:
+            char_id = c.get("id")
+            char_name = c.get("name", "").lower().replace(" ", "-")
+            c["portrait_url"] = f"/projects/{project_id}/assets/characters/{char_name}/portrait.png"
+            c["sheet_url"] = f"/projects/{project_id}/assets/characters/{char_name}/sheet.png"
+            char_lookup[char_id] = c
+
+        # Build location lookup with reference paths
+        loc_lookup = {}
+        for loc in locations:
+            loc_id = loc.get("id")
+            loc_name = loc.get("name", "").lower().replace(" ", "-").replace("'", "")
+            loc_assets = loc.get("assets", {})
+            loc_ref = loc_assets.get("reference", "")
+            if loc_ref:
+                loc["reference_url"] = f"/projects/{project_id}/{loc_ref}"
+            else:
+                loc["reference_url"] = f"/projects/{project_id}/assets/locations/{loc_name}/reference.png"
+            loc_lookup[loc_id] = loc
 
         # Collect all panels from scenes
         panels = []
@@ -1202,6 +1248,116 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             font-size: var(--debug-detail-size);
             margin-top: 4px;
         }}
+        .debug-right .ref-images {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }}
+        .debug-right .ref-img {{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid #333;
+        }}
+        .debug-right .ref-img:hover {{
+            border-color: #e94560;
+        }}
+        .debug-right .ref-item {{
+            text-align: center;
+        }}
+        .debug-right .ref-label {{
+            font-size: 10px;
+            color: #666;
+            margin-top: 4px;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }}
+        .debug-right .location-ref {{
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 8px;
+            border: 2px solid #333;
+        }}
+        .debug-right .see-detail-btn {{
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: #e94560;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }}
+        .debug-right .see-detail-btn:hover {{
+            background: #ff6b8a;
+        }}
+
+        /* JSON Viewer Modal */
+        .json-modal-overlay {{
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }}
+        .json-modal-overlay.active {{ display: flex; justify-content: center; align-items: flex-start; }}
+        .json-modal {{
+            background: #0d1117;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            border: 1px solid #333;
+        }}
+        .json-modal-header {{
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+        .json-modal-header h3 {{
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+        }}
+        .json-modal-close {{
+            background: #333;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+        }}
+        .json-modal-close:hover {{ background: #e94560; }}
+        .json-modal-body {{
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }}
+        .json-content {{
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #c9d1d9;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }}
+        .json-content .json-key {{ color: #79c0ff; }}
+        .json-content .json-string {{ color: #a5d6ff; }}
+        .json-content .json-number {{ color: #79c0ff; }}
+        .json-content .json-boolean {{ color: #ff7b72; }}
+        .json-content .json-null {{ color: #8b949e; }}
 
         .end-card {{
             text-align: center;
@@ -1448,12 +1604,14 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             <div class="debug-left">
                 <div class="info-block">
                     <div class="section-title">Scene</div>
+                    <div class="info-row"><span class="info-label">id:</span><span class="info-value">{escape(str(scene.get('id', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">number:</span><span class="info-value">{escape(str(scene.get('number', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">location:</span><span class="info-value">{escape(str(scene.get('location_id', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">time:</span><span class="info-value">{escape(str(scene.get('time_of_day', 'N/A')))}</span></div>
                 </div>
                 <div class="info-block">
                     <div class="section-title">Panel</div>
+                    <div class="info-row"><span class="info-label">id:</span><span class="info-value">{escape(str(panel.get('id', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">number:</span><span class="info-value">{escape(str(panel.get('number', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">shot:</span><span class="info-value">{escape(str(composition.get('shot_type', 'N/A')))}</span></div>
                     <div class="info-row"><span class="info-label">angle:</span><span class="info-value">{escape(str(composition.get('angle', 'N/A')))}</span></div>
@@ -1570,12 +1728,34 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
                 action = panel.get("action", "")
                 panel_chars = panel.get("characters", [])
                 scene_char_ids = scene.get("character_ids", [])
+                scene_location_id = scene.get("location_id", "")
+                scene_location = loc_lookup.get(scene_location_id, {})
 
                 html += f"""
             <div class="debug-right">
                 <div class="section-title">Action</div>
                 <div class="action-text">{escape(action)}</div>
-                <div class="section-title">Panel Characters</div>
+
+                <div class="section-title" style="margin-top: 15px;">Location Reference</div>
+                <div style="margin-bottom: 10px; color: #79c0ff;">{escape(scene_location.get('name', scene_location_id))}</div>
+                <img src="{scene_location.get('reference_url', '')}" alt="Location" class="location-ref" onerror="this.style.display='none'">
+
+                <div class="section-title" style="margin-top: 15px;">Character References</div>
+                <div class="ref-images">
+"""
+                # Show character portraits for scene characters
+                for char_id in scene_char_ids:
+                    char = char_lookup.get(char_id, {})
+                    html += f"""
+                    <div class="ref-item">
+                        <img src="{char.get('portrait_url', '')}" alt="{escape(char.get('name', ''))}" class="ref-img" onerror="this.style.display='none'">
+                        <div class="ref-label">{escape(char.get('name', char_id)[:10])}</div>
+                    </div>
+"""
+                html += """
+                </div>
+
+                <div class="section-title" style="margin-top: 15px;">Panel Characters</div>
                 <div class="chars-list">
 """
                 if panel_chars:
@@ -1591,25 +1771,21 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
                 else:
                     html += """<div class="char-item" style="color: #666;">No specific characters</div>
 """
-                html += """
+                # Add See Detail button with panel JSON
+                panel_json = json.dumps(panel, indent=2, ensure_ascii=False)
+                scene_json = json.dumps(scene, indent=2, ensure_ascii=False)
+                # Escape for HTML attribute
+                panel_json_escaped = panel_json.replace('"', '&quot;').replace("'", "&#39;")
+                scene_json_escaped = scene_json.replace('"', '&quot;').replace("'", "&#39;")
+                # API URL for panel metadata
+                metadata_url = f"/api/panel-metadata/{project_id}/chapter/{chapter_num}/scene/{p['scene_num']}/panel/{p['panel_num']}"
+
+                html += f"""
                 </div>
-"""
-                # Show all scene characters
-                if scene_char_ids:
-                    html += """                <div class="section-title" style="margin-top: 10px;">Scene Characters</div>
-                <div class="chars-list">
-"""
-                    for char_id in scene_char_ids:
-                        char = char_lookup.get(char_id, {})
-                        html += f"""
-                    <div class="char-item" style="padding: 6px 10px;">
-                        <div class="char-name">{escape(char.get('name', char_id))}</div>
-                    </div>
-"""
-                    html += """
-                </div>
-"""
-                html += """
+                <button class="see-detail-btn" onclick="openJsonModal('Scene {p['scene_num']} - Panel {p['panel_num']}', this)"
+                        data-panel="{panel_json_escaped}"
+                        data-scene="{scene_json_escaped}"
+                        data-metadata-url="{metadata_url}">See Detail (JSON)</button>
             </div>
 """
 
@@ -1636,6 +1812,26 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
         html += """
         </div>
     </div>
+
+    <!-- JSON Viewer Modal -->
+    <div class="json-modal-overlay" id="jsonModalOverlay" onclick="if(event.target===this)closeJsonModal()">
+        <div class="json-modal">
+            <div class="json-modal-header">
+                <h3 id="jsonModalTitle">Panel Metadata</h3>
+                <button class="json-modal-close" onclick="closeJsonModal()">&times;</button>
+            </div>
+            <div class="json-modal-body">
+                <div style="margin-bottom: 20px;">
+                    <button id="btnPanel" style="padding: 8px 16px; margin-right: 10px; background: #e94560; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Panel Data</button>
+                    <button id="btnScene" style="padding: 8px 16px; margin-right: 10px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Scene Data</button>
+                    <button id="btnMetadata" style="padding: 8px 16px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Generation Metadata</button>
+                </div>
+                <div id="metadataLoading" style="display: none; color: #888; padding: 20px; text-align: center;">Loading metadata...</div>
+                <div class="json-content" id="jsonContent"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const slider = document.getElementById('textSizeSlider');
         const savedSize = localStorage.getItem('textScale');
@@ -1646,6 +1842,111 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
         slider.addEventListener('input', function() {
             document.documentElement.style.setProperty('--text-scale', this.value);
             localStorage.setItem('textScale', this.value);
+        });
+
+        // JSON Modal functions
+        let currentPanelJson = '';
+        let currentSceneJson = '';
+        let currentMetadataUrl = '';
+        let currentMetadataJson = null;
+
+        function syntaxHighlight(json) {
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                let cls = 'json-number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'json-key';
+                    } else {
+                        cls = 'json-string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'json-boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'json-null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        function resetButtonStyles() {
+            document.getElementById('btnPanel').style.background = '#333';
+            document.getElementById('btnScene').style.background = '#333';
+            document.getElementById('btnMetadata').style.background = '#333';
+        }
+
+        function openJsonModal(title, btn) {
+            currentPanelJson = btn.dataset.panel;
+            currentSceneJson = btn.dataset.scene;
+            currentMetadataUrl = btn.dataset.metadataUrl;
+            currentMetadataJson = null;
+
+            document.getElementById('jsonModalTitle').textContent = title;
+            showPanelJson();
+            document.getElementById('jsonModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showPanelJson() {
+            document.getElementById('metadataLoading').style.display = 'none';
+            document.getElementById('jsonContent').style.display = 'block';
+            document.getElementById('jsonContent').innerHTML = syntaxHighlight(currentPanelJson);
+            resetButtonStyles();
+            document.getElementById('btnPanel').style.background = '#e94560';
+        }
+
+        function showSceneJson() {
+            document.getElementById('metadataLoading').style.display = 'none';
+            document.getElementById('jsonContent').style.display = 'block';
+            document.getElementById('jsonContent').innerHTML = syntaxHighlight(currentSceneJson);
+            resetButtonStyles();
+            document.getElementById('btnScene').style.background = '#e94560';
+        }
+
+        async function showMetadataJson() {
+            resetButtonStyles();
+            document.getElementById('btnMetadata').style.background = '#e94560';
+
+            if (currentMetadataJson) {
+                document.getElementById('metadataLoading').style.display = 'none';
+                document.getElementById('jsonContent').style.display = 'block';
+                document.getElementById('jsonContent').innerHTML = syntaxHighlight(JSON.stringify(currentMetadataJson, null, 2));
+                return;
+            }
+
+            document.getElementById('jsonContent').style.display = 'none';
+            document.getElementById('metadataLoading').style.display = 'block';
+
+            try {
+                const response = await fetch(currentMetadataUrl);
+                if (response.ok) {
+                    currentMetadataJson = await response.json();
+                    document.getElementById('metadataLoading').style.display = 'none';
+                    document.getElementById('jsonContent').style.display = 'block';
+                    document.getElementById('jsonContent').innerHTML = syntaxHighlight(JSON.stringify(currentMetadataJson, null, 2));
+                } else {
+                    document.getElementById('metadataLoading').style.display = 'none';
+                    document.getElementById('jsonContent').style.display = 'block';
+                    document.getElementById('jsonContent').innerHTML = '<span style="color: #f97583;">Panel metadata file not found. The panel may not have been generated yet.</span>';
+                }
+            } catch (err) {
+                document.getElementById('metadataLoading').style.display = 'none';
+                document.getElementById('jsonContent').style.display = 'block';
+                document.getElementById('jsonContent').innerHTML = '<span style="color: #f97583;">Error loading metadata: ' + err.message + '</span>';
+            }
+        }
+
+        function closeJsonModal() {
+            document.getElementById('jsonModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('btnPanel').addEventListener('click', showPanelJson);
+        document.getElementById('btnScene').addEventListener('click', showSceneJson);
+        document.getElementById('btnMetadata').addEventListener('click', showMetadataJson);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeJsonModal();
         });
     </script>
 </body>
@@ -1689,6 +1990,35 @@ class WebtoonHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(project_json.read_bytes())
         else:
             self.send_error(404, "Project not found")
+
+    def send_panel_metadata(self, project_id: str, chapter_num: int, scene_num: int, panel_num: int):
+        """Send panel metadata JSON file."""
+        project_path = safe_project_path(project_id)
+        if not project_path:
+            self.send_error(400, "Invalid project ID")
+            return
+
+        panel_json_path = (
+            project_path
+            / "assets"
+            / "panels"
+            / f"chapter-{chapter_num}"
+            / f"scene-{scene_num}"
+            / f"panel-{panel_num}.json"
+        )
+
+        if panel_json_path.exists():
+            try:
+                content = panel_json_path.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-type", "application/json")
+                self.send_header("Content-Length", len(content))
+                self.end_headers()
+                self.wfile.write(content)
+            except IOError:
+                self.send_error(500, "Error reading panel metadata")
+        else:
+            self.send_error(404, "Panel metadata not found")
 
 
 def run_server(port: int = DEFAULT_PORT, projects_dir: str | None = None):
