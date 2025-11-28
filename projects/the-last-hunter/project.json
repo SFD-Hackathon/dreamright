@@ -2,7 +2,7 @@
   "id": "proj_the_last_hunter",
   "name": "the-last-hunter",
   "created_at": "2025-11-27T15:35:18.377852",
-  "updated_at": "2025-11-27T15:54:16.958732",
+  "updated_at": "2025-11-27T21:15:26.900074",
   "format": "webtoon",
   "status": "in_progress",
   "story": {
@@ -818,7 +818,7 @@
               ],
               "continues_from_previous": false,
               "continuity_note": "Kang is sweating heavily, armor dented.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-1.png",
               "video_path": null
             },
             {
@@ -849,7 +849,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-2.png",
               "video_path": null
             },
             {
@@ -870,7 +870,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-3.png",
               "video_path": null
             },
             {
@@ -912,7 +912,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-4.png",
               "video_path": null
             },
             {
@@ -954,7 +954,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-5.png",
               "video_path": null
             },
             {
@@ -981,7 +981,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "The lighting drops significantly as the door shuts.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-2/panel-6.png",
               "video_path": null
             }
           ],
@@ -1020,7 +1020,7 @@
               "sfx": [],
               "continues_from_previous": false,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-1.png",
               "video_path": null
             },
             {
@@ -1051,7 +1051,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-2.png",
               "video_path": null
             },
             {
@@ -1079,7 +1079,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "The dust particles in the air are frozen.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-3.png",
               "video_path": null
             },
             {
@@ -1113,7 +1113,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-4.png",
               "video_path": null
             },
             {
@@ -1144,7 +1144,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-5.png",
               "video_path": null
             },
             {
@@ -1164,7 +1164,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "End of chapter hook.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-2/scene-3/panel-6.png",
               "video_path": null
             }
           ],
@@ -1645,7 +1645,7 @@
               ],
               "continues_from_previous": false,
               "continuity_note": "The room is back to normal, but the sand on the floor proves he went somewhere.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-1.png",
               "video_path": null
             },
             {
@@ -1676,7 +1676,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "Lighting is dim hospital night lighting.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-2.png",
               "video_path": null
             },
             {
@@ -1707,7 +1707,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-3.png",
               "video_path": null
             },
             {
@@ -1740,7 +1740,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-4.png",
               "video_path": null
             },
             {
@@ -1767,7 +1767,7 @@
               ],
               "continues_from_previous": true,
               "continuity_note": "",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-5.png",
               "video_path": null
             },
             {
@@ -1796,7 +1796,7 @@
               "sfx": [],
               "continues_from_previous": true,
               "continuity_note": "The key glows faintly, promising a new path.",
-              "image_path": null,
+              "image_path": "assets/panels/chapter-3/scene-3/panel-6.png",
               "video_path": null
             }
           ],
